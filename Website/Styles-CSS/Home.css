@@ -2,6 +2,7 @@
 
 
 main ul {
+    flex-direction: row;
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -24,7 +25,7 @@ main .left-section {
 
 .main_img {
     width: 70%;
-    opacity: 35%;
+    opacity: 20%;
     
     left: 0;
     top: 0;
@@ -35,6 +36,7 @@ main .right-section {
     position: relative;
     text-align: center;
     
+  flex: 50%;
     padding: 0px;
 
 }
@@ -43,6 +45,7 @@ main .right-section {
     width: 70%;
     border-radius: 200px;
     
+  flex: 50%;
     left: 0;
     top: 0;
 
@@ -54,7 +57,7 @@ main .right-section {
 
 .text-container {
     width: fit-content;
-    background-color: aqua;
+    /* background-color: aqua; */
 position: absolute;
     /* word-wrap: break-word; */
     text-align: center;
@@ -63,7 +66,19 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
+.text-container h1 {
+    font-size: 3vw;
 
+}
+
+.text-container p {
+    font-size: 1.8vw;
+
+}
+.text-container h1, p {
+    margin-bottom: 1em;
+
+}
 
 /* main {
     background: rgb(99,255,134);
@@ -77,3 +92,19 @@ body {
     background: rgb(99,255,134);
 background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
 }
+@media (max-width: 800px) {
+    main ul {
+      flex-direction: column;
+    }
+    main ul li {
+        width: 100%;
+        margin-bottom: 4em;
+    }
+    main .left-section {
+        width: 100%;
+    }
+    main .right-section{
+        width: 100%;
+
+    }
+  }
