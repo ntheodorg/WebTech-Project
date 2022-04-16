@@ -1,0 +1,76 @@
+@import "Default.css";
+
+
+main ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5% 5%;
+    /* padding: 0px; */
+
+    background: rgb(99,255,134);
+    background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
+    /* padding: 10px 5%; */
+
+}
+
+main .left-section {
+    width: 50%;
+    position: relative;
+    text-align: center;
+}
+
+
+.main_img {
+    width: 70%;
+    opacity: 35%;
+    
+    left: 0;
+    top: 0;
+}
+
+main .right-section {
+    width: 50%;
+    position: relative;
+    text-align: center;
+    
+    padding: 0px;
+
+}
+
+.right-section img {
+    width: 70%;
+    border-radius: 200px;
+    
+    left: 0;
+    top: 0;
+
+    border-bottom: 14px solid #30B82A;
+    border-right: 14px solid #30B82A;
+
+    
+}
+
+.text-container {
+position: absolute;
+    word-wrap: break-word;
+top: 40%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+
+
+/* main {
+    background: rgb(99,255,134);
+background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
+} */
+/* main img{
+    width: 100%;
+    
+} */
+body {
+    background: rgb(99,255,134);
+background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
+}

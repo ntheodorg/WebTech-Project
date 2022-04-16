@@ -4,7 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* background-color: #000; */
+    /* background-color: rgb(241, 165, 165); */
 }
 
 li, a, p, button {
@@ -34,14 +34,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: rgb(255, 255, 255);
-    /* padding: 10px 10%; */
-    padding: 10px 35% 10px 5%;
-    border-bottom: 14px solid #30B82A;
+    padding: 10px 5%;
+    /* padding: 10px 35% 10px 5%; */
+    border-bottom: 7px solid #30B82A;
 }
 
 .logo {
     cursor: pointer;
-    width: 40%;
+    width: 45%;
 }
 nav div {
     display: flex;
@@ -86,56 +86,4 @@ button {
 
 button:hover {
     background-color: rgba(48, 184, 42, 0.8);
-}
-
-
-
-
-
-
-main ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5% 5%;
-
-    background: rgb(99,255,134);
-    background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
-    /* padding: 10px 5%; */
-
-}
-
-main .left-section {
-    position: relative;
-    text-align: center;
-}
-.main_img {
-    width: 50%;
-    opacity: 35%;
-    
-  left: 0;
-  top: 0;
-}
-
-.text-container {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-}
-
-
-
-/* main {
-    background: rgb(99,255,134);
-background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
-} */
-/* main img{
-    width: 100%;
-    
-} */
-body {
-    background: rgb(99,255,134);
-background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
 }
