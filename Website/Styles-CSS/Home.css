@@ -53,8 +53,11 @@ main .right-section {
 }
 
 .text-container {
+    width: fit-content;
+    background-color: aqua;
 position: absolute;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
+    text-align: center;
 top: 40%;
 left: 50%;
 transform: translate(-50%, -50%);

@@ -4,7 +4,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* background-color: rgb(241, 165, 165); */
+
+    /* background-color: rgb(179, 32, 32); */
+}
+.active {
+    color: aquamarine;
 }
 
 li, a, p, button {
