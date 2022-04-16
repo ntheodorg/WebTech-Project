@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> GaMon | Documentation </title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <article>
+            <header>
+                <h1 class="project-title"> Garbage Web Monitor Documentation </h1>
+            </header>
+            <div role="contentinfo">
+                <ol role="directory" class="content">
+                    <li> <a href="#introduction"> Introducere </a>
+                        <ol role="directory">
+                            <li><a href="#11-purpose"> Scop </a></li>
+                            <li><a href="#12-conventions"> Conventii </a></li>
+                        </ol>
+                    </li>
+                    <li> <a href="#descriere"> Descriere si structura </a>
+                         <ol role="directory">
+                            <li><a href="#21-descriere"> Descriere </a></li>
+                            <li><a href="#22-structura"> Structura </a></li>
+                            <li><a href="#23-environment"> Environment de utilizare </a></li>
+                            <li><a href="#24-limbaje"> Limbaje </a></li>
+                         </ol>
+                    </li>
+                    <li> <a href="#interfata"> Interfata </a>
+                        <ol role="directory">
+                           <li><a href="#31-user"> Interfete user </a></li>
+                           <li><a href="#32-hardware"> Interfete hardware </a></li>
+                           <li><a href="#33-software"> Interfete software </a></li>
+                           <li><a href="#34-communication"> Interfete de comunicare </a></li>
+                        </ol>
+                   </li>
+                   <li> <a href="#functionalitati"> Functionalitati </a>
+                        <ol role="directory">
+                            <li><a href="#feature1"> Logarea utilizatorilor </a></li>
+                            <li><a href="#feature2"> Registrarea unui cont nou de utilizator </a></li>
+                            <li><a href="#feature3"> News Feed </a></li>
+                            <li><a href="#feature4"> Raportarea situatiilor exceptionale</a></li>
+                            <li><a href="#feature5"> Vizualizarea statisticilor</a></li>
+                            <li><a href="#feature6"> Exportarea statisticilor</a></li>
+                        </ol>
+                   </li>
+                </ol>
+                <section typeof="sa:AuthorsList" >
+                    <h2 class="h2-title"> Autori </h2>
+                    <ul>
+                        <li typeof="sa:ContributorRole" property="schema:author">
+                            <span typeof="schema:Person"
+                                    resource="">
+                                <meta property="schema:givenName" content="Sandu">
+                                <meta property="schema:familyName" content="Tozlovanu">
+                                <span property="schema:name">Tozlovanu Sandu </span>
+                            </span>
+                            <ul>
+                                <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="mailto:tozlovanu.aleigo@gmail.com"
+                                    property="schema:email">tozlovanu.aleigo@gmail.com</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li typeof="sa:ContributorRole" property="schema:author">
+                            <span typeof="schema:Person"
+                                    resource="">
+                                <meta property="schema:givenName" content="Theodor">
+                                <meta property="schema:additionalName" content="Gabriel">
+                                <meta property="schema:familyName" content="Nae">
+                                <span property="schema:name"> Nae Theodor-Gabriel </span>
+                            </span>
+                            <ul>
+                                <li property="schema:roleContactPoint" typeof="schema:ContactPoint">
+                                <a href="mailto:"
+                                    property="schema:gabryel.fryend@gmail.com">gabryel.fryend@gmail.com</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <section role="doc-introduction" id="introduction" class="section-content">
+                <h2 class="h2-title"> 1. Introducere</h2>
+                <p> Garbage Web Monitor, prescurtata GaMon este o aplicatie Web care furnizeaza utilizatorilor informatie
+                     despre situatia deseurilor din localitatea lor, oferind diferite date precum cantitatea de materii reciclate, starea generala 
+                     ecologica in domeniul deseurilor, precum si diferite instrumente de raport a nerespectarii normelor de stocare a deseurilor, 
+                     indicarea locurilor unde au fost stocate cantitati mari de gunoi, cu scopul congestiunii acestuia.</p>
+                <section id="11-purpose">
+                    <h3> 1.1 Scop </h3>
+                    <p> Scopul aplicatiei Garbage Web Monitor este de a oferi utilizatorilor posibilitatea de a se informa 
+                        si a contribui la procesul de colectare, sortare si reciclare a deseurilor din localitatea sa, facilitand 
+                        aceasta prin diferite campanii de informare, instrumente de control. Astfel, fiecare utilizator GaMon 
+                        in parte face strazile mai curate, iar mediul inconjurator mai putin poluat.
+                    </p>
+                </section>
+                <section id="12-conventions">
+                    <h3> 1.2 Conventiile proiectului </h3>
+                    <p> La realizarea aplicatiei s-au respectat conventiile de utilizare HTML si CSS, 
+                        iar codul va fi verificat cu ajutorul validatoarelor online Validator W3 Org si CSS Lint.</p>
+                </section>
+            </section>
+            <section id="descriere" class="section-content">
+                <h2 class="h2-title"> 2. Descriere si structura </h2>
+                <section id="21-descriere">
+                    <h3> 2.1. Descriere </h3>
+                    <p> Aplicatia ofera fiecarui utilizator posibilitatea sa trimita un raport despre locurile unde s-au acumulat cantitati 
+                        sporite de gunoaie, aceste date fiind trasmise instantelor locale de colectare si sortare a deseurilor.
+                        Aplicatia genereaza statistici despre infrastructura si starea deseurilor in toate localitatile Romaniei
+                        in diferite formate (CSV, HTML, PDF). </p>
+                </section>
+                <section id="22-structura" class="section-content">
+                    <h3> 2.2. Functionalitati </h3>
+                    <p> Principalele functionalitati ale aplicatiei sunt: </p>
+                    <ul>
+                        <li> pagina introductiva Home </li>
+                        <li> pagina cu anunturi </li>
+                        <li> pagina cu statistics </li>
+                        <li> exportarea rapoartelor numerice si grafice </li>
+                        <li> pagina Login unde utilizatorii deja inregistrati se pot autentifica </li>
+                        <li> pagina Register unde vizitatorii se pot inregistra </li>
+                        <li> pagina Profile unde utilizatorii pot modifica diferite optiuni ale contului </li>
+                        <li> raportarea locurilor cu o cantitate mare de deseuri
+                    </ul>
+                </section>
+                <section id="23-environment" class="section-content">
+                    <h3> 2.3 Environment de utilizare </h3>
+                    <p> Aplicatia va rula in browser pe orice device care poate avea acces la un browser si internet si 
+                        va folosi o baza de date pentru managerierea conturilor, rapoartelor si a statisticilor localitatilor.
+                        Este necesar un browser de tipurile: Mozilla Firefox, Microsoft Edge, Google Chrome.
+                    </p>
+                </section>
+                <section id="24-limbaje" class="section-content">
+                    <h3> 2.4 Limbaje </h3>
+                    <p> Pentru partea de frontend a aplicatiei se va utiliza HTML5, CSS3, Javascript.
+                        <br>
+                        Pentru partea de backend a aplicatiei se va utiliza Node.js.
+                        <br>
+                        Pentru baza de date se va utiliza MySql.
+                        </p>
+                </section>
+            </section>
+            <section id="interfata" class="section-content">
+                <h2 class="h2-title"> 3. Interfata </h2 >
+                <section id="31-user" class="section-content">
+                    <h3> 3.1 Interfete user </h3>
+                    <p> Pentru interfata user si redirectionare spre alte pagini va fi folosit navigation bar-ul.
+                        Astfel, pentru: Pagina de profil - butonul sign up, pagina de home - butonul home, pagina de anunturi - butonul news,
+                        pagina de statistici - butonul statistics. In pagina de login si register nu va fi navigation bar, in schimb utilizatorul 
+                        va fi redirectionat automat la pagina de profil dupa logare cu succes, si va avea posibilitatea sa ajunga 
+                        la pagina de registrare in pagina de login.             
+                    </p>
+                    <figure typeof="sa:image">
+                        <img src="images/navbar.PNG" alt="Printscreen cu navigatia standard a website-ului" style="width:100%">
+                        <figcaption>Fig.1 - Navigatie website standard </figcaption>
+                    </figure>
+                    <figure typeof="sa:image">
+                        <img src="images/navbar2.PNG" alt="Printscreen cu navigatia website-ului pentru device-uri cu o latime mai mica de 849px">
+                        <figcaption>Fig.2 - Navigatie website pentru device-uri cu o latime mai mica de 849px</figcaption>
+                    </figure>
+                    <figure typeof="sa:image">
+                        <img src="images/navbar3.PNG" alt="Printscreen cu navigatia website-ului pentru device-uri cu o latime mai mica de 375px">
+                        <figcaption>Fig.3 - Navigatie website pentru device-uri cu o latime mai mica de 375px</figcaption>
+                    </figure>
+                    <figure typeof="sa:image">
+                        <img src="images/navbar4.PNG" alt="Printscreen cu navigatia website-ului din pagina de Login/Register">
+                        <figcaption>Fig.4 - Navigatie website din pagina de Login/Register </figcaption>
+                    </figure>
+                </section>
+                <section id="32-hardware" class="section-content">
+                    <h3> 3.2 Interfete hardware </h3>
+                    <p> GaMon este disponibila pe device-urile ce suporta utilizarea 
+                        unui browser pe urmatoarele browsere: 
+                    </p>
+                    <ul>
+                        <li> Google Chrome (ultima versiune) </li>
+                        <li> Microsoft Edge (ultima versiune) </li>
+                    </ul>
+                </section>
+                <section id="33-software" class="section-content">
+                    <h3> 3.3 Interfete software </h3>
+                    <p> Aplicatia va avea o conexiune cu baza de date in care se vor retine datele userilor, 
+                        statisticele, rapoartele userilor, articolele din news. </p>
+                </section>
+                <section id="34-communication" class="section-content">
+                    <h3> 3.4 Interfete de comunicare </h3>
+                    <p> Aplicatia utilizeaza protocoale de comunicare HTTP. <br> </p>
+                </section>
+            </section>
+            <section id="functionalitati" class="section-content">
+                <h2 class="h2-title"> 4. Functionalitati </h2>
+                <section id="feature1" class="section-content">
+                    <h3> Logarea utilizatorilor </h3>
+                    <p> Vizitatorii website-ului au posibilitatea de a se loga pe site si a deveni membru Clearity. Pentru aceasta, 
+                        vizitatorii trebuie sa introduca username-ul si parola sa. Datele utilizatorului sunt verificate in baza de date, si
+                        in caz de succes, utilizatorul ajunge pe pagina sa de profil. In caz contrar, utilizatorul este rugat sa introduca
+                        username-ul si parola corecta.
+                        Pentru accesa pagina de logare, utilizatorul trebuie sa acceseze butonul Sign up din pagina de pornire.
+                    </p>
+                    <figure typeof="sa:image" >
+                        <img src="images/register.PNG" alt="Printscreen cu formularul din pagina Login">
+                        <figcaption>Fig.5 - Formular logare </figcaption>
+                    </figure>
+                </section>
+                <section id="feature2" class="section-content">
+                    <h3> Registrarea unui cont nou de utilizator</h3>
+                    <p> Utilizatorii care inca nu s-au si-au facut un cont pe acest website, au posibilitatea de a-si crea unul.
+                        Aceasta o pot face pe pagina de Registrare, introducand urmatoarele date: username, parola, numele, prenumele si varsta.
+                        Va fi necesar ca parola sa fie reintrodusa si in urmatorul camp pentru confirmare.
+                        In campul de varsta este permis doar cifre, toate campurile trebuiesc completate obligatoriu,
+                        username-ul nu poate fi mai scurt de 6 caractere, iar parola trebuie sa contina atat litere cat si cifre si sa
+                        nu fie mai scurta de 6 caractere. Numele si prenumele trebuie sa fie alcatuite doar din litere.
+                        Dupa introducerea datelor, utilizatorul trebuie sa dea click peste butonul de register, unde datele vor fi verificate,
+                        si in caz de succes, un cont nou va fi creat, iar utilizatorul va fi trimis pe pagina de login.
+                    </p>
+                    <figure typeof="sa:image">
+                        <img src="images/login.PNG" alt="Printscreen cu formular login">
+                        <figcaption>Fig.6 - Butonul de intrare pe formularul de registrare </figcaption>
+                    </figure>
+                    <figure typeof="sa:image">
+                        <img src="images/login.PNG" alt="Printscreen cu formular inregistrare">
+                        <figcaption>Fig.7 - Formular registrare </figcaption>
+                    </figure>
+                </section>
+                <section id="feature3" class="section-content">
+                    <h3> News Feed </h3>
+                    <p> Utilizatorii vor putea intra pe pagina de anunturi unde vor putea urmari ultimele stiri la subiectul Ecologiei.
+                        Astfel, membrii website-ului vor fi informati despre posibile actiuni de voluntariat, campanii de curatenie,
+                        noutati din domeniul starii ecologice Romane (Decizii are ministerului Ecologiei, evenimente, accidente ecologice etc.)
+                        Astfel administratorul paginii va face saptamanal/zilnic postari cu aceste noutati.
+                    </p>
+                    <figure typeof="sa:image">
+                        <img src="images/filter.PNG" alt="Printscreen cu un pagina news">
+                        <figcaption>Fig.8 - Pagina news </figcaption>
+                    </figure>
+                </section>
+                <section id="feature4" class="section-content">
+                    <h3> Raportarea situatiilor exceptionale </h3>
+                    <p> Toti utilizatorii vor avea acces la butonul de Report, prin care vor avea posibilitatea sa raporteze locurile unde
+                        au observat conglomeratii/adunari semnificative de gunoi. Aceste rapoarte vor fi verificate si trimise spre 
+                        autoritatile locale care se ocupa cu colectarea si sortarea gunoaielor. 
+                    </p>
+                    <figure typeof="sa:image">
+                        <img src="images/filter.PNG" alt="Printscreen cu butonul de raportare din pagina de profil">
+                        <figcaption>Fig.9 - Butonul de raport </figcaption>
+                    </figure>
+                </section>
+                <section id="feature5" class="section-content">
+                    <h3> Vizualizarea statisticilor </h3>
+                    <p> Utilizatorii vor avea posibilitatea sa acceseze pagina statistics, unde vor observa o harta a Romaniei.
+                        Pe acea harta, utilizatorii vor selecta judetul de interes, si pentru acel judet vor observa un chart grafic
+                        ce ilustreaza informatiile despre materialele reciclate din acea regiune. La fel, utilizatorul va putea selecta
+                        daca informatiile sa fie din ultimele 24h / 7 zile / 30 zile.
+                    </p>
+                    <figure typeof="sa:image">
+                        <img src="images/filter.PNG" alt="Printscreen cu pagina statistics">
+                        <figcaption>Fig.10 - Harta Romaniei </figcaption>
+                    </figure>
+                    <figure typeof="sa:image">
+                        <img src="images/filter.PNG" alt="Printscreen cu pagina statistics">
+                        <figcaption>Fig.11 - Chartul informativ aferent regiunii </figcaption>
+                    </figure>
+                </section>
+                <section id="feature6" class="section-content">
+                    <h3> Exportarea statisticilor </h3>
+                    <p> Toti utilizatorii vor avea posibilitatea sa exporteze informatiile despre situatia deseurilor din regiunea 
+                        indicata in urmatoarele formate precum: PDF,HTML,CSV.
+                    </p>
+                    <figure typeof="sa:image">
+                        <img src="images/filter.PNG" alt="Printscreen cu butonul exportare">
+                        <figcaption>Fig.12 - Butonul de exportare </figcaption>
+                    </figure>
+                </section>
+            </section>
+            <section id="contributie" class="section-content">
+                <h2 class="h2-title"> 5. Lista contributii si impartirea sarcinilor </h2>
+                <section id="contributie1" class="section-content">
+                    <h3> Sandu Tozlovanu </h3>
+                    <p> Lista contributii: </p>
+                    <ul>
+                        <li> Realizare pagina Login </li>
+                        <li> Realizare pagina Register </li>
+                        <li> Realizare pagina statisics </li>
+                        <li> Realizare decumentatie </li>
+                    </ul>
+                </section>
+                <section id="contributie2" class="section-content">
+                    <h3> Theodor-Gabriel Nae </h3>
+                    <p> Lista contributii: </p>
+                    <ul>
+                        <li> Realizarea paginii de Home </li>
+                        <li> Realizarea paginii de Profil </li>
+                        <li> Realizarea paginii de anunturi </li>
+                        <li> Integrarea tuturor paginilor intr-o solutie </li>
+                        <li> Realizarea Navigation barului. </li>
+                    </ul>
+                </section>
+                <section id="contributie3" class="section-content">
+                    <h3> Contributii comune </h3>
+                    <ul> 
+                        <li> Corectare warning-uri CSS Lint </li>
+                        <li> Alegere tema de culori a site-ului </li>
+                        <li> Corectare bug-uri </li> 
+                        <li> Review la Pull Requests pe Github </li>
+                    </ul>
+                </section>
+            </section>
+        </article>
+    </body>
+</html>
