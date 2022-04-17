@@ -77,6 +77,9 @@ nav ul li {
     margin: 0px 40px;
 
 }
+nav ul li:hover {
+    transform: scale(1.05);
+}
 
 nav ul li a {
     font-size: 24px;

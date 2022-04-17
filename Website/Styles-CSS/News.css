@@ -1,0 +1,71 @@
+@import "Default.css";
+
+body {
+	/* color: #036328;
+	font-size: 1em; */
+	margin: 0px auto;
+}
+main {
+    width: 100vw;;
+    padding: 0% 5%;
+    
+	margin: 0px auto;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+
+p {
+    word-wrap: break-word;
+}
+article h1 {
+    background-color: black;
+	border-bottom: 2px solid #f2f2f2;
+}
+
+main > header, article {
+    padding: 5% 10%;
+	margin-top: 5em;
+    background-color: #ffffff;
+
+    border: 2px solid #007D16;
+	border-right: 10px solid #007D16;
+    border-bottom: 10px solid #007D16;
+    border-radius: 40px;
+    -webkit-box-shadow: 5px 5px 15px 5px #0000009d; 
+    box-shadow: 5px 5px 15px 5px #0000009d;
+}
+main header {
+    text-align: center;
+}
+
+article:hover {
+    transform: scale(1.025);
+}
+
+article h2 {
+	border-bottom: 2px solid #f2f2f2;
+    margin-bottom: 1em;
+}
+article p {
+    margin-bottom: 0.5em;
+}
+article:last-child {
+	margin-bottom: 2.5em;
+}
+
+@media (min-width: 1024px) {
+	main {
+		max-width: 1536px;
+	}
+
+	main > header, article {
+		margin-top: 1.5em;
+	}
+
+}
+
+body {
+    background: rgb(99,255,134);
+    background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
+}

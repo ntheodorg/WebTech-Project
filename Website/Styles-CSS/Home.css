@@ -17,11 +17,10 @@ main ul {
 }
 
 main .left-section {
-    width: 50%;
     position: relative;
     text-align: center;
-}
 
+}
 
 .main_img {
     width: 70%;
@@ -36,7 +35,7 @@ main .right-section {
     position: relative;
     text-align: center;
     
-  flex: 50%;
+    flex: 50%;
     padding: 0px;
 
 }
@@ -58,12 +57,12 @@ main .right-section {
 .text-container {
     width: fit-content;
     /* background-color: aqua; */
-position: absolute;
+    position: absolute;
     /* word-wrap: break-word; */
     text-align: center;
-top: 40%;
-left: 50%;
-transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .text-container h1 {
@@ -92,6 +91,7 @@ body {
     background: rgb(99,255,134);
 background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
 }
+
 @media (max-width: 800px) {
     main ul {
       flex-direction: column;
@@ -106,5 +106,14 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
     main .right-section{
         width: 100%;
 
+    }
+    .text-container h1 {
+        font-size: 4.5vw;
+    
+    }
+    
+    .text-container p {
+        font-size: 3vw;
+    
     }
   }
