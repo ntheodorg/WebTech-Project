@@ -24,6 +24,21 @@ main {
 	}
 
 }
+
+@media (min-width: 801px) {
+    .search-bar {
+        display: none;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .mapdiv{
+        display: none;
+    }
+
+}
+
 article {
     /* padding: 20% 10%; */
     align-items: center;
@@ -32,17 +47,14 @@ article {
 
 
 
-/* main > header, article {
+main > article {
 	margin-top: 2.5em;
-	background-color: white;
 	padding-left: 1em;
 	padding-right: 1em;
 	padding-top: 0.1em;
 	padding-bottom: 0.1em;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	border-radius: 5px;	
-} */
+}
 
 .statistics{
     position: relative;
@@ -93,6 +105,7 @@ h1{
 }
 
 .mapdiv{
+    /* display: none; */
     width: 100%;
 }
 .mapdiv path{
@@ -105,3 +118,21 @@ h1{
     transition: 0.4s;
     cursor:pointer;
 }
+
+.search-bar {
+    /* background-color: #0fffb7; */
+    
+}
+
+input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+    background-image: url('../Resources/Statistics/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+  }

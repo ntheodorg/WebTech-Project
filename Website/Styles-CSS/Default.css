@@ -50,6 +50,7 @@ nav {
 }
 nav div {
     display: flex;
+    flex-direction: column;
     align-items: center;
 
 
@@ -62,6 +63,8 @@ nav div p {
 }
 
 nav ul {
+    /* display: flex; */
+    /* background-color: aliceblue; */
     list-style: none;
     /* padding-right: 20%; */
     
@@ -92,3 +95,10 @@ button {
 button:hover {
     background-color: rgba(48, 184, 42, 0.8);
 }
+
+/* @media only screen and (max-width: 800px) {
+    For mobile phones:
+    nav ul {
+        display: none;
+    }
+  } */
