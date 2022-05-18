@@ -25,7 +25,6 @@ const routes = {
     notFound: function(data, res) {
         console.log("Not found");
         res.writeHead(404, {'Content-Type': 'text/plain'});
-        res.send('Error 404');
     },
     resources: function(path, res) {
         let exts = {
@@ -93,3 +92,9 @@ const server = http.createServer((req, res) => {
 server.listen(3000);
 
 console.log('Listening on port 3000...')
+
+// app.listen = function listen() {
+//     var server = http.createServer(this);
+//     return server.listen.apply(server, arguments);
+//   };
+

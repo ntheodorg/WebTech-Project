@@ -119,10 +119,10 @@ h1{
     cursor:pointer;
 }
 
-.search-bar {
-    /* background-color: #0fffb7; */
+/* .search-bar {
+    background-color: #0fffb7;
     
-}
+} */
 
 input[type=text] {
     width: 100%;
