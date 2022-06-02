@@ -18,9 +18,17 @@ const routes = {
         res.writeHead(200, {'Content-Type': 'text/html'});
         fs.createReadStream('./Website/News.html').pipe(res);
     },
-    statistics: function(data, res) {
+    iasimap: function(data, res) {
         res.writeHead(200, {'Content-Type': 'text/html'});
-        fs.createReadStream('./Website/Statistics.html').pipe(res);
+        fs.createReadStream('./Website/IasiMap.html').pipe(res);
+    },
+    signup: function(data, res) {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        fs.createReadStream('./Website/SignUp.html').pipe(res);
+    },
+    login: function(data, res) {
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        fs.createReadStream('./Website/Login.html').pipe(res);
     },
     notFound: function(data, res) {
         console.log("Not found");
