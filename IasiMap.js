@@ -26,7 +26,6 @@ overlay.addEventListener('click', () => {
     pops.forEach(pop =>{
         closePop(pop);
     })
-
 })
 
 closePopButtons.forEach(button => {

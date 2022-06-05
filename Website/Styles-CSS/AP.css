@@ -1,0 +1,254 @@
+@import "Default.css";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: rgb(99,255,134);
+background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
+}
+
+.AP-manipulation-buttons {
+    text-align: center;
+    padding:10px 10px;
+}
+#overlay {
+    position:fixed;
+    opacity: 0;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: rgb(0,0,0, .5);
+    pointer-events: none;
+    transition: 200ms ease-in-out;
+}
+#overlay.activated{
+    opacity: 1;
+    pointer-events: all;
+}
+.add-pop{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: 200ms ease-in-out;
+    background-color: white;
+    border: 1px solid black;
+    z-index: 10;
+    transform: translate(-50%, -50%) scale(0);
+    width: 350px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+.add-pop.activated{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.add-pop h1{
+    text-align: center;
+    padding: 3% 0;
+}
+.add-pop form{
+    padding: 0% 8%;
+    box-sizing: border-box;
+}
+form .txt_field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 6% 0;
+}
+.txt_field input{
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+.txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 6%;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+.txt_field span::before{
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label{
+    top: -5px;
+    color: #2691d9;
+}
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before{
+    width: 100%;
+}
+.pass{
+    margin: -5px 0 20px 5px;
+    color: #a6a6a6;
+    cursor: pointer;
+}
+.pass:hover{
+    text-decoration: underline;
+}
+
+.add-pop button{
+    background: #1bb13c;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.space {
+    color:white;
+}
+.add-pop button:hover {background-color: #3e8e41}
+.add-pop button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5% #666;
+    transform: translateY(4%);
+}
+.signup_link{
+    margin: 30px 0;
+    text-align: center;
+    font-size: 80%;
+    color: #666666;
+}
+.signup_link a{
+    color: #2691d9;
+    text-decoration: none;
+}
+.signup_link a:hover{
+    text-decoration: underline;
+}
+.container > div {
+    background-color: white;
+    -webkit-box-shadow: -1px -1px 10px 0px #000000; 
+    box-shadow: -1px -1px 10px 0px #000000;
+
+    border: 4px solid #30B82A;
+    border-top: none;
+    border-left: none;
+    border-radius: 20px;
+    padding: 5%;
+}
+
+.container div:first-child {
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    box-shadow: none;
+}
+
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+    padding: 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". ProfilePicture ."
+        "Info Info Info"
+        "Report Report MyReports";
+}
+
+.container > div header {
+    text-align: center;
+	border-bottom: 2px solid #f2f2f2;
+}
+
+.container > div h3 {
+    margin-top: 0.5em;
+}
+
+.ProfilePicture {
+    margin: 0 auto;
+    width: 50%;
+    grid-area: ProfilePicture;
+    border: none;
+}
+.ProfilePicture img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Info {
+    grid-area: Info;
+}
+
+.Report {
+    grid-area: Report;
+}
+
+.MyReports {
+    grid-area: MyReports;
+}
+@media (max-width: 800px) {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+    
+input[type=submit]:hover {
+    background-color: #45a049;
+}

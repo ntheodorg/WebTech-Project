@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Styles-CSS/Profile.css">
+    <link rel="stylesheet" href="Styles-CSS/AP.css">
     <link rel="icon" href="Resources/Home/logo.png">
 </head>
 <body>
@@ -21,6 +21,41 @@
     </nav>
 
     <main>
+        <div class="AP-manipulation-buttons">
+            <button add-superUser class="add-button" id="add-btn">Add SuperUser</button>
+        </div>
+        <div class="add-pop" id="add-pop">
+            <h1>Add SuperUser</h1>
+            <form method="post">
+                <div class="txt_field">
+                    <input type="info" required maxlength="25">
+                    <span></span>
+                    <label>Username</label>
+                </div>
+                <div class="txt_field">
+                    <input type="info" required maxlength="25">
+                    <span></span>
+                    <label>Password</label>
+                </div>
+                <div class="txt_field">
+                    <input type="info" required maxlength="25">
+                    <span></span>
+                    <label>Company Name</label>
+                </div>
+                <div class="txt_field">
+                    <input type="info" required maxlength="2">
+                    <span></span>
+                    <label>Company Street</label>
+                </div>
+                <div class="txt_field">
+                    <input type="info" required maxlength="2">
+                    <span></span>
+                    <label>Contact phone:</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+                <div class="space"> space</div>
+            </form>
+        </div>
         <div class="container">
             <div class="ProfilePicture">
                 <img src="Resources/Profile/profile-picture.png" alt="">
@@ -33,13 +68,13 @@
                 </header>
                 <main>
                     <h3>
-                        Name: Ionescu
+                        Name: Nae
                     </h3>
                     <h3>
-                        Firstname: Ion
+                        Firstname: Theodor
                     </h3>
                     <h3>
-                        Title: Voluntar
+                        Title: Admin
                     </h3>
                     <h3>
                         Contact: custommail@gmail.com
@@ -76,6 +111,8 @@
 
             </div>
         </div>
+        <div id="overlay"></div>
+        <script defer src="../AP.js"></script>
     </main>
 </body>
 </html>

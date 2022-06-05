@@ -25,9 +25,6 @@
         </ul>
     </nav>
     <div id="map"></div>
-    <script src="googleapi.js"></script>
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjzndPejdmgsfdCHUsI6vzqFObih2yLOI&callback=initMap&v=weekly"defer></script>
       <button data-pop-target="#pop">User Pin</button>
       <button data-pop-target-super="#pop">SuperUser Pin</button>
       <div class="pop" id="pop">
@@ -39,7 +36,7 @@
           <div class="stat-body">
             <stat>Street: Ion Creanga 9</stat>
             <stat>Container Number: 5</stat>
-            <stat>General garbage Containers: 2</stat>
+            <stat>Common garbage Containers: 2</stat>
             <stat>Plastic Containers: 1</stat>
             <stat>Paper Containers: 1</stat>
             <stat>Metal Containers: 1</stat>
@@ -88,6 +85,8 @@
         </div>
       </div>
       <div id="overlay"></div>
+      <script src="../googleapi.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjzndPejdmgsfdCHUsI6vzqFObih2yLOI&callback=initMap&v=weekly"defer></script>
       <script defer src="../IasiMap.js"></script>
   </body>
 </html>

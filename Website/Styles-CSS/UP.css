@@ -5,11 +5,6 @@ body {
     background: rgb(99,255,134);
 background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
 }
-
-main {
-    /* margin-top: 2em; */
-}
-
 .container > div {
     background-color: white;
     -webkit-box-shadow: -1px -1px 10px 0px #000000; 

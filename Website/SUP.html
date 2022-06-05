@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Styles-CSS/SUP.css">
+    <link rel="icon" href="Resources/Home/logo.png">
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="Home.html"><img class="logo" src="Resources/Home/logo.png" alt="Clearity"></a> 
+        </div>
+        <ul>
+            <li><a class="active" href="Home.html">Home</a></li>
+            <li><a href="IasiMap.html">Iasi Map</a></li>
+            <li><a href="News.html">News</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="SUP-manipulation-buttons">
+            <button add-spot-button class="add-button" id="add-btn">Add garbage spot</button>
+            <button delete-spot-button class="remove-button" id="remove-btn">Delete garbage spot</button>
+        </div>
+        <div class="add-pop" id="add-pop">
+            <h1>Add garbage spot</h1>
+            <form method="post">
+                <div class="txt_field">
+                    <input type="street" required maxlength="25">
+                    <span></span>
+                    <label>Street</label>
+                </div>
+                <div class="txt_field">
+                    <input type="latitude" required maxlength="25">
+                    <span></span>
+                    <label>Latitude</label>
+                </div>
+                <div class="txt_field">
+                    <input type="longitude" required maxlength="25">
+                    <span></span>
+                    <label>Longitude</label>
+                </div>
+                <div class="txt_field">
+                    <input type="common" required maxlength="2">
+                    <span></span>
+                    <label>Common garbage can number</label>
+                </div>
+                <div class="txt_field">
+                    <input type="plastic" required maxlength="2">
+                    <span></span>
+                    <label>Plastic garbage can number</label>
+                </div>
+                <div class="txt_field">
+                    <input type="latitude" required maxlength="2">
+                    <span></span>
+                    <label>Paper garbage can number</label>
+                </div>
+                <div class="txt_field">
+                    <input type="latitude" required maxlength="2">
+                    <span></span>
+                    <label>Metal garbage can number</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+                <div class="space"> space</div>
+            </form>
+        </div>
+        <div class="remove-pop" id="remove-pop">
+            <form action="">
+                <label for="street">Garbage spot to remove</label>
+                <select id="street" name="street">
+                  <option value="Strada Crucii 9">Strada Crucii 9</option>
+                  <option value="Strada Mamii 20">Strada Mamii 20</option>
+                  <option value="Strata Gemini 5 D">Strata Gemini 5 D</option>
+                </select>
+                <input type="submit" value="Remove">
+            </form>
+        </div>
+        <div class="container">
+            <div class="ProfilePicture">
+                <img src="Resources/Profile/profile-picture.png" alt="">
+            </div>
+            <div class="Info">
+                <header>
+                    <h2>
+                        Information
+                    </h2>
+                </header>
+                <main>
+                    <h3>
+                        Company: Salubris
+                    </h3>
+                    <h3>
+                        Office Street: Soseaua Natională nr. 43
+                    </h3>
+                    <h3>
+                        Contact: +40 232 276 244
+                    </h3>
+                    <h3>
+                        No. of total reports: 23
+                    </h3>
+                    <h3>
+                        Managed garbage spots: 54
+                    </h3>
+                    <h3>
+                        Unreported garbage spots:39
+                    </h3>
+                    <h3>
+                        Reported garbage spots:9
+                    </h3>
+                    <h3>
+                        Mismanaged garbage spots:6
+                    </h3>
+                    <h3>
+                        Contact: custommail@gmail.com
+                    </h3>
+                </main>
+            </div>
+            <div class="Report">
+                <header>
+                    <h2>
+                        Report
+                    </h2>
+                </header>
+                <main>
+                    <form action="">
+                        <label for="city">City</label>
+                        <select id="city" name="city">
+                          <option value="iasi">Iasi</option>
+                          <option value="bucuresti">Bucuresti</option>
+                          <option value="constanta">Constanta</option>
+                        </select>
+
+                        <textarea placeholder="Information about your report..."></textarea>
+
+                        <input type="submit" value="Submit">
+                    </form>
+                </main>
+            </div>
+            <div class="MyReports">
+                <header>
+                    <h2>
+                        My Reports
+                    </h2>
+                </header>
+
+            </div>
+        </div>
+        <div id="overlay"></div>
+        <script defer src="../SUP.js"></script>
+    </main>
+</body>
+</html>
