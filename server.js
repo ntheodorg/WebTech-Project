@@ -7,6 +7,5 @@ app.importAsset("Resources", "./public");
 app.importAsset("Scripts-JS", "./public");
 
 app.use(routers.staticRouter);
-// app.use();
 
 app.listen();
