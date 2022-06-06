@@ -1,0 +1,93 @@
+@import "Default.css";
+
+body {
+    
+	margin: 0px auto;
+}
+
+#map {
+    height:500px;
+    width: 100%;
+}
+#overlay {
+    position:fixed;
+    opacity: 0;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: rgb(0,0,0, .5);
+    pointer-events: none;
+    transition: 200ms ease-in-out;
+}
+#overlay.activated{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.pop{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 10;
+    width: 500;
+    max-width: 80%;
+}
+.pop.activated{
+    transform: translate(-50%,-50%) scale(1);
+}
+.stat-header,.report-header {
+    padding: 10px 15px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+.stat-title , .report-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.stat-header .close-button{
+    cursor:pointer;
+    border:none;
+    outline:none;
+    background-color: black;
+    padding: 1px 6px;
+    border-radius:none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.stat-body, .report-body{
+    padding: 10px 15px;
+    border-bottom: 1px solid black;
+}
+.map-header {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 50px;
+}
+.stat-header{
+    background-color: green;
+    color:white;
+}
+.stat-title{
+    text-align: center;
+}
+.close-button{
+    color: white;
+}
+.report-header{
+    background-color: yellow;
+}
+.report-body{
+    background-color: lightgoldenrodyellow;
+}
+.stat-body{
+    background-color: lightgreen;
+}

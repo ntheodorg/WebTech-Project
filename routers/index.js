@@ -1,0 +1,1 @@
+exports.staticRouter = require("./staticRouter")
