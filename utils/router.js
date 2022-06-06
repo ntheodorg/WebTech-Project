@@ -3,7 +3,7 @@ const {staticRoutes} = require("../models/routesModel");
 
 class Router {
 
-    // Attributes in form of Map<url(string), function>
+    // Attributes in form of {string1 : fun1, string2 : fun2, ...}
     getRoutes
     postRoutes
     putRoutes
@@ -50,14 +50,6 @@ class Router {
     }
 
     handleRoute(req, res) {
-        if (req.error) {
-            console.log(error)
-            // //trimite si ceva la client...
-            // return res.status(500).json({
-            //     success: false,
-            //     message: "Data transfer error!"
-            // });
-        }
 
         var reqUrl = req.url.split(`?`)[0]
         try {
