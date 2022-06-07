@@ -64,13 +64,6 @@ body {
 }
 .stat-body, .report-body{
     padding: 10px 15px;
-    border-bottom: 1px solid black;
-}
-.map-header {
-    text-align: center;
-    background-color: black;
-    color: white;
-    font-size: 50px;
 }
 .stat-header{
     background-color: green;
@@ -84,10 +77,52 @@ body {
 }
 .report-header{
     background-color: yellow;
+    border-top: 1px solid black;
 }
 .report-body{
     background-color: lightgoldenrodyellow;
 }
 .stat-body{
     background-color: lightgreen;
+}
+.report-stats{
+    display:flex;
+    background-color: lightgoldenrodyellow;
+    justify-content:space-around;
+    padding-bottom: 10px;
+
+}
+.likes{
+    padding: 10px 15px;
+}
+.report-stats button{
+    border-radius: 0px;
+}
+.deny-button{
+    background-color: red;
+}
+.deny-button:hover {
+    background-color: darkred;
+}
+.deny-button.disabled, .accept-button.disabled {
+    transform: translate(-50%,-50%) scale(0);
+}
+.report-tab-header{
+    display:flex;
+    justify-content:space-between;
+    padding: 10px 15px;
+    background-color: green;
+    border-radius:none;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color:white;
+}
+.add-button{
+    border-radius: 0px;
+}
+.add-button.disabled{
+    transform: translate(-50%,-50%) scale(0);
+}
+.report-tab-title{
+    padding-top: 10px;
 }

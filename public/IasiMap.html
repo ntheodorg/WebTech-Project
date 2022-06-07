@@ -25,11 +25,8 @@
         </ul>
     </nav>
     <div id="map"></div>
-    <script src="Scripts-JS/googleapi.js"></script>
-    <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjzndPejdmgsfdCHUsI6vzqFObih2yLOI&callback=initMap&v=weekly"defer></script>
       <button data-pop-target="#pop">User Pin</button>
-      <button>SuperUser Pin</button>
+      <button data-pop-target-super="#pop">SuperUser Pin</button>
       <div class="pop" id="pop">
         <div class="statistics">
           <div class="stat-header">
@@ -39,41 +36,57 @@
           <div class="stat-body">
             <stat>Street: Ion Creanga 9</stat>
             <stat>Container Number: 5</stat>
-            <stat>General garbage Containers: 2</stat>
+            <stat>Common garbage Containers: 2</stat>
             <stat>Plastic Containers: 1</stat>
             <stat>Paper Containers: 1</stat>
             <stat>Metal Containers: 1</stat>
           </div>
         </div>
-        <div class="report">
-          <div class="report-header">
-            <div class="report-title">Report by: Tozlovanu Sandu</div>
-            <div class="report-date">reported on 22 May at 18:01</div>
-            <div class="report-likes">Likes:0</div>
+        <div class="reports-tab">
+          <div class="report-tab-header">
+            <div class="report-tab-title">Reports</div>
+            <button add-report-button class="add-button">Add report</button>
           </div>
-          <div class="report-body">
-            <text>
-              I have never ever seen so much garbage in this region!
-              I even saw 2 homeless people near those trash cans!
-              I think that this must be stopped! I don't like Salubris now due to that garbage over there
-            </text>
+          <div class="report">
+            <div class="report-header">
+              <div class="report-title">Tozlovanu Sandu</div>
+              <div class="report-date">reported on 22 May at 18:01</div>
+            </div>
+            <div class="report-body">
+              <text>
+                I have never ever seen so much garbage in this region!
+                I even saw 2 homeless people near those trash cans!
+                I think that this must be stopped! I don't like Salubris now due to that garbage over there
+              </text>
+            </div>
+              <div class="report-stats">
+                <div class="likes">Likes:1</div>
+                <button report-button class="accept-button">Accept</button>
+                <button report-button class="deny-button">Deny</button>
+              </div>
           </div>
-        </div>
-        <div class="report">
-          <div class="report-header">
-            <div class="report-title">Report by: Theodor Nae</div>
-            <div class="report-date">reported on 17 May at 9:24</div>
-            <div class="report-likes">Likes:20</div>
-        </div>
-          <div class="report-body">
-            <text>
-              I saw a lot of garbage on this place morning at 9 o clock on 22 may. I hope that the local
-              authorities will do something with this garbage on this place.
-            </text>
+          <div class="report">
+            <div class="report-header">
+              <div class="report-title">Theodor Nae</div>
+              <div class="report-date">reported on 17 May at 9:24</div>
+          </div>
+            <div class="report-body">
+              <text>
+                I saw a lot of garbage on this place morning at 9 o clock on 22 may. I hope that the local
+                authorities will do something with this garbage on this place.
+              </text>
+            </div>
+            <div class="report-stats">
+              <div class="likes">Likes:20</div>
+              <button report-button class="accept-button">Accept</button>
+              <button report-button class="deny-button">Deny</button>
+            </div>
           </div>
         </div>
       </div>
-      <div  id="overlay"></div>
-      <script defer src="Scripts-JS/IasiMap.js"></script>
+      <div id="overlay"></div>
+      <script src="../googleapi.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjzndPejdmgsfdCHUsI6vzqFObih2yLOI&callback=initMap&v=weekly"defer></script>
+      <script defer src="../IasiMap.js"></script>
   </body>
 </html>
