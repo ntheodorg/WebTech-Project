@@ -6,7 +6,7 @@ const pinSchema = new Schema({
         type: Number,
         required: true
     },
-    latitude : {
+    longitude : {
         type: Number,
         required: true
     },
@@ -14,7 +14,7 @@ const pinSchema = new Schema({
         type: String,
         required: true
     }
-},{ timestamps: true});
+});
 
-const Pin = mongoose.model('Pin', pinSchema);
-module.exports = Pin;
+const PinSchema = mongoose.model('Pin', pinSchema);
+module.exports = PinSchema;

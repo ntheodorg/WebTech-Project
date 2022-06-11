@@ -40,3 +40,4 @@ function closePop(pop){
     pop.classList.remove('activated');
     overlay.classList.remove('activated');
 }
+fetch()

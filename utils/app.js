@@ -22,7 +22,7 @@ class App {
         // Everytime a request is received, below function is triggered
         const server = http.createServer((req, res) => {
 
-            console.log('Request was made: ' + req.url);
+            console.log('Request was made: ' + req.url + " on " + req.method );
 
             // If there are assets to send, choose only to send them on this request
             if(this.sendAssetIfRequested(req.url, res)){
