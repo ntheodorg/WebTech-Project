@@ -25,6 +25,7 @@ class App {
 
             console.log('Request was made: ' + req.url + " on " + req.method );
 
+            req = this.addReqFeatures(req);
             res = this.addResFeatures(res);
 
             if(!this.isJSONOnReq(req)){
@@ -134,7 +135,43 @@ class App {
         this.resourceFolders[urlReq] = baseFolderName
     }
 
+    addReqFeatures(req) {
+        if(req.headers.cookie) {
+            let result = req.headers.cookie.split('; ').map(e => e.split('='));
+            req.cookies = Object.fromEntries(result)
+        }
+
+        return req;
+    }
+
     addResFeatures(res) {
+
+        res.cookie = function (attr, value, options) {
+            if(options == undefined)
+            {
+                res.setHeader('Set-Cookie', `${attr}=${value}`);
+            } else {
+                res.setHeader('Set-Cookie', `${attr}=${value}; ${options}`);
+            }
+            return res;
+        }
+
+        res.send = function (data) {
+
+            res.setHeader('Content-Type', 'text/plain');
+            res.end(data);
+        }
+
+        res.json = function (JSONObj) {
+
+            res.end(JSON.stringify(JSONObj));
+            return res;
+        }
+
+        res.status = function (newStatusCode) {
+            res.statusCode = newStatusCode;
+            return res;
+        }
 
         res.redirect = (destUrl) => {
 
