@@ -3,24 +3,25 @@ const openRemovePopButton = document.getElementById('remove-btn');
 const overlay = document.getElementById('overlay');
 const removePin = document.getElementById('btn-delete');
 
+const url = "/api/pins";
+fetch(url).then((response)=> {
+    return response.json();
+}).then((data)=>{
+    let select = document.getElementById('identifier');
+    for( var i = 0; i< data.length;i++){
+        let option = document.createElement("option");
+        option.innerText = data[i].street;
+        select.appendChild(option);
+    }
+})
+
 openAddPopButton.addEventListener('click', () =>{
         const addPop = document.getElementById('add-pop');
-        console.log(addPop);
         openPop(addPop)
 })
 
 openRemovePopButton.addEventListener('click', () =>{
-        const url = "/api/pins";
-        fetch(url).then((response)=> {
-            return response.json();
-        }).then((data)=>{
-            for( var i = 0; i< data.length;i++){
-
-            }
-        })
         const removePop = document.getElementById('remove-pop');
-
-        console.log(removePop);
         openPop(removePop)
 
 })
@@ -42,7 +43,6 @@ removePin.addEventListener('click' , () => {
     let jsonObject = {
         address: selectedpin
     }
-    console.log(jsonObject);
     const url = "/api/pins";
     let rawResponse = fetch(url , {
         method : "DELETE",

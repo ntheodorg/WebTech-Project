@@ -1,10 +1,12 @@
 class Pin {
     id
+    street
     latitude
     longitude
     color
 
-    constructor(lat,long,col) {
+    constructor(street,lat,long,col) {
+        this.street = street;
         this.latitude = lat;
         this.longitude = long;
         this.color = col;

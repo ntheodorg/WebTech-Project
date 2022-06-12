@@ -3,9 +3,10 @@ const PinSchema = require("./schemas/pinSchema");
 
 function savePin(Pin){
  const pin = new PinSchema({
-  latitude: Pin.latitude,
-  longitude: Pin.longitude,
-  color: Pin.color
+     street: Pin.street,
+     latitude: Pin.latitude,
+     longitude: Pin.longitude,
+     color: Pin.color
  });
  pin.save();
 };
@@ -14,6 +15,12 @@ function getAllPins(res){
  PinSchema.find()
      .then((result) =>{
          res.writeHead(200,{'Content-type' : 'application/json'});
+         result.forEach((object) => {
+             //console.log(object);
+             object.street = object.street.replace(/\+/g, " ");
+             console.log(object);
+
+         })
          res.end(JSON.stringify(result));
      })
      .catch((err) => {

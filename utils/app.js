@@ -89,7 +89,7 @@ class App {
     }
 
     ParseIfJSON(req) {
-        if(req.headers["Content-type"] == "application/json"){
+        if(req.headers["Content-type"] === "application/json"){
             let data = '';
             req.on('data', chunk => {
                 data += chunk;
