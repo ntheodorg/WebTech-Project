@@ -3,6 +3,7 @@ const url = require('url');
 const Router = require('./router.js');
 const pathModule = require('path');
 const fs = require('fs');
+const {staticRoutes} = require("../models/routesModel");
 
 class App {
     // Port to run the server
@@ -24,6 +25,8 @@ class App {
 
             console.log('Request was made: ' + req.url + " on " + req.method );
 
+            res = this.addResFeatures(res);
+
             if(!this.isJSONOnReq(req)){
                 // If there are assets to send, choose only to send them on this request
                 if(this.sendAssetIfRequested(req.url, res)){
@@ -34,7 +37,7 @@ class App {
                     this.router.handleRoute(req,res);
                 }
             } else {
-                this.HandleJSONReq(req, res)
+                this.HandleJSONReq(req, res);
             }
 
         });
@@ -129,6 +132,17 @@ class App {
 
         // Put {key : value} into resourceFolders
         this.resourceFolders[urlReq] = baseFolderName
+    }
+
+    addResFeatures(res) {
+
+        res.redirect = (destUrl) => {
+
+            res.writeHead(302, {'Location': destUrl});
+            res.end();
+        }
+
+        return res;
     }
 }
 
