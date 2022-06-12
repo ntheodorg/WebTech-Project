@@ -46,7 +46,7 @@ removePin.addEventListener('click' , () => {
     const url = "/api/pins";
     let rawResponse = fetch(url , {
         method : "DELETE",
-        headers : {"Content-type" : "application/json"},
+        headers : { 'content-type' : 'application/json'},
         body : JSON.stringify(jsonObject)
     })
 })

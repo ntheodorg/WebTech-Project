@@ -24,16 +24,17 @@ class App {
 
             console.log('Request was made: ' + req.url + " on " + req.method );
 
-            // Set req.body if there is any json in fetch request
-            req = this.ParseIfJSON(req);
+            if(!this.isJSONOnReq(req)){
+                // If there are assets to send, choose only to send them on this request
+                if(this.sendAssetIfRequested(req.url, res)){
+                    console.log(`Fulfilled \"${req.url}\"`);
+                    //  Otherwise send desired file using router
+                } else {
 
-            // If there are assets to send, choose only to send them on this request
-            if(this.sendAssetIfRequested(req.url, res)){
-                console.log(`Fulfilled \"${req.url}\"`);
-            //  Otherwise send desired file using router
+                    this.router.handleRoute(req,res);
+                }
             } else {
-
-                this.router.handleRoute(req,res);
+                this.HandleJSONReq(req, res)
             }
 
         });
@@ -41,6 +42,14 @@ class App {
         // Start server listener
         server.listen(this.port);
         console.log(`Listening on port ${this.port}...`);
+    }
+
+    isJSONOnReq(req) {
+        if(req.headers['content-type'] == 'application/json'){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     sendAssetIfRequested(processedUrl, res){
@@ -88,21 +97,20 @@ class App {
         return true;
     }
 
-    ParseIfJSON(req) {
-        if(req.headers["Content-type"] == "application/json"){
-            let data = '';
-            req.on('data', chunk => {
-                data += chunk;
-            });
-            req.on('end', function () {
-                let finalData = {}
-                if (data){
-                    finalData = JSON.parse(data)
-                    req.body = finalData
-                }
-            });
-        }
-        return req;
+    HandleJSONReq(req, res) {
+        let data = '';
+        req.on('data', chunk => {
+            data += chunk;
+        });
+        req.on('end', function () {
+            let finalData = {}
+            if (data){
+                finalData = JSON.parse(data);
+                req.body = finalData;
+
+                this.router.handleRoute(req,res);
+            }
+        }.bind(this));
     }
 
     use(router) {

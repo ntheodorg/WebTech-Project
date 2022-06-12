@@ -19,7 +19,7 @@ const pin_get = (req,res) => {
     pinModel.getAllPins(res);
 }
 const pin_delete = (req,res) => {
-    console.log(req.headers);
+    // console.log(req.headers);
     console.log(req.body);
 }
 
