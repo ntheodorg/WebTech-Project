@@ -16,9 +16,8 @@ function getAllPins(res){
      .then((result) =>{
          res.writeHead(200,{'Content-type' : 'application/json'});
          result.forEach((object) => {
-             //console.log(object);
+
              object.street = object.street.replace(/\+/g, " ");
-             console.log(object);
 
          })
          res.end(JSON.stringify(result));
