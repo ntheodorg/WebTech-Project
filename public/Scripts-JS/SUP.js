@@ -1,10 +1,8 @@
 const openAddPopButton = document.getElementById('add-btn');
 const openRemovePopButton = document.getElementById('remove-btn');
 const overlay = document.getElementById('overlay');
+const removePin = document.getElementById('btn-delete');
 
-console.log(openAddPopButton);
-console.log(openRemovePopButton);
-console.log(overlay);
 openAddPopButton.addEventListener('click', () =>{
         const addPop = document.getElementById('add-pop');
         console.log(addPop);
@@ -12,9 +10,19 @@ openAddPopButton.addEventListener('click', () =>{
 })
 
 openRemovePopButton.addEventListener('click', () =>{
+        const url = "/api/pins";
+        fetch(url).then((response)=> {
+            return response.json();
+        }).then((data)=>{
+            for( var i = 0; i< data.length;i++){
+
+            }
+        })
         const removePop = document.getElementById('remove-pop');
+
         console.log(removePop);
         openPop(removePop)
+
 })
 
 
@@ -29,6 +37,20 @@ overlay.addEventListener('click', () => {
     })
 })
 
+removePin.addEventListener('click' , () => {
+    let selectedpin = document.getElementById('identifier').value;
+    let jsonObject = {
+        address: selectedpin
+    }
+    console.log(jsonObject);
+    const url = "/api/pins";
+    let rawResponse = fetch(url , {
+        method : "DELETE",
+        headers : {"Content-type" : "application/json"},
+        body : JSON.stringify(jsonObject)
+    })
+})
+
 function openPop(pop){
     if(pop == null) return
     pop.classList.add('activated');
@@ -40,4 +62,12 @@ function closePop(pop){
     pop.classList.remove('activated');
     overlay.classList.remove('activated');
 }
-fetch()
+
+/*fetch(url).then((response)=> {
+    return response.json();
+}).then((data)=>{
+    for( var i = 0; i< data.length;i++){
+        addMarker(data[i]);
+    }
+})
+ */

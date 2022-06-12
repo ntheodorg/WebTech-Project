@@ -16,10 +16,15 @@ const pin_post = (req,res) => {
     });
 }
 const pin_get = (req,res) => {
-    console.log('am ajuns in controller');
     pinModel.getAllPins(res);
 }
+const pin_delete = (req,res) => {
+    console.log(req.headers);
+    console.log(req.body);
+}
+
 module.exports = {
     pin_post,
-    pin_get
+    pin_get,
+    pin_delete
 }

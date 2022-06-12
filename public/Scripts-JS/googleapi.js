@@ -6,7 +6,7 @@ function initMap(){
     }
     // new map
     var map = new google.maps.Map(document.getElementById('map'),options);
-    const url = "/IasiMap/api/pins";
+    const url = "/api/pins";
     fetch(url).then((response)=> {
         return response.json();
     }).then((data)=>{

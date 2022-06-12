@@ -4,7 +4,11 @@ exports.pinRoutes = {
         method: "POST"
     },
     pin_get: {
-        route: "/IasiMap/api/pins",
+        route: "/api/pins",
         method: "GET"
+    },
+    pin_delete: {
+        route: "/api/pins",
+        method: "DELETE"
     }
 }

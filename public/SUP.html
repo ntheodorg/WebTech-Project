@@ -11,12 +11,13 @@
 <body>
     <nav>
         <div>
-            <a href="Home.html"><img class="logo" src="Resources/Home/logo.png" alt="Clearity"></a> 
+            <a href="Home"><img class="logo" src="Resources/Home/logo.png" alt="Clearity"></a>
         </div>
         <ul>
-            <li><a class="active" href="Home.html">Home</a></li>
-            <li><a href="IasiMap.html">Iasi Map</a></li>
-            <li><a href="News.html">News</a></li>
+            <li><a  href="Home">Home</a></li>
+            <li><a href="IasiMap">Iasi Map</a></li>
+            <li><a href="News">News</a></li>
+
         </ul>
     </nav>
 
@@ -68,15 +69,13 @@
             </form>
         </div>
         <div class="remove-pop" id="remove-pop">
-            <form action="">
-                <label for="street">Garbage spot to remove</label>
-                <select id="street" name="street">
-                  <option value="Strada Crucii 9">Strada Crucii 9</option>
-                  <option value="Strada Mamii 20">Strada Mamii 20</option>
-                  <option value="Strata Gemini 5 D">Strata Gemini 5 D</option>
-                </select>
-                <input type="submit" value="Remove">
-            </form>
+            <label for="identifier">Garbage spot to remove</label>
+            <select id="identifier" name="street">
+              <option id="2546">Strada Crucii 9</option>
+              <option id="503">Strada Mamii 20</option>
+              <option id="402">Strata Gemini 5 D</option>
+            </select>
+            <input id="btn-delete" type="submit">
         </div>
         <div class="container">
             <div class="ProfilePicture">
