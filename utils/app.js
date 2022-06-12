@@ -24,6 +24,9 @@ class App {
 
             console.log('Request was made: ' + req.url + " on " + req.method );
 
+            // Set req.body if there is any json in fetch request
+            req = this.ParseIfJSON(req);
+
             // If there are assets to send, choose only to send them on this request
             if(this.sendAssetIfRequested(req.url, res)){
                 console.log(`Fulfilled \"${req.url}\"`);
@@ -83,6 +86,23 @@ class App {
         fs.createReadStream(filePath).pipe(res);
 
         return true;
+    }
+
+    ParseIfJSON(req) {
+        if(req.headers["Content-type"] == "application/json"){
+            let data = '';
+            req.on('data', chunk => {
+                data += chunk;
+            });
+            req.on('end', function () {
+                let finalData = {}
+                if (data){
+                    finalData = JSON.parse(data)
+                    req.body = finalData
+                }
+            });
+        }
+        return req;
     }
 
     use(router) {
