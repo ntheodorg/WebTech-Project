@@ -28,49 +28,50 @@
         </div>
         <div class="add-pop" id="add-pop">
             <h1>Add garbage spot</h1>
-            <form action="/SUP" method="POST">
+            <form>
                 <div class="txt_field">
-                    <input type="street" required maxlength="25" name="street" >
+                    <input class="form-input" required maxlength="25" name="street" >
                     <span></span>
                     <label>Street</label>
                 </div>
                 <div class="txt_field">
-                    <input type="latitude" required maxlength="25" name="latitude">
+                    <input class="form-input" required maxlength="25" name="latitude">
                     <span></span>
                     <label>Latitude</label>
                 </div>
                 <div class="txt_field">
-                    <input type="longitude" required maxlength="25" name="longitude">
+                    <input class="form-input" required maxlength="25" name="longitude">
                     <span></span>
                     <label>Longitude</label>
                 </div>
                 <div class="txt_field">
-                    <input type="common" required maxlength="2" name="common">
+                    <input class="form-input" required maxlength="2" name="common">
                     <span></span>
                     <label>Common garbage can number</label>
                 </div>
                 <div class="txt_field">
-                    <input type="plastic" required maxlength="2" name="plastic">
+                    <input class="form-input" required maxlength="2" name="plastic">
                     <span></span>
                     <label>Plastic garbage can number</label>
                 </div>
                 <div class="txt_field">
-                    <input type="paper" required maxlength="2" name="paper">
+                    <input class="form-input" required maxlength="2" name="paper">
                     <span></span>
                     <label>Paper garbage can number</label>
                 </div>
                 <div class="txt_field">
-                    <input type="metal" required maxlength="2" name="metal">
+                    <input class="form-input" required maxlength="2" name="metal">
                     <span></span>
                     <label>Metal garbage can number</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Add </button>
+                <button type="submit" class="btn btn-primary" id="add-pin">Add </button>
                 <div class="space"> space</div>
             </form>
         </div>
         <div class="remove-pop" id="remove-pop">
             <label for="identifier">Garbage spot to remove</label>
             <select id="identifier" name="street">
+                <option class="option-class"> ceva</option>
             </select>
             <input id="btn-delete" type="submit">
         </div>

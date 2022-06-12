@@ -1,6 +1,6 @@
 exports.pinRoutes = {
     pin_post: {
-        route: "/SUP",
+        route: "/api/pins",
         method: "POST"
     },
     pin_get: {

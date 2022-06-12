@@ -1,4 +1,3 @@
-
 const fs = require('fs');
 const staticRoutes = require("../models/routesModel").staticRoutes;
 
