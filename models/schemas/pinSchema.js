@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const pinSchema = new Schema({
+    street : {
+        type: String,
+        required: true
+    },
     latitude : {
         type: Number,
         required: true
