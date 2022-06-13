@@ -24,6 +24,7 @@ fetch("/api/pins").then((response)=> {
         // Instantiate the table with the existing HTML main
         // and the row with the template
         // Clone the new row and insert it into the table
+        // console.log(reports);
         let pinId = data[i]._id;
         let pop_clone = pop_template.content.cloneNode(true);
         let stats = pop_clone.querySelectorAll('stat');
@@ -38,19 +39,19 @@ fetch("/api/pins").then((response)=> {
         for(let j = 0 ; j < reports.length; j++){
             if(reports[j].pin_id === pinId) {
                 let report_clone = report_template.content.cloneNode(true);
-                let reportTitle = report_clone.querySelector('.report-title');
+                const reportTitle = report_clone.querySelector('.report-title');
                 let reportText = report_clone.querySelector('p');
-                console.log(reportText);
                 let reportLikes = report_clone.querySelector('.likes');
-                reportTitle.textContext = reports[j].reporter_name;
-                reportText.textContext = reports[j].report_text;
-                console.log(reportText);
-                reportLikes.textContext = reports[j].like_number;
-                console.log(reportLikes.textContext);
-                console.log(reportText.textContext);
-                console.log(reportTitle.textContext);
+                reportTitle.textContent = reports[j].reporter_name;
+                console.log(reportTitle);
+                reportText.textContent = reports[j].report_text;
+                // console.log(reportText);
+                reportLikes.textContent = reports[j].like_number;
+                // console.log(reportLikes.textContext);
+                // console.log(reportText.textContext);
+                // console.log(reportTitle.textContext);
                 let reports_tab = document.getElementById(pinId).children[1];
-                console.log(reports_tab);
+                // console.log(reports_tab);
                 reports_tab.appendChild(report_clone);
             }
         }
