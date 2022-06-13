@@ -88,7 +88,7 @@ module.exports = {
     logout: function (req, res) {
         res.cookie('jwt', '', 'Max-Age=1; Path=/');
 
-        res.redirect(staticRoutes.home.route);
+        res.redirect('/');
     }
 
 }
