@@ -1,6 +1,13 @@
 const fs = require("fs");
 const {staticRoutes} = require("../models/routesModel");
 
+function callFunction(req, res, selectedRoute) {
+    if(selectedRoute.authReq){
+        selectedRoute.authReq(req, res);
+    }
+    return selectedRoute.controller(req, res);
+}
+
 class Router {
 
     // Attributes in form of {string1 : fun1, string2 : fun2, ...}
@@ -18,36 +25,38 @@ class Router {
         this.patchRoutes = {}
     }
 
-    get(url, controller) {
+    get(url, controller, authReq) {
         if (this.getRoutes[url])
             console.error(`\"${url}\" was already added as GET route`)
-        this.getRoutes[url] = controller
+        this.getRoutes[url] = { controller, authReq }
     }
 
-    post(url, controller) {
+    post(url, controller, authReq) {
         if (this.postRoutes[url])
             console.error(`\"${url}\" was already added as POST route`)
-        this.postRoutes[url] = controller
+        this.postRoutes[url] = { controller, authReq }
     }
 
-    put(url, controller) {
+    put(url, controller, authReq) {
         if (this.putRoutes[url])
             console.error(`\"${url}\" was already added as PUT route`)
-        this.putRoutes[url] = controller
+        this.putRoutes[url] = { controller, authReq }
     }
 
     
-    delete(url, controller) {
+    delete(url, controller, authReq) {
         if (this.deleteRoutes[url])
         console.error(`\"${url}\" was already added as DELETE route`)
-        this.deleteRoutes[url] = controller
+        this.deleteRoutes[url] = { controller, authReq }
     }
 
-    patch(url, controller) {
+    patch(url, controller, authReq) {
         if (this.patchRoutes[url])
         console.error(`\"${url}\" was already added as PATCH route`)
-        this.patchRoutes[url] = controller
+        this.patchRoutes[url] = { controller, authReq }
     }
+
+
 
     handleRoute(req, res) {
 
@@ -55,15 +64,27 @@ class Router {
         try {
             switch (req.method) {
                 case "POST":
-                    return this.postRoutes[reqUrl](req, res);
+                    if(this.postRoutes[reqUrl].authReq){
+                        this.postRoutes[reqUrl].authReq(req, res);
+                    }
+                    return this.postRoutes[reqUrl].controller(req, res);
                 case "GET":
-                    return this.getRoutes[reqUrl](req, res);
+                    return callFunction(req, res, this.getRoutes[reqUrl]);
                 case "DELETE":
-                    return this.deleteRoutes[reqUrl](req, res);
+                    if(this.postRoutes[reqUrl].authReq){
+                        this.postRoutes[reqUrl].authReq(req, res);
+                    }
+                    return this.deleteRoutes[reqUrl].controller(req, res);
                 case "PUT":
-                    return this.putRoutes[reqUrl](req, res);
+                    if(this.postRoutes[reqUrl].authReq){
+                        this.postRoutes[reqUrl].authReq(req, res);
+                    }
+                    return this.putRoutes[reqUrl].controller(req, res);
                 case "PATCH":
-                    return this.patchRoutes[reqUrl](req, res);
+                    if(this.postRoutes[reqUrl].authReq){
+                        this.postRoutes[reqUrl].authReq(req, res);
+                    }
+                    return this.patchRoutes[reqUrl].controller(req, res);
                 default:
                     throw new Error(`no route with such http verb: ${req.method}`);
             }

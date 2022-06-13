@@ -34,7 +34,7 @@ class App {
                 res = this.addResFeatures(res);
 
                 if(this.authFunction) {
-                    req = this.authFunction(req, res);
+                    // req = this.authFunction(req, res);
                 }
                 if(!this.isJSONOnReq(req)){
                     this.router.handleRoute(req,res);
@@ -42,10 +42,6 @@ class App {
                     this.HandleJSONReq(req, res);
                 }
             }
-
-
-
-
 
         });
 
