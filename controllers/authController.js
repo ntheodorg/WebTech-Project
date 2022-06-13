@@ -77,6 +77,18 @@ module.exports = {
             res.status(400).json({ errors });
         }
 
+    },
+    accountType_get: function (req, res) {
+        if(req.userData == undefined){
+            res.status(201).json({ })
+        } else {
+            res.status(201).json({ accountType: req.userData.accountType })
+        }
+    },
+    logout: function (req, res) {
+        res.cookie('jwt', '', 'Max-Age=1; Path=/');
+
+        res.redirect(staticRoutes.home.route);
     }
 
 }

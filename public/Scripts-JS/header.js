@@ -17,7 +17,7 @@ const headerElements = {
     profileButton: {
         href: {
             user: "UP",
-            superUser: "SU",
+            superuser: "SU",
             admin: "AP"
         },
         className: "profileButton",
@@ -25,6 +25,26 @@ const headerElements = {
         alterText: "Profile"
     }
 }
+let accountType;
+
+function setAccountType(json) {
+    accountType = json.accountType;
+}
+
+
+(async() => {
+    try {
+        const res = await fetch('/api/GetAccountType');
+        const data = await res.json();
+
+        setAccountType(data)
+        buildHeader();
+
+    } catch (err) {
+        console.log(err);
+    }
+})();
+
 
 function buildHeader() {
     const header = document.querySelector('body header');
@@ -55,33 +75,52 @@ function buildHeader() {
         list.append(listItem)
     }
 
+
+
+
+
     // Logout button
     console.log(`.${headerElements.listItemsData.Logout.className}`);
     const logoutButton = list.querySelector(`.${headerElements.listItemsData.Logout.className}`);
     logoutButton.href = null;
     logoutButton.addEventListener('click', async (e) => {
-        e.preventDefault();
-  
-        logoutButton.style.display = "none";
-      })
+        // e.preventDefault();
+
+        const res = await fetch('/api/LogOut');
+        const data = await res.json();
+    })
 
     // Build profile button
     const listItem = document.createElement('li');
 
     const profileButton = document.createElement('a');
-    profileButton.href = headerElements.profileButton.href.user;
+    profileButton.href = headerElements.profileButton.href[accountType];
 
     const profileIcon = document.createElement('img');
     profileIcon.className = headerElements.profileButton.className;
     profileIcon.src = headerElements.profileButton.src;
     profileIcon.alt = headerElements.profileButton.alterText;
     profileButton.append(profileIcon);
-    
+
     listItem.append(profileButton);
 
     list.append(listItem);
 
+    console.log(accountType)
+
+    if ( accountType == undefined){
+
+        logoutButton.style.display = "none";
+        profileButton.style.display = "none";
+    } else {
+        const signInButton = list.querySelector(`.${headerElements.listItemsData.SignIn.className}`);
+        const signupButton = list.querySelector(`.${headerElements.listItemsData.SignUp.className}`);
+
+        signInButton.style.display = "none";
+        signupButton.style.display = "none";
+    }
 
     header.append(list);
+
+
 }
-buildHeader();

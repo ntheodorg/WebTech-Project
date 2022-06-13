@@ -20,7 +20,7 @@ li, a, p, button {
     text-decoration: none;
 }
 
-header{
+body>header{
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -29,33 +29,37 @@ header{
     padding: 10px 2%;
 }
 
-header p{
+body>header p{
     color: rgb(255, 255, 255);
     font-weight: 550;
 }
 
-header ul{
+body>header ul{
     display: flex;
     list-style: none;
     align-items: center;
     padding: 10px 2%;
 }
 
-header ul li{
+body>header ul li{
     margin-left: 20px;
     align-items: center;
 }
 
-header ul .SignUp {
+body>header ul .SignUp {
     color: rgb(46, 125, 0);
     background-color: rgb(255, 255, 255);
 
 }
 
-header ul .profileButton {
+body>header ul .profileButton {
     width: 70px;
     height: auto;
-    
+}
+
+body>header ul li:hover {
+    /* background-color: rgba(48, 184, 42, 0.8); */
+    opacity: .5;
 }
 
 
@@ -120,10 +124,7 @@ button {
     transition: all 0.3s ease 0s;
 }
 
-header ul li:hover {
-    /* background-color: rgba(48, 184, 42, 0.8); */
-    opacity: .5;
-}
+
 
 /* @media only screen and (max-width: 800px) {
     For mobile phones:

@@ -56,6 +56,14 @@ exports.commonRoutes = {
     login: {
         route: "/api/Login",
         method: "POST"
+    },
+    accountType_get : {
+        route: "/api/GetAccountType",
+        method: "GET"
+    },
+    logout : {
+        route: "/api/LogOut",
+        method: "GET"
     }
 
 }
