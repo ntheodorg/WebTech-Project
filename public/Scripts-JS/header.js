@@ -8,6 +8,10 @@ const headerElements = {
         SignUp: {
             href: "SignUp",
             className: "SignUp"
+        },
+        Logout: {
+            href: "",
+            className: "Logout"
         }
     },
     profileButton: {
@@ -40,16 +44,26 @@ function buildHeader() {
 
         const ref = document.createElement('a');
         ref.href = listItemsData[listItemData].href;
-        listItem.append(ref);
 
         const bttn = document.createElement('button');
         bttn.textContent = listItemData;
         bttn.className = listItemsData[listItemData].className;
-        listItem.append(bttn);
+        ref.append(bttn);
 
+        listItem.append(ref);
 
         list.append(listItem)
     }
+
+    // Logout button
+    console.log(`.${headerElements.listItemsData.Logout.className}`);
+    const logoutButton = list.querySelector(`.${headerElements.listItemsData.Logout.className}`);
+    logoutButton.href = null;
+    logoutButton.addEventListener('click', async (e) => {
+        e.preventDefault();
+  
+        logoutButton.style.display = "none";
+      })
 
     // Build profile button
     const listItem = document.createElement('li');

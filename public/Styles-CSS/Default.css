@@ -82,7 +82,7 @@ nav div {
 }
 nav div p {
     padding: 5px 10%;
-    margin: 0px;
+    margin: 0;
     font-weight: 600;
     font-size: 30px;
 }
@@ -99,7 +99,7 @@ nav ul {
 nav ul li {
     display: inline-block;
     padding: 10px 20px;
-    margin: 0px 40px;
+    margin: 0 40px;
 
 }
 nav ul li:hover {
@@ -113,15 +113,16 @@ nav ul li a {
 button {
     font-weight: 600;
     padding: 9px 25px;
-    background-color: rgba(48, 184, 42, 1);
+    background-color: rgba(48, 184, 42);
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
 
-button:hover {
-    background-color: rgba(48, 184, 42, 0.8);
+header ul li:hover {
+    /* background-color: rgba(48, 184, 42, 0.8); */
+    opacity: .5;
 }
 
 /* @media only screen and (max-width: 800px) {
