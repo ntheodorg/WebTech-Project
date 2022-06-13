@@ -51,7 +51,7 @@ class App {
     }
 
     isJSONOnReq(req) {
-        if(req.headers['content-type'] == 'application/json'){
+        if(req.headers['content-type'] === 'application/json'){
             return true;
         } else {
             return false;

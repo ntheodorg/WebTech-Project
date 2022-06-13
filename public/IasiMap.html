@@ -21,8 +21,53 @@
         </ul>
     </nav>
     <div id="map"></div>
-      <button data-pop-target="#pop">User Pin</button>
-      <button data-pop-target-super="#pop">SuperUser Pin</button>
+      <button data-pop-target=".pop">User Pin</button>
+      <button data-pop-target-super=".pop">SuperUser Pin</button>
+      <form class="add-report" id="add-report">
+        <h2>Add Report</h2>
+        <textarea class="report-input" id="report-input" placeholder="Describe the situation..." required></textarea>
+        <button id= "report-submit" class="report-submit">Add report</button>
+      </form>
+      <template id="pop-template">
+          <div class="pop">
+            <div class="statistics">
+              <div class="stat-header">
+                <div class="stat-title"> Statistics</div>
+                <button data-close-button class="close-button">&times;</button>
+              </div>
+              <div class="stat-body">
+                <stat></stat>
+                <stat></stat>
+                <stat></stat>
+                <stat></stat>
+                <stat></stat>
+              </div>
+            </div>
+            <div class="reports-tab">
+              <div class="report-tab-header">
+                <div class="report-tab-title">Reports</div>
+                <button class="add-button">Add report</button>
+              </div>
+            </div>
+          </div>
+      </template>
+      <template id="report-template">
+          <div class="report">
+            <div class="report-header">
+              <div class="report-title"></div>
+              <div class="report-date"></div>
+            </div>
+            <div class="report-body">
+              <p></p>
+            </div>
+            <div class="report-stats">
+              <div class="likes"></div>
+              <button class="accept-button">Accept</button>
+              <button class="deny-button">Deny</button>
+            </div>
+          </div>
+      </template>
+      <!--
       <div class="pop" id="pop">
         <div class="statistics">
           <div class="stat-header">
@@ -80,6 +125,7 @@
           </div>
         </div>
       </div>
+      -->
       <div id="overlay"></div>
       <script src="Scripts-JS/header.js"></script>
       <script src="Scripts-JS/googleapi.js"></script>
