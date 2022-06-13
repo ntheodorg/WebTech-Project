@@ -20,19 +20,44 @@ li, a, p, button {
     text-decoration: none;
 }
 
-header ul{
+header{
     list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(0, 0, 0);
-    padding: 10px 5%;
+    padding: 10px 2%;
 }
 
-header ul p{
+header p{
     color: rgb(255, 255, 255);
     font-weight: 550;
 }
+
+header ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding: 10px 2%;
+}
+
+header ul li{
+    margin-left: 20px;
+    align-items: center;
+}
+
+header ul .SignUp {
+    color: rgb(46, 125, 0);
+    background-color: rgb(255, 255, 255);
+
+}
+
+header ul .profileButton {
+    width: 70px;
+    height: auto;
+    
+}
+
 
 nav {
     display: flex;
