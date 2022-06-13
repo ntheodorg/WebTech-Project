@@ -9,9 +9,14 @@ const submitReport =document.getElementById('report-submit');
 let map = document.getElementById("map");
 let pop_template = document.querySelector('#pop-template');
 let report_template = document.querySelector('#report-template');
+let reports = undefined;
 addForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 })
+fetch("/api/reports").then((res)=> {
+    return res.json();
+}).then((report_data)=>{reports = report_data});
+
 fetch("/api/pins").then((response)=> {
     return response.json();
 }).then((data)=>{
@@ -19,6 +24,7 @@ fetch("/api/pins").then((response)=> {
         // Instantiate the table with the existing HTML main
         // and the row with the template
         // Clone the new row and insert it into the table
+        let pinId = data[i]._id;
         let pop_clone = pop_template.content.cloneNode(true);
         let stats = pop_clone.querySelectorAll('stat');
         let popId = pop_clone.querySelector('.pop');
@@ -27,26 +33,28 @@ fetch("/api/pins").then((response)=> {
         stats[2].textContent = "Paper garbage containers:"+data[i].paper;
         stats[3].textContent = "Plastic garbage containers:"+data[i].plastic;
         stats[4].textContent = "Metal garbage containers:"+data[i].metal;
-        popId.setAttribute("id",data[i]._id);
-        let jsonObject = { id : data[i]._id}
-        fetch("/api/reports").then((response)=> {
-            return response.json();
-        }).then((report_data)=>{
-            for(i = 0 ; i < report_data.length; i++){
-                if(report_data[i].pin_id === data[i]._id) {
-                    let reports_tab = pop_clone.querySelector('.reports-tab');
-                    let report_clone = report_template.content.cloneNode(true)
-                    let reportTitle = report_clone.querySelector('.report_title');
-                    let reportText = report_clone.querySelector('text');
-                    let reportLikes = report_clone.querySelector('.likes');
-                    reportTitle.textContext = report_data[i].reporter_name;
-                    reportText.textContext = report_data[i].report_text;
-                    reportLikes.textContext = report_data[i].like_number;
-                    reports_tab.appendChild(report_clone)
-                }
-            }
-        })
+        popId.setAttribute("id",pinId);
         map.appendChild(pop_clone);
+        for(let j = 0 ; j < reports.length; j++){
+            if(reports[j].pin_id === pinId) {
+                let report_clone = report_template.content.cloneNode(true);
+                let reportTitle = report_clone.querySelector('.report-title');
+                let reportText = report_clone.querySelector('p');
+                console.log(reportText);
+                let reportLikes = report_clone.querySelector('.likes');
+                reportTitle.textContext = reports[j].reporter_name;
+                reportText.textContext = reports[j].report_text;
+                console.log(reportText);
+                reportLikes.textContext = reports[j].like_number;
+                console.log(reportLikes.textContext);
+                console.log(reportText.textContext);
+                console.log(reportTitle.textContext);
+                let reports_tab = document.getElementById(pinId).children[1];
+                console.log(reports_tab);
+                reports_tab.appendChild(report_clone);
+            }
+        }
+
     }
 })
 /*
