@@ -48,3 +48,14 @@ exports.staticRoutes = {
         location: "./public/404.html",
     }
 }
+exports.commonRoutes = {
+    signup: {
+        route: "/api/SignUp",
+        method: "POST"
+    },
+    login: {
+        route: "/api/Login",
+        method: "POST"
+    }
+
+}

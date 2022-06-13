@@ -17,6 +17,7 @@ app.importAsset("/Scripts-JS", "./public");
 // Use routers in our App instance
 app.use(routers.staticRouter);
 app.use(routers.pinRouter);
+app.use(routers.commonRouter);
 
 // connect to mongoDB
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology:true})
