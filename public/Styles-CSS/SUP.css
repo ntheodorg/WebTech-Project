@@ -11,15 +11,18 @@ body {
     background: rgb(99,255,134);
 background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28%, rgba(235,255,221,1) 100%);
 }
-
+.event-buttons {
+    text-align: right;
+    padding-bottom: 14px;
+}
 .SUP-manipulation-buttons {
     text-align: center;
     padding:10px 10px;
 }
-.SUP-manipulation-buttons .remove-button {
+.SUP-manipulation-buttons .remove-button , .event-remove-button {
     background-color: red;
 }
-.SUP-manipulation-buttons .remove-button:hover {
+.SUP-manipulation-buttons .remove-button:hover , .event-remove-button:hover {
     background-color: darkred;
 }
 #overlay {
@@ -37,22 +40,26 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
     opacity: 1;
     pointer-events: all;
 }
-.remove-pop{
+.remove-pop,.event-remove-pop {
     position: absolute;
     padding: 20px 20px;
     top: 50%;
     left: 50%;
     transition: 200ms ease-in-out;
+    transform: translate(-50%, -50%) scale(0);
     background-color: white;
     border: 1px solid black;
     z-index: 10;
-    transform: translate(-50%, -50%) scale(0);
     width: 350px;
     background: white;
     border-radius: 50px;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
-.remove-pop input[type=submit] {
+.remove-pop {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.remove-pop input[type=submit],.event-remove-pop input[type=submit] {
     width: 100%;
     background-color: red;
     color: white;
@@ -62,11 +69,14 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
     border-radius: 50px;
     cursor: pointer;
 }
-.remove-pop input[type=submit]:hover {
+.remove-pop input[type=submit]:hover, .event-remove-pop input[type=submit]:hover {
     background-color: darkred;
 }
-.remove-pop.activated{
+.remove-pop.activated {
     transform: translate(-50%, -50%) scale(1);
+}
+.event-remove-pop.activated {
+    transform: translate(-50%, 500%) scale(1);
 }
 .add-pop{
     position: absolute;
@@ -163,7 +173,7 @@ form .txt_field{
 .add-pop button:hover {background-color: #3e8e41}
 .add-pop button:active {
     background-color: #3e8e41;
-    box-shadow: 0 5% #666;
+    box-shadow: 0px 5px #666;
     transform: translateY(4%);
 }
 .signup_link{
@@ -210,7 +220,7 @@ form .txt_field{
     grid-template-areas:
         ". ProfilePicture ."
         "Info Info Info"
-        "Report Report MyReports";
+        "News News News";
 }
 
 .container > div header {
@@ -228,6 +238,10 @@ form .txt_field{
     grid-area: ProfilePicture;
     border: none;
 }
+.header {
+    display:flex;
+    justify-content: space-between;
+}
 .ProfilePicture img {
     display: block;
     margin-left: auto;
@@ -238,13 +252,10 @@ form .txt_field{
     grid-area: Info;
 }
 
-.Report {
-    grid-area: Report;
+.News {
+    grid-area: News;
 }
 
-.MyReports {
-    grid-area: MyReports;
-}
 @media (max-width: 800px) {
 
     .container {
@@ -275,10 +286,33 @@ input[type=submit] {
     cursor: pointer;
     
 }
-textarea {
+#title-input {
+    width: 100%;
+    height: 40px;
+    padding: 5px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+#text-input {
     width: 100%;
     height: 150px;
     padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+#link-input {
+    width: 100%;
+    height: 40px;
+    padding: 5px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;

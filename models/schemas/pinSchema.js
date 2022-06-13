@@ -17,6 +17,23 @@ const pinSchema = new Schema({
     color : {
         type: String,
         required: true
+    },
+    common: {
+        type: Number,
+        required:true
+    },
+    metal: {
+        type: Number,
+        required:true
+    }
+    ,
+    paper: {
+        type: Number,
+        required:true
+    },
+    plastic: {
+        type: Number,
+        required:true
     }
 });
 

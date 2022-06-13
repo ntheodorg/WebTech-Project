@@ -9,10 +9,6 @@ const reportSchema = new Schema({
         type: String,
         required: true
     },
-    post_date : {
-        type: Date,
-        required: true
-    },
     report_text : {
         type: String,
         required: true
@@ -21,8 +17,7 @@ const reportSchema = new Schema({
         type: Number,
         required: true
     }
-
-});
+}, { timestamps: true});
 
 const ReportSchema = mongoose.model('Report', reportSchema);
 module.exports = ReportSchema;

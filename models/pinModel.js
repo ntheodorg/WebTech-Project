@@ -6,7 +6,11 @@ function savePin(data,res){
      street: data.street,
      latitude: data.latitude,
      longitude: data.longitude,
-     color: 'green'
+     color: 'green',
+     common: data.common,
+     plastic: data.plastic,
+     metal: data.metal,
+     paper: data.paper
  });
  pin.save();
  res.writeHead(200,{'Content-type' : 'application/json'});
@@ -18,9 +22,7 @@ function getAllPins(res){
      .then((result) =>{
          res.writeHead(200,{'Content-type' : 'application/json'});
          result.forEach((object) => {
-
              object.street = object.street.replace(/\+/g, " ");
-
          })
          res.end(JSON.stringify(result));
      })
@@ -34,8 +36,6 @@ function deletePin(data,res) {
         .then((result) =>{
             result.forEach((object) => {
                 object.street = object.street.replace(/\+/g, " ");
-                console.log(object.street);
-                console.log(data.street);
                 if(object.street === data.street)
                 {
                     res.writeHead(200,{'Content-type' : 'application/json'});

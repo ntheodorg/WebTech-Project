@@ -9,11 +9,10 @@ const eventSchema = new Schema({
         type: String,
         required: true
     },
-    link : {
+    eventLink : {
         type: String,
-        required: true
     }
-});
+} , { timestamps : true});
 
 const EventSchema = mongoose.model('Event', eventSchema);
 module.exports = EventSchema;

@@ -1,6 +1,6 @@
 function initMap(){
     // Map options
-    var options = {
+    let options = {
       zoom : 13,
       center:{lat:47.161726, lng:27.587914}
     }
@@ -15,7 +15,7 @@ function initMap(){
         }
     })
     function addMarker(props){
-        var color = undefined;
+        let color = undefined;
         if(props.color === "green"){
             color = "Resources/IasiMap/green-pin.png";
         }
@@ -25,15 +25,16 @@ function initMap(){
         else{
             color ="Resources/IasiMap/red-pin.png"
         }
-        var marker = new google.maps.Marker({
+        let marker = new google.maps.Marker({
             position: {lat:props.latitude,lng:props.longitude},
             map:map,
             icon:{
               url: color,
-              scaledSize: new google.maps.Size(30,40)}
+              scaledSize: new google.maps.Size(30,40)},
+            id: props._id
           })
           marker.addListener('click', () => {
-          const pop = document.getElementById('pop');
+          const pop = document.getElementById(marker.id); // TODO
           openPop(pop)
           })
         }

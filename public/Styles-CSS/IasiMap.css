@@ -35,7 +35,7 @@ body {
     border: 1px solid black;
     border-radius: 10px;
     z-index: 10;
-    width: 500;
+    width: 500px;
     max-width: 80%;
 }
 .pop.activated{
@@ -58,7 +58,7 @@ body {
     outline:none;
     background-color: black;
     padding: 1px 6px;
-    border-radius:none;
+    border-radius:0;
     font-size: 1.25rem;
     font-weight: bold;
 }
@@ -112,8 +112,8 @@ body {
     justify-content:space-between;
     padding: 10px 15px;
     background-color: green;
-    border-radius:none;
     font-size: 1.25rem;
+    border-radius:0;
     font-weight: bold;
     color:white;
 }
@@ -125,4 +125,29 @@ body {
 }
 .report-tab-title{
     padding-top: 10px;
+}
+.add-report {
+    position: absolute;
+    padding: 20px 20px;
+    top: 50%;
+    left: 50%;
+    transition: 200ms ease-in-out;
+    transform: translate(-50%, -50%) scale(0);
+    border: 1px solid black;
+    z-index: 10;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+.add-report.activated {
+    transform: translate(-50%, -50%) scale(1);
+}
+.add-report h2 {
+    text-align: center;
+}
+.add-report textarea {
+    width: 100%;
+    height: 90%;
 }

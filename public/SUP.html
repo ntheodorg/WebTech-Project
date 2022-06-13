@@ -71,9 +71,14 @@
         <div class="remove-pop" id="remove-pop">
             <label for="identifier">Garbage spot to remove</label>
             <select id="identifier" name="street">
-                <option class="option-class"> ceva</option>
             </select>
             <input id="btn-delete" type="submit">
+        </div>
+        <div class="event-remove-pop" id="event-remove-pop">
+            <label for="event-title">Event to remove</label>
+            <select id="event-title" name="title">
+            </select>
+            <input id="event-btn-delete" type="submit">
         </div>
         <div class="container">
             <div class="ProfilePicture">
@@ -115,34 +120,23 @@
                     </h3>
                 </main>
             </div>
-            <div class="Report">
-                <header>
+            <div class="News">
+                <div class="header">
                     <h2>
-                        Report
+                        Add News
                     </h2>
-                </header>
+                    <div class="event-buttons">
+                        <button delete-event-button class="event-remove-button" id="event-remove-btn">Delete event</button>
+                    </div>
+                </div>
                 <main>
-                    <form action="">
-                        <label for="city">City</label>
-                        <select id="city" name="city">
-                          <option value="iasi">Iasi</option>
-                          <option value="bucuresti">Bucuresti</option>
-                          <option value="constanta">Constanta</option>
-                        </select>
-
-                        <textarea placeholder="Information about your report..."></textarea>
-
-                        <input type="submit" value="Submit">
+                    <form>
+                        <textarea class="event-input" id="title-input" placeholder="Title for your news..." required ></textarea>
+                        <textarea class="event-input" id="text-input" placeholder="Information about your news..." required ></textarea>
+                        <textarea class="event-input" id="link-input" placeholder="You can enter a link to this event..."></textarea>
+                        <input id="event-submit" type="submit" value="Submit">
                     </form>
                 </main>
-            </div>
-            <div class="MyReports">
-                <header>
-                    <h2>
-                        My Reports
-                    </h2>
-                </header>
-
             </div>
         </div>
         <div id="overlay"></div>

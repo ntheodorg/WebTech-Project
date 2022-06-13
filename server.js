@@ -11,12 +11,11 @@ app.importAsset("/Styles-CSS", "./public");
 app.importAsset("/Resources", "./public");
 app.importAsset("/Scripts-JS", "./public");
 
-
-// connect to mongoDB
-
 // Use routers in our App instance
 app.use(routers.staticRouter);
 app.use(routers.pinRouter);
+app.use(routers.eventRouter);
+app.use(routers.reportRouter);
 
 // connect to mongoDB
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology:true})

@@ -1,7 +1,6 @@
 const pinModel = require('../models/pinModel');
 
 const pin_post = (req,res) => {
-    console.log(req.body);
     pinModel.savePin(req.body,res);
 }
 
