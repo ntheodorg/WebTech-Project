@@ -24,13 +24,25 @@ UserSchema.pre('save', async function (next) {
     this.password = await bcrypt.hash(this.password, salt);
 
     next();
-})
+});
 
-// Fire function after DB save
-UserSchema.post('save', function (doc, next) {
-    console.log('new user created');
-    next();
-})
+UserSchema.statics.login = async function(email, password) {
+    const user = await this.findOne({ email });
+    if(user) {
+        const auth = await bcrypt.compare(password, user.password);
+        if(auth) {
+            return user;
+        }
+        throw Error('Incorrect password');
+    }
+    throw Error('Incorrect email');
+}
+
+// // Fire function after DB save
+// UserSchema.post('save', function (doc, next) {
+//     console.log('new user created');
+//     next();
+// })
 
 
 const User = mongoose.model('user', UserSchema);
