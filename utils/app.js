@@ -25,21 +25,27 @@ class App {
 
             console.log('Request was made: ' + req.url + " on " + req.method );
 
-            req = this.addReqFeatures(req);
-            res = this.addResFeatures(res);
-
-            if(!this.isJSONOnReq(req)){
-                // If there are assets to send, choose only to send them on this request
-                if(this.sendAssetIfRequested(req.url, res)){
-                    console.log(`Fulfilled \"${req.url}\"`);
-                    //  Otherwise send desired file using router
-                } else {
-
-                    this.router.handleRoute(req,res);
-                }
+            // If there are assets to send, choose only to send them on this request
+            if(this.sendAssetIfRequested(req.url, res)){
+                // console.log(`Fulfilled \"${req.url}\"`);
+                // Otherwise send desired file using router
             } else {
-                this.HandleJSONReq(req, res);
+                req = this.addReqFeatures(req);
+                res = this.addResFeatures(res);
+
+                if(this.authFunction) {
+                    req = this.authFunction(req, res);
+                }
+                if(!this.isJSONOnReq(req)){
+                    this.router.handleRoute(req,res);
+                } else {
+                    this.HandleJSONReq(req, res);
+                }
             }
+
+
+
+
 
         });
 
@@ -180,6 +186,10 @@ class App {
         }
 
         return res;
+    }
+
+    useAuth(authentication) {
+        this.authFunction = authentication;
     }
 }
 

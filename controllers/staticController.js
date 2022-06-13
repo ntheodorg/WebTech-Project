@@ -7,10 +7,6 @@ module.exports = {
         res.redirect(staticRoutes.home.route);
     },
     home: function(req, res) {
-
-        console.log(req.cookies);
-
-
         res.cookie('ceva12', false, `Max-Age=${1000*60*60*24}`);
         res.writeHead(200, {'Content-Type': 'text/html'});
         fs.createReadStream(staticRoutes.home.location).pipe(res);
