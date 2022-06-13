@@ -2,7 +2,7 @@ const App = require('./utils/app.js');
 const routers = require(`./routers/index`);
 const mongoose = require('mongoose');
 const dbURI = 'mongodb+srv://aleigo:aleigo792035@clearly.sxg4p.mongodb.net/Clearly?retryWrites=true&w=majority';
-const { authMiddleware } = require('./middlewares/requireAuth');
+const { checkUser } = require('./middlewares/authMiddleware');
 
 // Create App instance with a specific port
 app = new App(4000);
@@ -14,7 +14,7 @@ app.importAsset("/Scripts-JS", "./public");
 
 
 // Auth middleware
-// app.useAuth(authMiddleware);
+app.useAuth(checkUser);
 
 // Use routers in our App instance
 app.use(routers.staticRouter);

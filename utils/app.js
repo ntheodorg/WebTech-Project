@@ -21,23 +21,23 @@ class App {
 
     listen() {
         // Everytime a request is received, below function is triggered
-        const server = http.createServer((req, res) => {
+        const server = http.createServer(async (req, res) => {
 
-            console.log('Request was made: ' + req.url + " on " + req.method );
+            console.log('Request was made: ' + req.url + " on " + req.method);
 
             // If there are assets to send, choose only to send them on this request
-            if(this.sendAssetIfRequested(req.url, res)){
+            if (this.sendAssetIfRequested(req.url, res)) {
                 // console.log(`Fulfilled \"${req.url}\"`);
                 // Otherwise send desired file using router
             } else {
                 req = this.addReqFeatures(req);
                 res = this.addResFeatures(res);
 
-                if(this.authFunction) {
-                    // req = this.authFunction(req, res);
+                if (this.authFunction) {
+                    req = await this.authFunction(req, res);
                 }
-                if(!this.isJSONOnReq(req)){
-                    this.router.handleRoute(req,res);
+                if (!this.isJSONOnReq(req)) {
+                    this.router.handleRoute(req, res);
                 } else {
                     this.HandleJSONReq(req, res);
                 }
@@ -141,6 +141,8 @@ class App {
         if(req.headers.cookie) {
             let result = req.headers.cookie.split('; ').map(e => e.split('='));
             req.cookies = Object.fromEntries(result)
+        } else {
+            req.cookies = {}
         }
 
         return req;

@@ -48,8 +48,8 @@ module.exports = {
         try {
             const user = await User.login(email, password);
             const token = createToken(user._id);
-            res.cookie('jwt', token, `HttpOnly; Max-Age=${maxAge * 1000}; Path=/`);
 
+            res.cookie('jwt', token, `HttpOnly; Max-Age=${maxAge * 1000}; Path=/`);
             res.status(201).json({user: user._id});
 
         } catch (err) {
@@ -63,7 +63,7 @@ module.exports = {
         console.log(email, password);
 
         try {
-            const user = await User.create({email, password});
+            const user = await User.create({email, password, accountType: 'user'});
             const token = createToken(user._id);
             res.cookie('jwt', token, `HttpOnly; Max-Age=${maxAge * 1000}; Path=/`);
 
