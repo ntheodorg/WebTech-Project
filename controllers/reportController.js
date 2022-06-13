@@ -4,7 +4,7 @@ const report_post = (req,res) => {
     reportModel.saveReport(req.body,res);
 }
 
-const report_get = (res) => {
+const report_get = (req, res) => {
     reportModel.getAllReports(res);
 }
 

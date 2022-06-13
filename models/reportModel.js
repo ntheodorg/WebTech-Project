@@ -16,7 +16,7 @@ function saveReport(data,res){
 
 function getAllReports(res){
     ReportSchema.find()
-        .then((result) =>{
+        .then((result) => {
             res.writeHead(200,{'Content-type' : 'application/json'});
             result.forEach((object) => {
 
