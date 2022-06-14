@@ -32,7 +32,7 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 20px 10px;
     grid-auto-flow: row;
     grid-template-areas:
@@ -51,7 +51,6 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
 
 .ProfilePicture {
     margin: 0 auto;
-    width: 50%;
     grid-area: ProfilePicture;
     border: none;
 }

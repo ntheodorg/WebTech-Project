@@ -17,7 +17,7 @@ const headerElements = {
     profileButton: {
         href: {
             user: "UP",
-            superuser: "SU",
+            superuser: "SUP",
             admin: "AP"
         },
         className: "profileButton",
