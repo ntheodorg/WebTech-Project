@@ -38,7 +38,7 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
     grid-template-areas:
         ". ProfilePicture ."
         "Info Info Info"
-        "Report Report MyReports";
+        "MyReports MyReports MyReports";
 }
 .container > div header {
     text-align: center;
