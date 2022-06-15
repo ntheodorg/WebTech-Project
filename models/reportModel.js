@@ -7,7 +7,7 @@ function saveReport(data,res){
         pin_id: data.pin_id,
         reporter_name: data.reporter_name,
         report_text: data.report_text,
-        like_number: 0
+        like_number: 0,
     });
     report.save();
     res.writeHead(200,{'Content-type' : 'application/json'});
@@ -50,8 +50,30 @@ function deleteReport(data,res) {
         })
 }
 
+function getMyReports(res){
+    PinSchema.find().then((result)=> {    ReportSchema.find()
+        .then((rep) => {
+            res.writeHead(200,{'Content-type' : 'application/json'});
+            rep.forEach((object) => {
+                for(let i = 0 ; i < result.length;i++){
+                    if(result[i].id === object.pin_id){
+                        object.street = result[i].street;
+                    }
+                }
+                object.reporter_name = object.reporter_name.replace(/\+/g, " ");
+                object.report_text = object.report_text.replace(/\+/g, " ");
+            })
+            res.end(JSON.stringify(rep));
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    });
+}
+
 module.exports = {
     saveReport,
     getAllReports,
-    deleteReport
+    deleteReport,
+    getMyReports
 }

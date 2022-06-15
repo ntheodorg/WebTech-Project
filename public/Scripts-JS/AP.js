@@ -1,11 +1,8 @@
 const openAddPopButton = document.getElementById('add-btn');
 const overlay = document.getElementById('overlay');
 
-console.log(openAddPopButton);
-console.log(overlay);
 openAddPopButton.addEventListener('click', () =>{
         const addPop = document.getElementById('add-pop');
-        console.log(addPop);
         openPop(addPop);
 })
 

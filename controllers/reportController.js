@@ -12,8 +12,13 @@ const report_delete = (req,res) => {
     reportModel.deleteReport(req.body,res);
 }
 
+const myReports_get = (req,res) => {
+    reportModel.getMyReports(res);
+}
+
 module.exports = {
     report_post,
     report_get,
-    report_delete
+    report_delete,
+    myReports_get
 }

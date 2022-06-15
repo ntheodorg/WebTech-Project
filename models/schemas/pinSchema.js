@@ -25,8 +25,7 @@ const pinSchema = new Schema({
     metal: {
         type: Number,
         required:true
-    }
-    ,
+    },
     paper: {
         type: Number,
         required:true

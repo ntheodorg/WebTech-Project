@@ -10,5 +10,9 @@ exports.reportRoutes = {
     report_delete: {
         route: "/api/reports",
         method: "DELETE"
+    },
+    report_getMy: {
+        route: "/api/myReports",
+        method: "GET"
     }
 }
