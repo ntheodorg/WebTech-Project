@@ -46,36 +46,28 @@
                     </h3>
                 </main>
             </div>
-            <div class="Report">
-                <header>
-                    <h2>
-                        Report
-                    </h2>
-                </header>
-                <main>
-                    <form action="">
-                        <label for="city">City</label>
-                        <select id="city" name="city">
-                          <option value="iasi">Iasi</option>
-                          <option value="bucuresti">Bucuresti</option>
-                          <option value="constanta">Constanta</option>
-                        </select>
-
-                        <textarea placeholder="Information about your report..."></textarea>
-
-                        <input type="submit" value="Submit">
-                    </form>
-                </main>
-            </div>
             <div class="MyReports">
                 <header>
                     <h2>
                         My Reports
                     </h2>
                 </header>
-
+                <template id="report-template">
+                    <div class="report">
+                        <div class="report-upper">
+                            <div class="street">Strada Mugurilor 209</div>
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                        <div class="report-body">Am vazut ca s-a strans foaarte mult gunoi aici! faceti ceva va rog!</div>
+                        <div class="report-bottom">
+                            <div class="likes">Likes:59</div>
+                            <div class="date">2019:09:30</div>
+                        </div>
+                    </div>
+                </template>
             </div>
         </div>
     </main>
+    <script defer src="Scripts-JS/UP.js"></script>
 </body>
 </html>

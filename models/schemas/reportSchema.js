@@ -5,6 +5,14 @@ const reportSchema = new Schema({
         type: String,
         required: true
     },
+    street : {
+        type: String,
+        required:false
+    },
+    reporter_id : {
+        type: String,
+        required:true
+    },
     reporter_name : {
         type: String,
         required: true
