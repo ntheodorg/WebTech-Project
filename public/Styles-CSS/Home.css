@@ -36,7 +36,7 @@ main .right-section {
     text-align: center;
     
     flex: 50%;
-    padding: 0px;
+    padding: 0;
 
 }
 
@@ -116,4 +116,4 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
         font-size: 3vw;
     
     }
-  }
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +9,9 @@
     <link rel="stylesheet" href="Styles-CSS/SUP.css">
     <link rel="icon" href="Resources/Home/logo.png">
 </head>
-<body>
-    <nav>
-        <div>
-            <a href="Home"><img class="logo" src="Resources/Home/logo.png" alt="Clearity"></a>
-        </div>
-        <ul>
-            <li><a  href="Home">Home</a></li>
-            <li><a href="IasiMap">Iasi Map</a></li>
-            <li><a href="News">News</a></li>
 
-        </ul>
-    </nav>
+<body>
+    <nav></nav>
 
     <main>
         <div class="SUP-manipulation-buttons">
@@ -30,7 +22,7 @@
             <h1>Add garbage spot</h1>
             <form>
                 <div class="txt_field">
-                    <input class="form-input" required maxlength="25" name="street" >
+                    <input class="form-input" required maxlength="25" name="street">
                     <span></span>
                     <label>Street</label>
                 </div>
@@ -126,21 +118,27 @@
                         Add News
                     </h2>
                     <div class="event-buttons">
-                        <button delete-event-button class="event-remove-button" id="event-remove-btn">Delete event</button>
+                        <button delete-event-button class="event-remove-button" id="event-remove-btn">Delete
+                            event</button>
                     </div>
                 </div>
                 <main>
                     <form>
-                        <textarea class="event-input" id="title-input" placeholder="Title for your news..." required ></textarea>
-                        <textarea class="event-input" id="text-input" placeholder="Information about your news..." required ></textarea>
-                        <textarea class="event-input" id="link-input" placeholder="You can enter a link to this event..."></textarea>
+                        <textarea class="event-input" id="title-input" placeholder="Title for your news..."
+                            required></textarea>
+                        <textarea class="event-input" id="text-input" placeholder="Information about your news..."
+                            required></textarea>
+                        <textarea class="event-input" id="link-input"
+                            placeholder="You can enter a link to this event..."></textarea>
                         <input id="event-submit" type="submit" value="Submit">
                     </form>
                 </main>
             </div>
         </div>
         <div id="overlay"></div>
+        <script src="Scripts-JS/navBar.js"></script>
         <script defer src="Scripts-JS/SUP.js"></script>
     </main>
 </body>
+
 </html>

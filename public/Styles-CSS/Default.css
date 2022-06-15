@@ -8,7 +8,7 @@
     /* background-color: rgb(179, 32, 32); */
 }
 .active {
-    color: rgba(94, 255, 0, 0.842);
+    color: rgba(94, 255, 0);
     text-shadow: 2px 2px 5px #000000, -2px -2px 5px #000000;
 }
 

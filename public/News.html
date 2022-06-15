@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,19 +9,11 @@
     <link rel="stylesheet" href="Styles-CSS/News.css">
     <link rel="icon" href="Resources/Home/logo.png">
 </head>
+
 <body>
     <header></header>
 
-    <nav>
-        <div>
-            <a href="Home"><img class="logo" src="Resources/Home/logo.png" alt="Clearity"></a> 
-        </div>
-        <ul>
-            <li><a href="Home">Home</a></li>
-            <li><a href="IasiMap">Iasi Map</a></li>
-            <li><a class="active" href="News">News</a></li>
-        </ul>
-    </nav>
+    <nav></nav>
 
     <main>
         <template id="eventTemplate">
@@ -36,7 +29,9 @@
         </template>
     </main>
 
-    <script src="Scripts-JS/header.js"></script>
+    <script type="module" src="Scripts-JS/header.js"></script>
+    <script src="Scripts-JS/navBar.js"></script>
     <script defer src="Scripts-JS/news.js"></script>
 </body>
+
 </html>
