@@ -29,7 +29,7 @@ form.addEventListener('submit', async (e) => {
         }
 
         if(data.user) {
-            location.assign('/')
+            success.textContent = 'SuperUser added with success!'
         }
 
     } catch (err) {
