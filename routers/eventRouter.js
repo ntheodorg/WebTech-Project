@@ -1,5 +1,5 @@
 const Router = require('../utils/router.js');
-const eventRoutes = require("../models/eventRoutes").eventRoutes;
+const { eventRoutes } = require("../settings/_serverSettings");
 const eventController = require("../controllers/eventController");
 
 const eventRouter = new Router();

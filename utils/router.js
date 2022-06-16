@@ -1,5 +1,5 @@
 const fs = require("fs");
-const {staticRoutes} = require("../models/routesModel");
+const {staticRoutes} = require("../settings/_serverSettings");
 
 function callFunction(req, res, selectedRoute) {
     if(selectedRoute.authReq){

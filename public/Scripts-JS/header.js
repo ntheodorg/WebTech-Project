@@ -1,4 +1,4 @@
-import { mainFunction } from './getUserData.js';
+import { getServerData } from './getServerData.js';
 
 const headerElements = {
     motto: "Clearity - Together we can",
@@ -113,36 +113,9 @@ function buildHeader() {
 
 }
 
-mainFunction().then(userData => {
-    console.log(userData)
+
+getServerData().then(({userData, serverSettings}) => {
+    console.log(serverSettings)
     setAccountType(userData);
     buildHeader();
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-mainFunction().then(userData => {
-    // Your code must be under this line
 })

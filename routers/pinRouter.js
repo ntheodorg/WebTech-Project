@@ -1,5 +1,5 @@
 const Router = require('../utils/router.js');
-const pinRoutes = require("../models/pinRoutes").pinRoutes;
+const { pinRoutes } = require("../settings/_serverSettings");
 const pinController = require("../controllers/pinController");
 
 const pinRouter = new Router();

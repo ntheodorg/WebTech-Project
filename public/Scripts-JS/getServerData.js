@@ -30,8 +30,10 @@
 // }
 // fun2()
 
-export async function mainFunction() {
+
+export async function getServerData() {
     let userData
+    let serverSettings
     try {
         const res = await fetch('/api/GetUserData');
         userData = await res.json();
@@ -42,6 +44,17 @@ export async function mainFunction() {
         console.log(err);
         userData = {}
     }
-    return userData
+    try {
+        const res = await fetch('/api/GetServerSettings');
+        serverSettings = await res.json();
+
+
+
+    } catch (err) {
+        console.log(err);
+        serverSettings = {}
+    }
+
+    return {userData, serverSettings}
 };
 

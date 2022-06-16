@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
-const staticRoutes = require("../models/routesModel").staticRoutes;
+const staticRoutes = require("../settings/_serverSettings").staticRoutes;
 
 const requireAuth = (req, res) => {
     if(req.userData == undefined) {

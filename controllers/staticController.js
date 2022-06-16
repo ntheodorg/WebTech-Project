@@ -1,5 +1,5 @@
 const fs = require('fs');
-const staticRoutes = require("../models/routesModel").staticRoutes;
+const staticRoutes = require("../settings/_serverSettings").staticRoutes;
 
 module.exports = {
     default: function(req, res) {

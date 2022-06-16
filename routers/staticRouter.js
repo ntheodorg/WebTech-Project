@@ -1,5 +1,5 @@
 const Router = require('../utils/router.js');
-const staticRoutes = require("../models/routesModel").staticRoutes;
+const { staticRoutes } = require("../settings/_serverSettings");
 const staticController = require("../controllers/staticController");
 const { requireAuth } = require('../middlewares/authMiddleware');
 

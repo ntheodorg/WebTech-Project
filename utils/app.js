@@ -3,7 +3,7 @@ const url = require('url');
 const Router = require('./router.js');
 const pathModule = require('path');
 const fs = require('fs');
-const {staticRoutes} = require("../models/routesModel");
+const {staticRoutes} = require("../settings/_serverSettings");
 
 class App {
     // Port to run the server

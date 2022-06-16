@@ -1,6 +1,6 @@
 
 const fs = require('fs');
-const staticRoutes = require("../models/routesModel").staticRoutes;
+const { staticRoutes, commonRoutes } = require("../settings/_serverSettings");
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
@@ -109,6 +109,12 @@ module.exports = {
         res.cookie('jwt', '', 'Max-Age=1; Path=/');
 
         res.redirect('/');
+    },
+    getServerSettings: function (req, res) {
+        res.status(201).json({
+            staticRoutes,
+            commonRoutes
+        });
     }
 
 }
