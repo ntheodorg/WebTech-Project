@@ -1,5 +1,5 @@
 const Router = require('../utils/router.js');
-const reportRoutes = require("../models/reportRoutes").reportRoutes;
+const reportRoutes = require("../settings/reportRoutes").reportRoutes;
 const reportController = require("../controllers/reportController");
 
 const reportRouter = new Router();
