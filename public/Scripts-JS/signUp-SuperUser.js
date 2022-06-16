@@ -2,6 +2,7 @@
 const form = document.querySelector('#superUserForm');
 const emailError = form.querySelector('.email.error');
 const passwordError = form.querySelector('.password.error');
+const success = document.querySelector('.success');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
