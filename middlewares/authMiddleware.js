@@ -13,7 +13,6 @@ const checkUser = async (req, res) => {
     if(token){
         try {
             const decodedToken = jwt.verify(token, 'secretKey');
-            console.log(decodedToken);
             let user = await User.findById(decodedToken.id);
             req.userData = user;
             return req;

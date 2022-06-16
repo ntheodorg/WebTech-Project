@@ -52,7 +52,7 @@ body {
     font-size: 1.25rem;
     font-weight: bold;
 }
-.stat-header .close-button{
+.stat-header{
     cursor:pointer;
     border:none;
     outline:none;
@@ -61,6 +61,9 @@ body {
     border-radius:0;
     font-size: 1.25rem;
     font-weight: bold;
+}
+.add-report-button:hover {
+    background-color: lightgreen;
 }
 .stat-body, .report-body{
     padding: 10px 15px;
@@ -71,9 +74,6 @@ body {
 }
 .stat-title{
     text-align: center;
-}
-.close-button{
-    color: white;
 }
 .report-header{
     background-color: yellow;

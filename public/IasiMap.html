@@ -11,12 +11,8 @@
 
 <body>
     <header></header>
-
     <nav></nav>
-
     <div id="map"></div>
-    <button data-pop-target=".pop">User Pin</button>
-    <button data-pop-target-super=".pop">SuperUser Pin</button>
     <form class="add-report" id="add-report">
         <h2>Add Report</h2>
         <textarea class="report-input" id="report-input" placeholder="Describe the situation..." required></textarea>
@@ -27,7 +23,6 @@
             <div class="statistics">
                 <div class="stat-header">
                     <div class="stat-title"> Statistics</div>
-                    <button data-close-button class="close-button">&times;</button>
                 </div>
                 <div class="stat-body">
                     <stat></stat>
@@ -40,7 +35,6 @@
             <div class="reports-tab">
                 <div class="report-tab-header">
                     <div class="report-tab-title">Reports</div>
-                    <button class="add-report-button">Add report</button>
                 </div>
             </div>
         </div>
@@ -56,19 +50,17 @@
             </div>
             <div class="report-stats">
                 <div class="likes"></div>
-                <button class="accept-button">Collect</button>
             </div>
         </div>
     </template>
     <div id="overlay"></div>
     <script type="module" src="Scripts-JS/header.js"></script>
     <script src="Scripts-JS/navBar.js"></script>
-    <script src="Scripts-JS/googleapi.js"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjzndPejdmgsfdCHUsI6vzqFObih2yLOI&callback=initMap&v=weekly"
-        defer>
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjzndPejdmgsfdCHUsI6vzqFObih2yLOI&callback=initMap&v=weekly"
+            defer>
     </script>
-    <script defer src="Scripts-JS/IasiMap.js"></script>
+    <script src="Scripts-JS/googleapi.js"></script>
+    <script type="module" src="Scripts-JS/IasiMap.js"></script>
 </body>
-
 </html>

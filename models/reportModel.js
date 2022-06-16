@@ -6,6 +6,7 @@ function saveReport(data,res){
     const report = new ReportSchema({
         pin_id: data.pin_id,
         reporter_name: data.reporter_name,
+        reporter_id: data.reporter_id,
         report_text: data.report_text,
         like_number: 0,
     });
@@ -30,28 +31,25 @@ function getAllReports(res){
         });
 }
 
-function deleteReport(data,res) {
+function deleteReport(report_id,res) {
+    console.log(report_id);
     ReportSchema.find()
         .then((result) =>{
             result.forEach((object) => {
-                object.reporter_name = object.reporter_name.replace(/\+/g, " ");
-                if(object.reporter_name === data.reporter_name)
-                {
                     res.writeHead(200,{'Content-type' : 'application/json'});
-                    ReportSchema.findByIdAndDelete(object.id, function (err) {
+                    ReportSchema.findByIdAndDelete(report_id, function (err) {
                         if (err) {
                             res.end(JSON.stringify("false"));
                         } else {
                             res.end(JSON.stringify("true"));
                         }
                     })
-                }
             })
         })
 }
 
-function getMyReports(res){
-    PinSchema.find().then((result)=> {    ReportSchema.find()
+function getMyReports(user_id,res){
+    PinSchema.find().then((result)=> {    ReportSchema.find({reporter_id:user_id})
         .then((rep) => {
             res.writeHead(200,{'Content-type' : 'application/json'});
             rep.forEach((object) => {

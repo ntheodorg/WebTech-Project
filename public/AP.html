@@ -21,7 +21,7 @@
             <h1>Add SuperUser</h1>
             <form id="superUserForm" method="post">
                 <div class="txt_field">
-                    <input name="email" type="text" required maxlength="25">
+                    <input name="email" type="text" required maxlength="35">
                     <span></span>
                     <label>Email</label>
                 </div>
@@ -35,17 +35,17 @@
                 <div class="password error"></div>
 
                 <div class="txt_field">
-                    <input type="text" required maxlength="25">
+                    <input name="company_name" type="text" required maxlength="25">
                     <span></span>
                     <label>Company Name</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" required maxlength="2">
+                    <input name="company_street" type="text" required maxlength="25">
                     <span></span>
                     <label>Company Street</label>
                 </div>
                 <div class="txt_field">
-                    <input type="text" required maxlength="2">
+                    <input name="contact_number" type="text" required maxlength="25">
                     <span></span>
                     <label>Contact phone:</label>
                 </div>
@@ -66,17 +66,16 @@
                     </h2>
                 </header>
                 <main>
-                    <h3>
-                        Name: Nae
+                    <h3 id="user-name">
                     </h3>
-                    <h3>
-                        Firstname: Theodor
+                    <h3 id="user-forename">
                     </h3>
                     <h3>
                         Title: Admin
                     </h3>
-                    <h3>
-                        Contact: custommail@gmail.com
+                    <h3 id="mail">
+                    </h3>
+                    <h3 id="age">
                     </h3>
                 </main>
             </div>
@@ -112,7 +111,7 @@
         </div>
         <div id="overlay"></div>
         <script src="Scripts-JS/navBar.js"></script>
-        <script defer src="Scripts-JS/AP.js"></script>
+        <script type="module" src="Scripts-JS/AP.js"></script>
         <script src="Scripts-JS/signUp-SuperUser.js"></script>
     </main>
 </body>

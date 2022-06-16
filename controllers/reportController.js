@@ -13,7 +13,7 @@ const report_delete = (req,res) => {
 }
 
 const myReports_get = (req,res) => {
-    reportModel.getMyReports(res);
+    reportModel.getMyReports(req.userData.id,res);
 }
 
 module.exports = {

@@ -3,8 +3,6 @@ const UserSchema = require('./schemas/userSchema');
 const { isEmail } = require('validator');
 const bcrypt = require('bcrypt');
 
-
-
 // Fire function before DB save
 UserSchema.pre('save', async function (next) {
     const salt = await bcrypt.genSalt();

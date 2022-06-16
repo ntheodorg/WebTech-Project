@@ -68,7 +68,6 @@ function buildHeader() {
 
 
     // Logout button
-    console.log(`.${headerElements.listItemsData.Logout.className}`);
     const logoutButton = list.querySelector(`.${headerElements.listItemsData.Logout.className}`);
     // logoutButton.href = null;
     // logoutButton.addEventListener('click', async (e) => {
@@ -94,8 +93,6 @@ function buildHeader() {
 
     list.append(listItem);
 
-    console.log(accountType)
-
     if ( accountType == undefined){
 
         logoutButton.style.display = "none";
@@ -115,7 +112,6 @@ function buildHeader() {
 
 
 getServerData().then(({userData, serverSettings}) => {
-    console.log(serverSettings)
     setAccountType(userData);
     buildHeader();
 })

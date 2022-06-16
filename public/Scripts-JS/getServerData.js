@@ -38,8 +38,6 @@ export async function getServerData() {
         const res = await fetch('/api/GetUserData');
         userData = await res.json();
 
-
-
     } catch (err) {
         console.log(err);
         userData = {}
@@ -47,8 +45,6 @@ export async function getServerData() {
     try {
         const res = await fetch('/api/GetServerSettings');
         serverSettings = await res.json();
-
-
 
     } catch (err) {
         console.log(err);

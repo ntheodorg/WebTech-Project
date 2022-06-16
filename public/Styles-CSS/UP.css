@@ -25,6 +25,7 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
 
 
 .container {
+    text-align:center;
     margin: 0 auto;
     width: 90%;
     padding: 10%;

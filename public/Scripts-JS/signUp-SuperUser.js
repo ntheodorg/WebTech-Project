@@ -1,4 +1,3 @@
-
 const form = document.querySelector('#superUserForm');
 const emailError = form.querySelector('.email.error');
 const passwordError = form.querySelector('.password.error');
@@ -12,13 +11,18 @@ form.addEventListener('submit', async (e) => {
     passwordError.textContent = '';
 
     // Get the values
-    const email = form.email.value;
-    const password = form.password.value;
+    let json = {
+        email: form.email.value,
+        password: form.password.value,
+        company_name: form.company_name.value,
+        company_street: form.company_street.value,
+        contact_number: form.contact_number.value
+    }
 
     try {
         const res = await fetch('/api/SignUp_SuperUser', {
             method: 'POST',
-            body: JSON.stringify({email, password}),
+            body: JSON.stringify(json),
             headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();

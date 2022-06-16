@@ -1,4 +1,3 @@
-
 const form = document.querySelector('form');
 const emailError = document.querySelector('.email.error');
 const passwordError = document.querySelector('.password.error');
@@ -11,17 +10,21 @@ form.addEventListener('submit', async (e) => {
     passwordError.textContent = '';
 
     // Get the values
-    const email = form.email.value;
-    const password = form.password.value;
+    let json = {
+        email: form.email.value,
+        password: form.password.value,
+        name: form.name.value,
+        forename: form.forename.value,
+        age: form.age.value
+    }
 
     try {
         const res = await fetch('/api/SignUp', {
             method: 'POST',
-            body: JSON.stringify({email, password}),
+            body: JSON.stringify(json),
             headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();
-        console.log(data);
 
         if(data.errors) {
             emailError.textContent = data.errors.email;

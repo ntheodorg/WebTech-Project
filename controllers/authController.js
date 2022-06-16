@@ -59,11 +59,18 @@ module.exports = {
         }
     },
     signup: async function(req, res) {
-        const { email, password } = req.body;
-        console.log(email, password);
-
+        let simpleUser = {
+            email: req.body.email,
+            password: req.body.password,
+            accountType: 'user',
+            details : {
+                name: req.body.name,
+                forename: req.body.forename,
+                age: req.body.age
+            }
+        }
         try {
-            const user = await User.create({email, password, accountType: 'user'});
+            const user = await User.create(simpleUser);
             const token = createToken(user._id);
             res.cookie('jwt', token, `HttpOnly; Max-Age=${maxAge * 1000}; Path=/`);
 
@@ -79,11 +86,18 @@ module.exports = {
 
     },
     signup_SuperUser: async function(req, res) {
-        const { email, password } = req.body;
-        console.log(email, password);
-
+        let superUser = {
+            email: req.body.email,
+            password: req.body.password,
+            accountType: 'superuser',
+            details : {
+                company_street: req.body.company_street,
+                company_name: req.body.company_name,
+                contact_number: req.body.contact_number
+            }
+        }
         try {
-            const user = await User.create({ email, password, accountType: 'superuser' });
+            const user = await User.create(superUser);
             res.status(201).json({user: user._id});
 
         } catch (err) {
@@ -95,13 +109,14 @@ module.exports = {
 
     },
     getUserData: function (req, res) {
-        if(req.userData == undefined){
+        if(req.userData === undefined){
             res.status(201).json({ })
         } else {
             res.status(201).json({
                 id: req.userData.id,
                 email: req.userData.email,
-                accountType: req.userData.accountType
+                accountType: req.userData.accountType,
+                details: req.userData.details
             })
         }
     },

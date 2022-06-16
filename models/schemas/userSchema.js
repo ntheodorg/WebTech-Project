@@ -18,6 +18,32 @@ const UserSchema = new Schema({
     accountType: {
         type: String,
         required: true
+    },
+    details: {
+        name: {
+            type: String,
+            required:false
+        },
+        forename: {
+            type: String,
+            required:false
+        },
+        age: {
+            type: Number,
+            required:false
+        },
+        company_name: {
+            type: String,
+            required:false
+        },
+        company_street: {
+            type: String,
+            required:false
+        },
+        contact_number: {
+            type: String,
+            required:false
+        }
     }
 });
 

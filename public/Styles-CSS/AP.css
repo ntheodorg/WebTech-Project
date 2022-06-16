@@ -126,7 +126,6 @@ form .txt_field{
 .add-pop button:hover {background-color: #3e8e41}
 .add-pop button:active {
     background-color: #3e8e41;
-    box-shadow: 0 5% #666;
     transform: translateY(4%);
 }
 .signup_link{
@@ -162,6 +161,7 @@ form .txt_field{
 
 
 .container {
+    text-align:center;
     margin: 0 auto;
     width: 90%;
     padding: 10%;

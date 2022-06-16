@@ -37,5 +37,20 @@ function initMap(){
           const pop = document.getElementById(marker.id); // TODO
           openPop(pop)
           })
+    }
+    function openPop(pop){
+        if(pop == null) return
+        pop.classList.add('activated');
+        overlay.classList.add('activated');
+        /*for( i = 0 ; i < reportButtons.length;i++)
+        {
+            reportButtons[i].classList.add('disabled');
         }
-      }
+        for( i = 0; i< addReportButtons.length;i++)
+        {
+            addReportButtons[i].classList.remove('disabled');
+        }
+
+     */
+    }
+}
