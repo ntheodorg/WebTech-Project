@@ -78,6 +78,22 @@ module.exports = {
         }
 
     },
+    signup_SuperUser: async function(req, res) {
+        const { email, password } = req.body;
+        console.log(email, password);
+
+        try {
+            const user = await User.create({ email, password, accountType: 'superuser' });
+            res.status(201).json({user: user._id});
+
+        } catch (err) {
+            const errors = handleErrors(err)
+            // console.log(errors)
+
+            res.status(400).json({ errors });
+        }
+
+    },
     getUserData: function (req, res) {
         if(req.userData == undefined){
             res.status(201).json({ })

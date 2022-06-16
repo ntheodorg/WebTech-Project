@@ -60,7 +60,7 @@ class Router {
 
     handleRoute(req, res) {
 
-        var reqUrl = req.url.split(`?`)[0]
+        let reqUrl = req.url.split(`?`)[0]
         try {
             switch (req.method) {
                 case "POST":
@@ -71,18 +71,18 @@ class Router {
                 case "GET":
                     return callFunction(req, res, this.getRoutes[reqUrl]);
                 case "DELETE":
-                    if(this.postRoutes[reqUrl].authReq){
-                        this.postRoutes[reqUrl].authReq(req, res);
+                    if(this.deleteRoutes[reqUrl].authReq){
+                        this.deleteRoutes[reqUrl].authReq(req, res);
                     }
                     return this.deleteRoutes[reqUrl].controller(req, res);
                 case "PUT":
-                    if(this.postRoutes[reqUrl].authReq){
-                        this.postRoutes[reqUrl].authReq(req, res);
+                    if(this.putRoutes[reqUrl].authReq){
+                        this.putRoutes[reqUrl].authReq(req, res);
                     }
                     return this.putRoutes[reqUrl].controller(req, res);
                 case "PATCH":
-                    if(this.postRoutes[reqUrl].authReq){
-                        this.postRoutes[reqUrl].authReq(req, res);
+                    if(this.patchRoutes[reqUrl].authReq){
+                        this.patchRoutes[reqUrl].authReq(req, res);
                     }
                     return this.patchRoutes[reqUrl].controller(req, res);
                 default:

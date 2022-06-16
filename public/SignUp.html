@@ -1,109 +1,74 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignIn Form | Clearly </title>
     <link rel="stylesheet" href="Styles-CSS/SignUp.css">
     <link rel="icon" href="Resources/Home/logo.png">
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="center">
-      <h1>Register</h1>
-      <form method="post">
-        <div class="txt_field">
-          <img class="iconUser" src="Resources/Login-Signup/userIcon.jpg" alt="Clearity">
-          <input name="email" type="text" required maxlength="17">
-          <span></span>
-          <label>Email</label>
-        </div>
-        <div class="email error"></div>
+        <h1>Register</h1>
+        <form method="post">
+            <div class="txt_field">
+                <img class="iconUser" src="Resources/Login-Signup/userIcon.jpg" alt="Clearity">
+                <input name="email" type="text" required maxlength="17">
+                <span></span>
+                <label>Email</label>
+            </div>
+            <div class="email error"></div>
 
-        <div class="txt_field">
-          <img class="iconPassword" src="Resources/Login-Signup/passwordIcon.jpeg" alt="Clearity">
-          <input name="password" type="password" required maxlength="17">
-          <span></span>
-          <label>Password</label>
-        </div>
-        <div class="password error"></div>
+            <div class="txt_field">
+                <img class="iconPassword" src="Resources/Login-Signup/passwordIcon.jpeg" alt="Clearity">
+                <input name="password" type="password" required maxlength="17">
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="password error"></div>
 
-        <div class="txt_field">
-            <img class="iconPassword" src="Resources/Login-Signup/passwordIcon.jpeg" alt="Clearity">
-            <input type="password" required maxlength="17">
-            <span></span>
-            <label>Confirm password</label>
-          </div>
-        <div class="password confirm error"></div>
+            <div class="txt_field">
+                <img class="iconPassword" src="Resources/Login-Signup/passwordIcon.jpeg" alt="Clearity">
+                <input type="password" required maxlength="17">
+                <span></span>
+                <label>Confirm password</label>
+            </div>
+            <div class="password confirm error"></div>
 
-          <div class="txt_field">
-            <img class="iconDetails" src="Resources/Login-Signup/details.jpg" alt="Clearity">
-            <input type="text" required maxlength="17">
-            <span></span>
-            <label>Name</label>
-          </div>
+            <div class="txt_field">
+                <img class="iconDetails" src="Resources/Login-Signup/details.jpg" alt="Clearity">
+                <input type="text" required maxlength="17">
+                <span></span>
+                <label>Name</label>
+            </div>
 
-          <div class="txt_field">
-            <img class="iconDetails" src="Resources/Login-Signup/details.jpg" alt="Clearity">
-            <input type="text" required maxlength="17">
-            <span></span>
-            <label>Forename</label>
-          </div>
+            <div class="txt_field">
+                <img class="iconDetails" src="Resources/Login-Signup/details.jpg" alt="Clearity">
+                <input type="text" required maxlength="17">
+                <span></span>
+                <label>Forename</label>
+            </div>
 
-          <div class="txt_field">
-            <img class="iconDetails" src="Resources/Login-Signup/details.jpg" alt="Clearity">
-            <input type="text" required maxlength="3">
-            <span></span>
-            <label>Age</label>
-          </div>
+            <div class="txt_field">
+                <img class="iconDetails" src="Resources/Login-Signup/details.jpg" alt="Clearity">
+                <input type="text" required maxlength="3">
+                <span></span>
+                <label>Age</label>
+            </div>
 
-        <button class="btn btn-primary">Register</button>
-        <div class="something">
-            <space1>a</space1>
-            <br>
-            <space2>a</space2>
-        </div>
-      </form>
+            <button class="btn btn-primary">Register</button>
+            <div class="something">
+                <space1>a</space1>
+                <br>
+                <space2>a</space2>
+            </div>
+        </form>
     </div>
 
-  <script>
-    const form = document.querySelector('form');
-    const emailError = document.querySelector('.email.error');
-    const passwordError = document.querySelector('.password.error');
+    <script src="Scripts-JS/signUp.js"></script>
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+</body>
 
-      // Reset errors
-      emailError.textContent = '';
-      passwordError.textContent = '';
-
-      // Get the values
-      const email = form.email.value;
-      const password = form.password.value;
-
-      try {
-        const res = await fetch('/api/SignUp', {
-          method: 'POST',
-          body: JSON.stringify({email, password}),
-          headers: { 'Content-Type': 'application/json' }
-        });
-        const data = await res.json();
-        console.log(data);
-
-        if(data.errors) {
-          emailError.textContent = data.errors.email;
-          passwordError.textContent = data.errors.password;
-        }
-
-        if(data.user) {
-          location.assign('/')
-        }
-
-      } catch (err) {
-        console.log(err);
-      }
-    })
-  </script>
-
-  </body>
 </html>

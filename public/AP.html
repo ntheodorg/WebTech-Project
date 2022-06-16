@@ -19,34 +19,40 @@
         </div>
         <div class="add-pop" id="add-pop">
             <h1>Add SuperUser</h1>
-            <form method="post">
+            <form id="superUserForm" method="post">
                 <div class="txt_field">
-                    <input type="info" required maxlength="25">
+                    <input name="email" type="text" required maxlength="25">
                     <span></span>
-                    <label>Username</label>
+                    <label>Email</label>
                 </div>
+                <div class="email error"></div>
+
                 <div class="txt_field">
-                    <input type="info" required maxlength="25">
+                    <input name="password" type="password" required maxlength="25">
                     <span></span>
                     <label>Password</label>
                 </div>
+                <div class="password error"></div>
+
                 <div class="txt_field">
-                    <input type="info" required maxlength="25">
+                    <input type="text" required maxlength="25">
                     <span></span>
                     <label>Company Name</label>
                 </div>
                 <div class="txt_field">
-                    <input type="info" required maxlength="2">
+                    <input type="text" required maxlength="2">
                     <span></span>
                     <label>Company Street</label>
                 </div>
                 <div class="txt_field">
-                    <input type="info" required maxlength="2">
+                    <input type="text" required maxlength="2">
                     <span></span>
                     <label>Contact phone:</label>
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
                 <div class="space"> space</div>
+
+                <div class="success"></div>
             </form>
         </div>
         <div class="container">
@@ -107,6 +113,7 @@
         <div id="overlay"></div>
         <script src="Scripts-JS/navBar.js"></script>
         <script defer src="Scripts-JS/AP.js"></script>
+        <script src="Scripts-JS/signUp-SuperUser.js"></script>
     </main>
 </body>
 
