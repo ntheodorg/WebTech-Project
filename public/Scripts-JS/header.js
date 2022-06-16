@@ -23,7 +23,7 @@ const headerElements = {
             admin: "AP"
         },
         className: "profileButton",
-        src: "../Resources/Profile/profile-icon.png",
+        src: "Resources/Profile/profile-icon.svg",
         alterText: "Profile"
     }
 }
