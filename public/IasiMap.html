@@ -18,6 +18,23 @@
         <textarea class="report-input" id="report-input" placeholder="Describe the situation..." required></textarea>
         <button id="report-submit" class="report-submit">Add report</button>
     </form>
+    <form class="add-collects" id="add-collects">
+        <h2>Throw garbage</h2>
+        <div class="collects-inputs">
+            <label for="material-type">Garbage type</label>
+            <select id="material-type" name="material">
+                <option class="material-type" id="household-waste">Household-waste</option>
+                <option class="material-type" id="metal">Metal</option>
+                <option class="material-type" id="paper">Paper</option>
+                <option class="material-type" id="plastic">Plastic</option>
+            </select>
+            <label for="quantity">Quantity(g)</label>
+            <input id="quantity" type="number" required maxlength="5">
+        </div>
+            <div class="btn-center">
+                <button id="collects-submit" class="collects-submit">Submit</button>
+            </div>
+    </form>
     <template id="pop-template">
         <div class="pop">
             <div class="statistics">
@@ -49,6 +66,8 @@
                 <text></text>
             </div>
             <div class="report-stats">
+                <img class="like-button-enabled" src="Resources/IasiMap/like_active.jpg" alt="Clearity">
+                <img class="like-button-disabled" src="Resources/IasiMap/like1.jpg" alt="Clearity">
                 <div class="likes"></div>
             </div>
         </div>

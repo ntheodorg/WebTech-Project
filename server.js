@@ -22,6 +22,7 @@ app.use(routers.pinRouter);
 app.use(routers.commonRouter);
 app.use(routers.eventRouter);
 app.use(routers.reportRouter);
+app.use(routers.collectsRouter);
 
 // connect to mongoDB
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology:true})
