@@ -8,6 +8,7 @@ body {
 #map {
     height:500px;
     width: 100%;
+    z-index: 0;
 }
 #overlay {
     position:fixed;
@@ -34,7 +35,7 @@ body {
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
-    z-index: 10;
+    z-index: 100;
     width: 500px;
     max-width: 80%;
 }
@@ -176,7 +177,3 @@ body {
 #collects-submit:hover{
     background-color: darkgreen;
 }
-
-
-
-

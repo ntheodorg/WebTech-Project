@@ -5,7 +5,7 @@ const addForm = document.getElementById('add-report');
 const addCollects = document.getElementById('add-collects');
 const submitReport =document.getElementById('report-submit');
 const submitCollects =document.getElementById('collects-submit');
-let map = document.getElementById("map");
+let body = document.querySelector("body");
 let pop_template = document.querySelector('#pop-template');
 let report_template = document.querySelector('#report-template');
 let reports;
@@ -82,7 +82,7 @@ function addHandlers(userData) {
                 stats[3].textContent = "Plastic garbage containers:" + data[i].plastic;
                 stats[4].textContent = "Metal garbage containers:" + data[i].metal;
                 pop.setAttribute("id", pinId);
-                map.appendChild(pop_clone);
+                body.appendChild(pop_clone);
                 for (let j = 0; j < reports.length; j++) {
                     if (reports[j].pin_id === pinId) {
                         let report_clone = report_template.content.cloneNode(true);
