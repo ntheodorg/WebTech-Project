@@ -94,13 +94,17 @@ class App {
         // Choose the right type, based on path extension
         let type = exts[pathModule.extname(filePath).slice(1)] || 'text/plain';
 
-        // Write the desired header
-        res.writeHead(200, {'Content-Type': type});
+        if(fs.existsSync(filePath)){
+            // Write the desired header
+            res.writeHead(200, {'Content-Type': type});
 
-        // Pipe a stream based on the filePath into res. (Sending the file to the client)
-        fs.createReadStream(filePath).pipe(res);
+            // Pipe a stream based on the filePath into res. (Sending the file to the client)
+            fs.createReadStream(filePath).pipe(res);
 
-        return true;
+            return true;
+        }
+
+        return false;
     }
 
     HandleJSONReq(req, res) {
