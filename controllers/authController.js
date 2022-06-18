@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 const handleErrors = (err) => {
     console.log(err.message, err.code);
-    let errors = { email: '', password: ''};
+    let errors = { email: '', password: '', age: 'ceva'};
 
     // Incorrect email
     if(err.message === 'Incorrect email') {
@@ -27,8 +27,15 @@ const handleErrors = (err) => {
 
     // Validation errors
     if(err.message.includes('user validation failed')) {
-        Object.values(err.errors).forEach(({ properties }) => {
-            errors[properties.path] = properties.message;
+        Object.values(err.errors).forEach((error) => {
+            const properties = error.properties
+            if(properties === undefined){
+                errors[error.path.split('.').pop()] = 'Invalid input'
+                return
+            }
+
+            //  = properties.message.split('.').reduce((o,i)=> o[i], errors);
+            errors[properties.path] = properties.message
         });
     }
 
@@ -79,7 +86,6 @@ module.exports = {
 
         } catch (err) {
             const errors = handleErrors(err)
-            // console.log(errors)
 
             res.status(400).json({ errors });
         }

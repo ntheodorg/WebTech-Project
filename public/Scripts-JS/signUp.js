@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const emailError = document.querySelector('.email.error');
 const passwordError = document.querySelector('.password.error');
+const ageError = document.querySelector('.age.error');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -8,6 +9,7 @@ form.addEventListener('submit', async (e) => {
     // Reset errors
     emailError.textContent = '';
     passwordError.textContent = '';
+    ageError.textContent = '';
 
     // Get the values
     let json = {
@@ -29,6 +31,7 @@ form.addEventListener('submit', async (e) => {
         if(data.errors) {
             emailError.textContent = data.errors.email;
             passwordError.textContent = data.errors.password;
+            ageError.textContent = data.errors.age;
         }
 
         if(data.user) {
