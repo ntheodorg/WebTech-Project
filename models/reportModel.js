@@ -11,6 +11,11 @@ function saveReport(data,res){
         like_number: 0,
     });
     report.save();
+    let reports_number;
+    let mypin = PinSchema.find({"_id" :data.pin_id}).then(result => {
+        reports_number = result.reports_number;
+    });
+    reports_number++;
     res.writeHead(200,{'Content-type' : 'application/json'});
     res.end(JSON.stringify("true"));
 }
@@ -32,20 +37,14 @@ function getAllReports(res){
 }
 
 function deleteReport(report_id,res) {
-    console.log(report_id);
-    ReportSchema.find()
-        .then((result) =>{
-            result.forEach((object) => {
-                    res.writeHead(200,{'Content-type' : 'application/json'});
-                    ReportSchema.findByIdAndDelete(report_id, function (err) {
-                        if (err) {
-                            res.end(JSON.stringify("false"));
-                        } else {
-                            res.end(JSON.stringify("true"));
-                        }
-                    })
-            })
-        })
+    res.writeHead(200,{'Content-type' : 'application/json'});
+    ReportSchema.findByIdAndDelete(report_id, function (err) {
+        if (err) {
+            res.end(JSON.stringify("false"));
+        } else {
+            res.end(JSON.stringify("true"));
+        }
+    })
 }
 
 function getMyReports(user_id,res){
@@ -69,9 +68,21 @@ function getMyReports(user_id,res){
     });
 }
 
+function deletePinReports(pin_id,res){
+    console.log("am ajuns");
+    res.writeHead(200,{'Content-type' : 'application/json'});
+    ReportSchema.find({pin_id:pin_id})
+        .then((result) =>{
+            result.forEach((object) => {
+                ReportSchema.findByIdAndDelete(object._id);
+            })
+        })
+}
+
 module.exports = {
     saveReport,
     getAllReports,
     deleteReport,
-    getMyReports
+    getMyReports,
+    deletePinReports
 }

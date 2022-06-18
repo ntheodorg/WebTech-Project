@@ -108,8 +108,29 @@ function addHandlers(userData) {
             addEventToLikeButtons();
             submitReportHandler(userData);
             submitCollectsHandler(userData);
+            collectGarbageHandler();
         })
     })
+}
+function collectGarbageHandler(){
+    let submitBtn = document.querySelectorAll(".collect-garbage-button");
+    submitBtn.forEach(button => {
+        button.addEventListener('click' ,() => {
+            fetch("/api/reports/byPinId" , {
+                method : "DELETE",
+                headers : { 'content-type' : 'application/json'},
+                body : JSON.stringify(currentPinId)
+            }).then((response)=> {
+                return response.json();
+            }).then((data)=>{
+                if(data === "true"){
+                    location.reload();
+                }
+            })
+
+        })
+    })
+
 }
 
 function addOverlayHandler(){

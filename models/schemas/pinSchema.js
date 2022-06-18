@@ -14,6 +14,10 @@ const pinSchema = new Schema({
         type: Number,
         required: true
     },
+    reports_number : {
+        type: Number,
+        required: true
+    },
     color : {
         type: String,
         required: true

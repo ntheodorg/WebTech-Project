@@ -15,10 +15,15 @@ const report_delete = (req,res) => {
 const myReports_get = (req,res) => {
     reportModel.getMyReports(req.userData.id,res);
 }
+const pinReports_delete = (req,res) => {
+    console.log("in controller");
+    reportModel.deletePinReports(req.body, res);
+}
 
 module.exports = {
     report_post,
     report_get,
     report_delete,
-    myReports_get
+    myReports_get,
+    pinReports_delete
 }

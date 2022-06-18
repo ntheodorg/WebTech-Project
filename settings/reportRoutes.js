@@ -14,5 +14,9 @@ exports.reportRoutes = {
     report_getMy: {
         route: "/api/myReports",
         method: "GET"
+    },
+    pinReports_delete: {
+        route: "/api/reports/byPinId",
+        method: "DELETE"
     }
 }

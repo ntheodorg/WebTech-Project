@@ -35,7 +35,6 @@ function initMap(){
           })
           marker.addListener('click', () => {
           const pop = document.getElementById(marker.id); // TODO
-              console.log(pop);
           openPop(pop)
           })
     }

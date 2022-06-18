@@ -6,6 +6,7 @@ function savePin(data,res){
      street: data.street,
      latitude: data.latitude,
      longitude: data.longitude,
+     reportz_number : 0,
      color: 'green',
      common: data.common,
      plastic: data.plastic,
