@@ -13,6 +13,47 @@ function saveCollects(data,res){
     res.end(JSON.stringify("true"));
 }
 
+function saveAllCollects(data,res){
+    if(data.household !== ''){
+        const collects = new CollectsSchema({
+            user_id: data.user_id,
+            pin_id: data.pin_id,
+            material_type: "Household-waste",
+            quantity: data.household
+        });
+        collects.save();
+    }
+    if(data.metal !== ''){
+        const collects = new CollectsSchema({
+            user_id: data.user_id,
+            pin_id: data.pin_id,
+            material_type: "Metal",
+            quantity: data.metal
+        });
+        collects.save();
+    }
+    if(data.plastic !== ''){
+        const collects = new CollectsSchema({
+            user_id: data.user_id,
+            pin_id: data.pin_id,
+            material_type: "Plastic",
+            quantity: data.plastic
+        });
+        collects.save();
+    }
+    if(data.paper !== ''){
+        const collects = new CollectsSchema({
+            user_id: data.user_id,
+            pin_id: data.pin_id,
+            material_type: "Paper",
+            quantity: data.paper
+        });
+        collects.save();
+    }
+    res.writeHead(200,{'Content-type' : 'application/json'});
+    res.end(JSON.stringify("true"));
+}
+
 function getAllCollects(res){
     CollectsSchema.find()
         .then((result) =>{
@@ -42,6 +83,7 @@ function deleteCollects(collects_id,res) {
 
 module.exports = {
     saveCollects,
+    saveAllCollects,
     getAllCollects,
     deleteCollects
 }

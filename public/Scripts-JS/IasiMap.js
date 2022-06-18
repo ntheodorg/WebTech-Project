@@ -3,6 +3,7 @@ import { getServerData } from './getServerData.js';
 const overlay = document.getElementById('overlay');
 const addForm = document.getElementById('add-report');
 const addCollects = document.getElementById('add-collects');
+const collectGarbage = document.getElementById("collect-garbage");
 const submitReport =document.getElementById('report-submit');
 const submitCollects =document.getElementById('collects-submit');
 let body = document.querySelector("body");
@@ -37,6 +38,20 @@ function addEventToThrowGarbageButtons(){
             currentPinId = pop.id;
         })
         addCollects.classList.add('activated');
+    })
+    })
+}
+
+function addEventToCollectGarbageButtons(){
+    const collectGarbageButtons = document.querySelectorAll('.collect-garbage-button');
+    collectGarbageButtons.forEach( button => { button.addEventListener('click',() => {
+        const pops = document.querySelectorAll('.pop.activated');
+        pops.forEach(pop =>{
+            if(pop == null) return
+            pop.classList.remove('activated');
+            currentPinId = pop.id;
+        })
+        collectGarbage.classList.add('activated');
     })
     })
 }
@@ -104,18 +119,43 @@ function addHandlers(userData) {
             preventDefaults();
             addOverlayHandler();
             addEventToThrowGarbageButtons();
+            addEventToCollectGarbageButtons();
             addEventToAddReportButtons();
             addEventToLikeButtons();
             submitReportHandler(userData);
             submitCollectsHandler(userData);
-            collectGarbageHandler();
+            collectGarbageHandler(userData);
         })
     })
 }
-function collectGarbageHandler(){
-    let submitBtn = document.querySelectorAll(".collect-garbage-button");
+function collectGarbageHandler(userData){
+    let submitBtn = document.querySelectorAll(".garbage-collect-submit");
     submitBtn.forEach(button => {
         button.addEventListener('click' ,() => {
+            let householdQuantity = document.getElementById("collect-household").value;
+            let plasticQuantity = document.getElementById("collect-plastic").value;
+            let paperQuantity = document.getElementById("collect-paper").value;
+            let metalQuantity = document.getElementById("collect-metal").value;
+
+            let jsonObject = {
+                user_id : userData.id,
+                pin_id : currentPinId,
+                household : householdQuantity,
+                metal : metalQuantity,
+                paper : paperQuantity,
+                plastic : plasticQuantity
+            };
+            fetch("/api/collects/all" , {
+                method : "POST",
+                headers : { 'content-type' : 'application/json'},
+                body : JSON.stringify(jsonObject)
+            }).then((response)=> {
+                return response.json();
+            }).then((data)=>{
+                if(data === "true"){
+
+                }
+            })
             fetch("/api/reports/byPinId" , {
                 method : "DELETE",
                 headers : { 'content-type' : 'application/json'},
@@ -127,7 +167,6 @@ function collectGarbageHandler(){
                     location.reload();
                 }
             })
-
         })
     })
 
@@ -138,11 +177,13 @@ function addOverlayHandler(){
         const pops = document.querySelectorAll('.pop.activated');
         const addReportForm = document.querySelector('.add-report.activated');
         const addCollectsForm = document.querySelector('.add-collects.activated');
+        const collectGarbageForm = document.querySelector('.collect-garbage.activated');
         pops.forEach(pop => {
             closePop(pop);
         })
         closePop(addReportForm);
         closePop(addCollectsForm);
+        closePop(collectGarbageForm);
     })
 }
 
@@ -198,6 +239,9 @@ function preventDefaults(){
         event.preventDefault();
     })
     addCollects.addEventListener("submit", async (event) => {
+        event.preventDefault();
+    })
+    collectGarbage.addEventListener("submit", async (event) => {
         event.preventDefault();
     })
 }

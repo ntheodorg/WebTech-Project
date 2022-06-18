@@ -26,7 +26,7 @@ body {
     pointer-events: all;
 }
 
-.pop , .add-collects{
+.pop , .add-collects, .collect-garbage{
     position:fixed;
     top:50%;
     left:50%;
@@ -39,7 +39,7 @@ body {
     width: 500px;
     max-width: 80%;
 }
-.pop.activated, .add-collects.activated{
+.pop.activated, .add-collects.activated , .collect-garbage.activated{
     transform: translate(-50%,-50%) scale(1);
 }
 .stat-header,.report-header {
@@ -163,17 +163,17 @@ body {
 .like-button-enabled.hide{
     transform: scale(0);
 }
-.add-collects h2 {
+.add-collects h2 , .collect-garbage h2{
     text-align: center;
     padding:10px 10px;
 }
-.add-collects{
+.add-collects, .collect-garbage{
     padding:10px 10px;
 }
 .btn-center{
     text-align: center;
     padding:10px 10px;
 }
-#collects-submit:hover{
+#collects-submit:hover, #garbage-collect-submit:hover{
     background-color: darkgreen;
 }
