@@ -6,7 +6,7 @@ function savePin(data,res){
      street: data.street,
      latitude: data.latitude,
      longitude: data.longitude,
-     reportz_number : 0,
+     reports_number : 0,
      color: 'green',
      common: data.common,
      plastic: data.plastic,
@@ -39,11 +39,12 @@ function deletePin(data,res) {
                 object.street = object.street.replace(/\+/g, " ");
                 if(object.street === data.street)
                 {
-                    res.writeHead(200,{'Content-type' : 'application/json'});
                     PinSchema.findByIdAndDelete(object.id, function (err) {
                         if (err) {
+                            res.writeHead(404,{'Content-type' : 'application/json'});
                             res.end(JSON.stringify("false"));
                         } else {
+                            res.writeHead(200,{'Content-type' : 'application/json'});
                             res.end(JSON.stringify("true"));
                         }
                     })
@@ -52,8 +53,23 @@ function deletePin(data,res) {
         })
 }
 
+function patchPinQuarter(data,res) {
+    PinSchema.updateOne({_id:data.pin_id}, {$set : {quarter:data.quarter}}, function(err,funRes) {
+        if(err) {
+            res.writeHead(404,{'Content-type' : 'application/json'});
+            res.end(JSON.stringify("false"));
+        }
+        else{
+            console.log("1 document updated");
+            res.writeHead(202,{'Content-type' : 'application/json'});
+            res.end(JSON.stringify("true"));
+        }
+    })
+}
+
 module.exports = {
     savePin,
     getAllPins,
-    deletePin
+    deletePin,
+    patchPinQuarter
 }

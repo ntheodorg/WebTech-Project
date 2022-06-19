@@ -10,5 +10,9 @@ exports.pinRoutes = {
     pin_delete: {
         route: "/api/pins",
         method: "DELETE"
+    },
+    pin_quarter_patch: {
+        route: "/api/pins/quarter",
+        method: "PATCH"
     }
 }

@@ -37,6 +37,10 @@ const pinSchema = new Schema({
     plastic: {
         type: Number,
         required:true
+    },
+    quarter: {
+        type: String,
+        required:false
     }
 });
 

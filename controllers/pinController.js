@@ -12,8 +12,13 @@ const pin_delete = (req,res) => {
     pinModel.deletePin(req.body,res);
 }
 
+const pin_quarter_patch = (req,res) => {
+    pinModel.patchPinQuarter(req.body,res);
+}
+
 module.exports = {
     pin_post,
     pin_get,
-    pin_delete
+    pin_delete,
+    pin_quarter_patch
 }
