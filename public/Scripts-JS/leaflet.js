@@ -227,7 +227,7 @@ getServerData().then(({userData, serverSettings}) => {
                 method:"GET"
             },
             patch:{
-                route:"api/pins/quarter",
+                route:"api/pins",
                 method:"PATCH"
             }
         }

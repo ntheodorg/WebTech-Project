@@ -12,7 +12,7 @@ exports.pinRoutes = {
         method: "DELETE"
     },
     pin_quarter_patch: {
-        route: "/api/pins/quarter",
+        route: "/api/pins",
         method: "PATCH"
     }
 }

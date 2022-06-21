@@ -330,7 +330,8 @@
         </ul>
         <section id="security">
             <h2>Securizarea aplicatiei</h2>
-            <p>Serverul trasmite catre client toate datele necesare pentru a face request la server, astfel sunt trasmise asa zise "settings", deci aceste valori nu sunt vizibile pentru posibile atacuri cibernetice.</p>
+            <p>Serverul trasmite catre client toate datele necesare pentru a face request la server, astfel sunt trasmise asa zise "settings", deci aceste valori nu sunt vizibile pentru posibile atacuri cibernetice.
+             Pentru a securiza aplicatia de Cross-Site Scripting, nu a fost folosit deloc innerHTML, iar input-urile pentru generarea dinamica a elementelor html, au fost folosite template-urile, valorile preluate din baza de date fiind injectate doar ca textContent</p>
         </section>
         <section id="development">
             <h2>Stagii de dezvoltare</h2>
