@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Clearity Scholarly HTML report</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+</head>
+
+<body prefix="schema: http://schema.org">
+    <header>
+        <div class="banner">
+            <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+            <div class="status">Clearity project</div>
+        </div>
+        <h1>Garbage Web Monitor Documentation</h1>
+    </header>
+    <div role="contentinfo">
+        <dl>
+            <dt>Authors</dt>
+            <dd>
+                Tozlovanu Sandu &amp; Nae Theodor-Gabriel
+            </dd>
+        </dl>
+    </div>
+    <img src="logo.png" alt="Clearity Logo">
+    <section id="abstract">
+        <h2>Introducere</h2>
+        <p>Garbage Web Monitor, prescurtata GaMon este o aplicatie Web care furnizeaza utilizatorilor informatie
+            despre situatia deseurilor din orasul Iasi, oferind diferite date precum cantitatea de materii reciclate, starea generala
+            ecologica in domeniul deseurilor, precum si diferite instrumente de raport a nerespectarii normelor de stocare a deseurilor,
+            indicarea locurilor unde au fost stocate cantitati mari de gunoi,cu scopul congestiunii acestuia.</p>
+    </section>
+    <section id="introduction" role="doc-introduction">
+        <h2>Scop</h2>
+        <p>Scopul aplicatiei Garbage Web Monitor este de a oferi utilizatorilor posibilitatea de a se informa
+            si a contribui la procesul de colectare, sortare si reciclare a deseurilor din localitatea sa, facilitand
+            aceasta prin diferite campanii de informare, instrumente de control. Astfel, fiecare utilizator GaMon
+            in parte face strazile mai curate, iar mediul inconjurator mai putin poluat.
+        </p>
+    </section>
+    <section id="structure">
+        <h2>Structura</h2>
+        <section id="Conventiile proiectului">
+            <h2>Conventiile proiectului</h2>
+            <p>
+                La realizarea aplicatiei s-au respectat conventiile de utilizare HTML5 si CSS3 si Javascript,
+                iar codul va fi verificat cu ajutorul validatoarelor online Validator W3 Org si CSS Lint.
+            </p>
+        </section>
+        <section id="Limbaje">
+            <h2>Limbaje</h2>
+            <p> Pentru partea de frontend a aplicatiei se va utiliza HTML5, CSS3, Javascript.
+                <br>
+                Pentru partea de backend a aplicatiei se va utiliza Node.js.
+                <br>
+                Pentru baza de date se va utiliza MongoDB (mongoose).
+            </p>
+        </section>
+        <section id="Pagini">
+            <h2>Pagini</h2>
+            <section id="homePage">
+                <h2>Home Page</h2>
+                <p>Această pagină ofera utilizatorilor informatii generale despre acest site,
+                    facandu-i cunostinta utilizatorui cu scopul aplicatiei si menirea sa.</p>
+            </section>
+            <section id="inregistrare">
+                <h2>Register</h2>
+                <p>Utilizatorii care inca nu s-au si-au facut un cont pe acest website, au posibilitatea de a-si crea unul.
+                    Aceasta o pot face pe pagina de Registrare, introducand urmatoarele date: username, parola, numele, prenumele si varsta.
+                    Va fi necesar ca parola sa fie reintrodusa si in urmatorul camp pentru confirmare.
+                    In campul de varsta este permis doar cifre, toate campurile trebuiesc completate obligatoriu,
+                    username-ul nu poate fi mai scurt de 6 caractere, iar parola trebuie sa contina atat litere cat si cifre si sa
+                    nu fie mai scurta de 6 caractere. Numele si prenumele trebuie sa fie alcatuite doar din litere.
+                    Dupa introducerea datelor, utilizatorul trebuie sa dea click peste butonul de register, unde datele vor fi verificate,
+                    si in caz de succes, un cont nou va fi creat, iar utilizatorul va fi trimis pe pagina de Home.
+                    Poate fi accesata prin 3 metode: </p>
+                <ul>
+                    <li>
+                        Accesarea butonului de "Sign Up" din header
+                    </li>
+                    <li>
+                        Accesarea referintei de: "No account? Click here" din pagina de Login
+                    </li>
+                    <li>
+                        Accesarea URL-ului /SignUp al aplicatiei.
+                    </li>
+                </ul>
+
+            </section>
+            <section id="login">
+                <h2>Login</h2>
+                <p>Vizitatorii website-ului au posibilitatea de a se loga pe site si a deveni membru Clearity. Pentru aceasta,
+                    vizitatorii trebuie sa introduca username-ul si parola sa. Datele utilizatorului sunt verificate in baza de date, si
+                    in caz de succes, utilizatorul ajunge pe pagina sa de profil. In caz contrar, utilizatorul este rugat sa introduca
+                    username-ul si parola corecta.
+                    Poate fi accesata prin 3 metode:
+                <ul>
+                    <li>
+                        Accesarea butonului de "Sign In" din header
+                    </li>
+                    <li>
+                        Redirectionarea automata spre aceasta fereastra odata cu incercarea accesarii unei pagini neautorizate.
+                    </li>
+                    <li>
+                        Accesarea URL-ului /SignIn al aplicatiei.
+                    </li>
+                </ul>
+                </p>
+            </section>
+            <section id="news">
+                <h2>News</h2>`
+                <p>Utilizatorii vor putea intra pe pagina de anunturi unde vor putea urmari ultimele stiri la subiectul Ecologiei.
+                    Astfel, membrii website-ului vor fi informati despre posibile actiuni de voluntariat, campanii de curatenie,
+                    noutati din domeniul starii ecologice romane si a localitatii Iasi (Decizii are ministerului Ecologiei, evenimente, accidente ecologice etc.)
+                    Aceste stiri vor fi generate in special de catre organizatia ce se ocupa de gestiunea si reciclarea deseurilor.
+                    Poate fi accesata accesand butonul news din header, sau accesand adresa /News.
+                </p>
+            </section>
+            <section id="iasiMap">
+                <h2>Iasi Map</h2>
+                <p>Această pagină e compusa dintr-o harta a orasului Iasi, obtinuta cu ajutorului Leaflet OpenStreetMap, oferind urmatoarele functionalitati:
+                <ul>
+                    <li>
+                        Impartirea hartii orasului Iasi in cartiere, fiecare cartier fiind colorat intr-o culoare proprie.
+                    </li>
+                    <li>
+                        Prezenta Garbage spot-urilor pe harta sub forma Pin-urilor - colorate in una din 3 culori: Verde - garbage spot fara reporturi, Galben - garbage spot cu macar un report, Rosu - garbage spot cu mai mult de 3 raporturi.
+                    </li>
+                    <li>
+                        Statistica garbage spot-urilor. Accesarea pin-ului formeaza un pop-up care ofera date precum statistica garbage-spot-ului ce implica strada, numarul de containere de deseuri menajere,plastic,metal si hartie.
+                    </li>
+                    <li>
+                        Raporturile - fiecare user cu exceptia SuperUserilor ( Compania de salubrizare) au posibilitatea sa lase un raport pe unul din garbage-spoturi, enumerand daca este o situatie exceptionala de cumulare a unei cantitati mari de gunoi, sau alta situatie speciala. Pentru a face un raport nou, user-ul trebuie acceseze pin-ul necesar , si sa acceseze butonul add report , unde dupa completarea descrierii situatiei, poate da submit formular.
+                    </li>
+                    <li>
+                        Raportarea gunoiului aruncat. Fiecare utilizator are posibilitatea sa acceseze butonul "Throw Garbage" in pop-ului pin-ului pentru a anunta colectarea unui tip de material(menajer,metal,hartie sau plastic) si cantitatea acestuia. Compania de salubrizare poate accesa butonul de collect din pop-ul pin-ului, unde umple un formular de cantitatea gunoaielor colectate pe categorie, aceste date fiind salvate pentru ulterioare statistici.
+                    </li>
+                </ul>
+                </p>
+            </section>
+            <section id="user profile">
+                <h2>User profile</h2>
+                <p>Aceasta pagina permite gestionarea datelor personale si a raporturilor. Informatiile din aceasta pagina sunt personale, si sunt generate individual pentru fiecare user. La fel, utilizatorul poate observa rapoartele facute de el ,in tab-ul My Reports, unde este afisata informatia precum locul raportat, corpul raportului, timpul cand a fost facut raportul. Aditional, user-ul poate accesa butonul de Delete in incinta fiecarui raport, pentru a-l sterge. <br> Accesarea acestei pagini poate fi realizata doar dupa procesul de logare, si accesare a imaginii de Profil langa butonul de Logout.</p>
+            </section>
+            <section id="admin profile">
+                <h2>Admin profile</h2>
+                <p>Aceasta pagina ofera toate functionalitatile profilului de user simplu. Aditional, adminul poate accesa butonul de "Add SuperUser" unde poate crea un superUser nou. In formular, adminul completeaza datele precum adresa companiei, parola, email-ul denumirea companiei si numarul de contact al acesteia. La finisarea crearii unui cont nou, compania de salubrizare poate accesa contul propriu cu email-ul si parola setata de admin.</p>
+            </section>
+            <section id="superUser profile">
+                <h2>SuperUser profile</h2>
+                <p>Aceasta pagina permite gestionarea datelor companiei si a noutatilor. Pagina poate fi accesata doar de un superUser ( companie de salubrizare cu ajutorul contului creat de admin). In pagina de profil a companiei de salubrizare sunt disponibile 4 functionalitati aditionale user-ului simplu:</p>
+                <ul>
+                    <li>
+                        Adaugarea garbage-spot-ului nou. Aceasta se face prin accesarea butonului "Add garbage spot", unde dupa aparitia unui formular,sunt completate datele precum: longitudinea, latitudinea si adresa garbage-spot-ului. Aditional , sunt completate datele precum numarul de containere cu deseuri menajere,plastic,metal si hartie a garbage-spot-ului. Completarea acestui formular duce la apartia unui nou pin pe pagina IasiMap, unde userii pot interactiona cu acesta.
+                    </li>
+                    <li>
+                        Stergerea unui garbage-spot. Aceasta se face prin accesarea butonului "Delete garbage spot", unde dupa aparitia unui pop, este selectat garbage-spot-ul dorit de stergere, si sters. Acesta nu va mai aparea pe pagina de IasiMap, iar toate rapoartele acestuia vor fi sterse.
+                    </li>
+                    <li>
+                        Adaugarea unei stiri pe pagina de news. Aceasta se face in formularul de "Add news" sub informatiile despre companie. Vor fi completate 3 campuri : Titlul eventului, textul eventului si la dorinta poate fi atasat un link la acest eveniment. Odata cu completarea datelor si accesarea butonului de submit, pe pagina de News va aparea acest eveniment.
+                    </li>
+                    <li>
+                        Stergerea unei stiri de pe pagina de news. Aceasta se face prin accesarea butonului de "Delete Event" in incinta formularului de Add News. La accesarea butonului ,un pop este afisat, unde utilizatorul poate indica anuntul ce doreste sa-l stearga, si da click pe butonul de submit. Ca consecinta, anuntul va fi sters de pe pagina de News.
+                    </li>
+                </ul>
+                </p>
+            </section>
+        </section>
+        <section id="other functionalities">
+            <h2>Alte functionalitati</h2>
+            <h2>Header</h2>
+            <p> Acesta se afla in partea de sus a fiecarei pagini, cu exceptia paginii de login register si profilePages. Acesta are urmatoarele butoane: <b>SignIn,SignUp,Logout,Profile icon button si Export Statistics</b>.</p>
+            <ul>
+                <li>
+                    <b>Export statistics</b> este valabil pentru toate tipurile de conturi logate. La accesarea acestuia, apare un pop-up unde este selectata extensia fisierului ( HTML,PDF,CSV) si unitatea de timp a statisticii (Zi,Saptamana,Luna). Dupa completarea form-ului si accesarea butonului de submit, un fisier de tipul selectat este descarcat, continand statistica generata in unitatea de timp necesara.
+                </li>
+                <li>
+                    <b>Sign In</b> este valabil pentru toate tipurile de conturi nelogate. La accesarea acestuia, user-ul e redirectionat pe pagina de Login.
+                </li>
+                <li>
+                    <b>Sign Up</b> este valabil pentru toate tipurile de conturi nelogate. La accesarea acestuia, user-ul e redirectionat pe pagina de Register.
+                </li>
+                <li>
+                    <b>Logout</b> este valabil pentru toate tipurile de conturi logate. La accesarea acestuia, user-ul e redirectionat pe Home page, dar acum nu mai este logat.
+                </li>
+                <li>
+                    <b>Profile Icon</b> este valabil pentru toate tipurile de conturi logate. La accesarea acestuia, user-ul e redirectionat pe pagina proprie de profil.
+                </li>
+            </ul>
+        </section>
+        <section id="experienta">
+            <h2>Experiența utilizatorului</h2>
+            <ol>
+                <li>
+                    Navigation bar-ul care este prezent pe absolut toate paginile cu exceptia paginii de Login si Register, ofera userilor accesul usor la toate paginile aplicatiei. La fel, denumirea paginii pe care se afla utilizatorul se evidentiaza pentru a oferi utilizatorului o orientare mai precisa a locatiei sale in aplicatie
+                </li>
+                <li>
+                    Header-ul care este prezent in partea de sus la fiecare pagina cu exceptia paginilor de logare,registrare si pagina de profil, ofera userilor accesari si manipulari intuitive a contului. Astfel userul poate se logheze, sa se inregistreze, sa se delogheze sau sa intre in pagina de profil pe acelasi header bar.
+                </li>
+                <li>
+                    Întreaga interfață grafică a site-ului este reponsive si user friendly, facilitând astfel plasarea raporturi,colectari și vizualizarea acestora prin intermediul unei harti.
+                </li>
+            </ol>
+        </section>
+        <section id="Backend">
+            <h2>Backend - Noțiuni importante</h2>
+            <ol>
+                <li>
+                    Backendul aplicației a fost realizat în NodeJs.
+                </li>
+                <li>
+                    Am implementat o parte majora din funcționalitățile oferite de Framework ul Express.js și am proiectat serverul astfel încat functionalitățile acestuia să fie exploatabile VIA REST API, codul sursă este structurat conform arhitecturii MVC.
+                </li>
+                <li>
+                    HATEOS -Hypermedia as the Engine of Application State. Este o extensie a arhitecturii REST prin intermediul căreia un client interacționează ale cărei servere furnizează informații dinamic prin Hypermedia.
+                </li>
+                <li>
+                    Pentru a putea oferi consumarea serviciilor rest de către utilizatori a trebuit să proiectam un "fat client".
+                </li>
+                <li>
+                    Pentru a calcula costul estimativ al unei comenzi abia lansate am folosit un API public GeoApify căruia îi furnizam numele a două orașe în vederea aflării coordonatelor și calculării distanței.
+                </li>
+            </ol>
+        </section>
+    </section>
+    <section id="baza-de-date">
+        <h3>Arhitectura bazei de date</h3>
+        <div>
+            Pentru reținerea datelor am folosit o bază de date MongoDB(mongoose).
+        </div>
+        <img src="./db.png">
+    </section>
+    <section id="version control">
+        <h2>Sistemul de stocare al codului</h2>
+        <p>Pentru stocarea și managementul online al codului-sursă am folosit GitHub:</p>
+        <a href="https://github.com/ntheodorg/WebTech-Project">Repository-ul de pe GitHub</a>
+        <p>Fiecare membru al echipei a lucrat in timpul sprint-ului pe propriul sau branch, iar in la finalul sprint-ului, branch-urile erau
+        integrate in branch-ul main.</p>
+    </section>
+    <section id="agile methodology">
+        <h2>Sprint Management</h2>
+        <p>Pentru gestiunea task-urilor si proiectarea unui Project Backlog a fost folosita aplicatia Trello.
+        A fost folosita metodologia Scrum, Theodor Nae fiind scrum-master-ul. Product Backlog-ul initial a fost impartit in Sprint Backlogs,
+        unde in fiecare sprint era executat, revizuit si integrat in aplicatie.</p>
+        <a href="https://trello.com/b/0Fxxo4v4/web">Trello Workspace</a>
+    </section>
+    <section id="semantics">
+        <h2>Diagrame</h2>
+        <section id="Root">
+            <h3>Diagrame UseCase</h3>
+            <h3>User</h3>
+            <img src="./simpleUser.png">
+            <h3>SuperUser</h3>
+            <img src="./superUser.png">
+            <h3>Admin</h3>
+            <img src="./adminUser.png">
+            <h3> Statistics Report</h3>
+            <p> Logged users have Export Statistics button in the header:</p>
+            <img src="./export.png">
+        </section>
+    </section>
+    <section id="Root">
+        <h2>Task-uri</h2>
+        <ul>
+            <li>Ambii</li>
+            <ul>
+                <li>Realizarea Product si Sprint Backlogurilor</li>
+                <li>Bug fixing</li>
+                <li>
+                    REST API
+                </li>
+            </ul>
+            <li>Nae Theodor-Gabriel</li>
+            <ul>
+                <li>
+                    Project structure
+                </li>
+                <li>
+                    Statistics Exports(HTML,CSV,PDF)
+                </li>
+                <li>
+                    Navigation Bar
+                </li>
+                <li>
+                    Header functionality
+                </li>
+                <li>
+                    Cookies
+                </li>
+                <li>
+                    Authetification Session
+                </li>
+                <li>
+                    User validation with database
+                </li>
+                <li>
+                    Branch Merging (Version Control)
+                </li>
+                <li>
+                    Profiles pages (HTML + CSS part)
+                </li>
+                <li>
+                    News page (HTML + CSS part)
+                </li>
+            </ul>
+            <li>Tozlovanu Sandu</li>
+            <ul>
+                <li>
+                    IasiMap page
+                </li>
+                <li>
+                    Pin structure and management
+                </li>
+                <li>
+                    News structure and management
+                </li>
+                <li>
+                    Report structure and management
+                </li>
+                <li>
+                    Garbage collection structure and management
+                </li>
+                <li>
+                    Database structure and management
+                </li>
+            </ul>
+        </ul>
+        <section id="security">
+            <h2>Securizarea aplicatiei</h2>
+            <p>Serverul trasmite catre client toate datele necesare pentru a face request la server, astfel sunt trasmise asa zise "settings", deci aceste valori nu sunt vizibile pentru posibile atacuri cibernetice.</p>
+        </section>
+        <section id="development">
+            <h2>Stagii de dezvoltare</h2>
+            <ul>
+                <li>
+                    Sprint I - Initialisation Sprint.
+                    <ul>
+                        <li>
+                            A fost gandit template-ul general al site-ului si paginile generale a lui.
+                        </li>
+                        <li>
+                            A fost realizata interfata paginilor de Home,Map,News, Profile impreuna cu paginile de Register si Logare.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Sprint II - Server Setup Sprint
+                    <ul>
+                        <li>
+                           Serverul initial a fost creat, a fost creat un prototip temporar pentru a servi request-urile de fisiere statice.
+                        </li>
+                        <li>
+                            A fost facuta conversie de la Map la Iasimap ( Acum proiectul se concentreaza pe Iasi in loc de Romania).
+                        </li>
+                        <li>
+                            GoogleMapsAPI initializat, IasiMap acum arata harta Iasi-ului folosind GoogleMaps.
+                        </li>
+                        <li>
+                            Profile page a fost impartita in 3 pagini - Admin, User si SuperUser.
+                        </li>
+                        <li>
+                            Fisierele au fost organizate folosind MVC.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Sprint III - Server Routing system, REST API
+                    <ul>
+                        <li>
+                            Propria sistematizare de routing a fost creata, implementand RESTAPI.
+                        </li>
+                        <li>
+                            Adaugarea, stocarea Pin-urilor, eventurilor si raporturilor in baza de date.
+                        </li>
+                        <li>
+                            Autentificarea userilor a fost initializata.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Sprint IV - Cookies, Templates, dynamic page creation
+                    <ul>
+                        <li>
+                            Functionalitatea de adaugarea a evenimentelor la SuperUser, stergerea lor.
+                        </li>
+                        <li>
+                            Generarea dinamica a paginii de eventuri folosind Templates.
+                        </li>
+                        <li>
+                            Generarea dinamica a statisticii si rapoartelor pentru pin-uri folosind Templates.
+                        </li>
+                        <li>
+                            Adaugarea raporturilor pe pin-uri.
+                        </li>
+                        <li>
+                            Stergerea raporturilor in profil.
+                        </li>
+                        <li>
+                            Cookies pentru a mentine sesiunea user-ului, folosind jwt pentru tokenizare.
+                        </li>
+                        <li>
+                            Validarea tuturor tipurilor de conturi la completarea formularelor.
+                        </li>
+                        <li>
+                            Adaugarea superUserilor pe pagina de admin.
+                        </li>
+
+                    </ul>
+                <li>
+                    Sprint V Exportul de statistica, cartierele, colorarea pin-urilor, colectarea deseurilor
+                    <ul>
+                        <li>
+                            Colorarea pin-urilor in functie de numarul de raporturi
+                        </li>
+                        <li>
+                            Raportul de colectare a deseurilor la nivel de user si superuser.
+                        </li>
+                        <li>
+                            Exportul statisticii pe baza datelor din de cartier si perioada.
+                        </li>
+                        <li>
+                            Redesign-ul paginilor.
+                        </li>
+                        <li>
+                            Folosirea Leaflet map API in loc de GoogleMaps API pentru IasiMap
+                        </li>
+                        <li>
+                            Realizarea documentatiei
+                        </li>
+                        <li>
+                            Implementare microservicii
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <section id="Resurse">
+        <h3>Resurse</h3>
+        <ul>
+            <li><a href="https://jigsaw.w3.org/css-validator/">CSS Validator</a></li>
+            <li><a href="https://validator.w3.org/">HTML Validator</a></li>
+            <li><a href="https://www.w3schools.com/">W3Schools</a></li>
+            <li><a href="https://profs.info.uaic.ro/~busaco/teach/courses/web/web-film.html">Cursuri Tehnologii Web</a></li>
+            <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Guide flex</a></li>
+            <li><a href="https://www.youtube.com/watch?v=zb3Qk8SG5Ms&list=PL4cUxeGkcC9jsz4LDYc6kv3ymONOKxwBU">Node js Tutorial</a></li>
+            <li><a href="https://leafletjs.com/">Leaflet OpenSource Map API</a></li>
+            <li><a href="https://github.com/hayeswise/Leaflet.PointInPolygon">Leaflet Point in poligon</a></li>
+            <li><a href="https://www.youtube.com/watch?v=y17RuWkWdn8&t=265s">Dom manipulation tutorial</a></li>
+        </ul>
+    </section>
+    <br><br><br>
+</body>
+</html>
