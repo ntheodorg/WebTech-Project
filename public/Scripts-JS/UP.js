@@ -2,9 +2,9 @@ import {getServerData} from "./getServerData.js";
 
 let MyReports = document.querySelector(".MyReports");
 let template = document.querySelector('#report-template');
-function addHandlers(userData){
+function addHandlers(userData,settings){
     decorateProfile(userData);
-    fetch("/api/myReports")
+    fetch(settings.reports.get.route)
         .then((response)=> {
             return response.json();
         }).then((data)=>{
@@ -25,16 +25,16 @@ function addHandlers(userData){
             date.textContent = data[i].createdAt.split("T")[0];
             MyReports.appendChild(clone);
         }
-        deleteButtonsHandler();
+        deleteButtonsHandler(settings);
     })
 }
 
-function deleteButtonsHandler(){
+function deleteButtonsHandler(settings){
     let buttons = document.querySelectorAll(".delete-btn");
     buttons.forEach(button =>{
         button.addEventListener('click', () => {
-            fetch("/api/reports",{
-                method : "DELETE",
+            fetch(settings.reports.delete.route,{
+                method : settings.reports.delete.method,
                 headers : { 'content-type' : 'application/json'},
                 body : JSON.stringify(button.parentNode.parentNode.id)
             }).then((response)=> {
@@ -60,5 +60,17 @@ function decorateProfile(userData){
 }
 
 getServerData().then(({userData, serverSettings}) => {
-    addHandlers(userData);
+    let settings = {
+        reports:{
+            delete:{
+                route:'api/reports',
+                method:"DELETE"
+            },
+            get:{
+                route:"api/myReports",
+                method:"GET"
+            }
+        }
+    }
+    addHandlers(userData,settings);
 })

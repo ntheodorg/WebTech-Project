@@ -11,9 +11,6 @@ let pop_template = document.querySelector('#pop-template');
 let report_template = document.querySelector('#report-template');
 let reports;
 let currentPinId;
-function addEventToLikeButtons(){
-
-}
 function addEventToAddReportButtons(){
     const addReportButtons = document.querySelectorAll('.add-report-button');
     addReportButtons.forEach( button => { button.addEventListener('click',() => {
@@ -63,12 +60,12 @@ function closePop(pop){
     currentPinId = undefined;
 }
 
-function addHandlers(userData) {
-    fetch("/api/reports").then((res) => {
+function addHandlers(userData,settings) {
+    fetch(settings.reports.get.route).then((res) => {
         return res.json();
     }).then((report_data) => {
         reports = report_data;
-        fetch("/api/pins").then((response) => {
+        fetch(settings.pins.get.route).then((response) => {
             return response.json();
         }).then((data) => {
             for (let i = 0; i < data.length; i++) {
@@ -121,14 +118,13 @@ function addHandlers(userData) {
             addEventToThrowGarbageButtons();
             addEventToCollectGarbageButtons();
             addEventToAddReportButtons();
-            addEventToLikeButtons();
-            submitReportHandler(userData);
-            submitCollectsHandler(userData);
-            collectGarbageHandler(userData);
+            submitReportHandler(userData,settings);
+            submitCollectsHandler(userData,settings);
+            collectGarbageHandler(userData,settings);
         })
     })
 }
-function collectGarbageHandler(userData){
+function collectGarbageHandler(userData,settings){
     let submitBtn = document.querySelectorAll(".garbage-collect-submit");
     submitBtn.forEach(button => {
         button.addEventListener('click' ,() => {
@@ -145,8 +141,8 @@ function collectGarbageHandler(userData){
                 paper : paperQuantity,
                 plastic : plasticQuantity
             };
-            fetch("/api/collects/all" , {
-                method : "POST",
+            fetch(settings.collects.post_all.route, {
+                method : settings.collects.post_all.method,
                 headers : { 'content-type' : 'application/json'},
                 body : JSON.stringify(jsonObject)
             }).then((response)=> {
@@ -156,8 +152,8 @@ function collectGarbageHandler(userData){
 
                 }
             })
-            fetch("/api/reports/byPinId" , {
-                method : "DELETE",
+            fetch(settings.reports.delete.route , {
+                method : settings.reports.delete.method,
                 headers : { 'content-type' : 'application/json'},
                 body : JSON.stringify(currentPinId)
             }).then((response)=> {
@@ -187,7 +183,7 @@ function addOverlayHandler(){
     })
 }
 
-function submitReportHandler(userData){
+function submitReportHandler(userData,settings){
     submitReport.addEventListener('click', () => {
         const reportBody = document.getElementById("report-input").value;
         let jsonObject = {
@@ -196,8 +192,8 @@ function submitReportHandler(userData){
             report_text : reportBody,
             reporter_id : userData.id
         }
-        fetch("/api/reports" , {
-            method : "POST",
+        fetch(settings.reports.post.route, {
+            method : settings.reports.post.method,
             headers : { 'content-type' : 'application/json'},
             body : JSON.stringify(jsonObject)
         }).then((response)=> {
@@ -210,7 +206,7 @@ function submitReportHandler(userData){
     });
 }
 
-function submitCollectsHandler(userData){
+function submitCollectsHandler(userData,settings){
     submitCollects.addEventListener('click', () => {
         const var_material_type = document.getElementById("material-type").value;
         const var_quantity = document.getElementById("quantity").value;
@@ -220,8 +216,8 @@ function submitCollectsHandler(userData){
             material_type : var_material_type,
             quantity : var_quantity
         }
-        fetch("/api/collects" , {
-            method : "POST",
+        fetch(settings.collects.post.route , {
+            method : settings.collects.post.method,
             headers : { 'content-type' : 'application/json'},
             body : JSON.stringify(jsonObject)
         }).then((response)=> {
@@ -247,5 +243,37 @@ function preventDefaults(){
 }
 
 getServerData().then(({userData, serverSettings}) => {
-    addHandlers(userData);
+    let settings = {
+        pins: {
+            get:{
+                route:"api/pins",
+                method:"GET"
+            }
+        },
+        reports: {
+            get:{
+                route:"api/reports",
+                method:"GET"
+            },
+            delete:{
+                route:"/api/reports/byPinId",
+                method:"DELETE"
+            },
+            post:{
+                route:"api/reports",
+                method:"POST"
+            }
+        },
+        collects:{
+            post:{
+                route:"/api/collects",
+                method:"POST"
+            },
+            post_all:{
+                route:"/api/collects/all",
+                method:"POST"
+            }
+        }
+    }
+    addHandlers(userData,settings);
 })

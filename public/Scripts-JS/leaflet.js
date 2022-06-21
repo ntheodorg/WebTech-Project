@@ -1,6 +1,20 @@
-let map = L.map('map').setView([47.161726, 27.587914], 13);
-let quarters = initQuarters();
-function initQuarters(){
+import { getServerData } from './getServerData.js';
+
+function initMap(settings){
+    let map = L.map('map').setView([47.161726, 27.587914], 13);
+    let quarters = initQuarters(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    fetch(settings.pins.get.route).then((response)=> {
+        return response.json();
+    }).then((data)=>{
+        for( var i = 0; i< data.length;i++){
+            addMarker(data[i],settings,map);
+        }
+    })
+}
+function initQuarters(map){
     let polygon1 = L.polygon([
         [47.169099, 27.577112],
         [47.168486, 27.593330],
@@ -138,25 +152,14 @@ function initQuarters(){
     return myQuarters;
 }
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-const url = "/api/pins";
-fetch(url).then((response)=> {
-    return response.json();
-}).then((data)=>{
-    for( var i = 0; i< data.length;i++){
-        addMarker(data[i]);
-    }
-})
-function addQuarterToPin (pinData,marker){
+function addQuarterToPin (pinData,marker,settings){
     let quarterName = getPinQuarter(marker);
     let jsonObject = {
         pin_id : pinData._id,
         quarter : quarterName
     }
-    fetch("/api/pins/quarter" , {
-        method : "PATCH",
+    fetch(settings.pins.patch.route , {
+        method : settings.pins.patch.method,
         headers : { 'content-type' : 'application/json'},
         body : JSON.stringify(jsonObject)
     }).then((response)=> {
@@ -177,7 +180,7 @@ function getPinQuarter(marker){
     return "Suburbie";
 }
 
-function addMarker(props){
+function addMarker(props,settings,map){
     let LeafIcon = L.Icon.extend({
         options: {
             iconSize:     [30, 40],
@@ -196,7 +199,7 @@ function addMarker(props){
     }
     let marker = L.marker([props.latitude, props.longitude]).addTo(map);
     if(props.quarter === undefined){
-        addQuarterToPin(props,marker);
+        addQuarterToPin(props,marker,settings);
     }
 
     //console.log(polygon.contains(marker.getLatLng()));
@@ -215,3 +218,19 @@ function openPop(pop){
     pop.classList.add('activated');
     overlay.classList.add('activated');
 }
+
+getServerData().then(({userData, serverSettings}) => {
+    let settings = {
+        pins: {
+            get:{
+                route:"api/pins",
+                method:"GET"
+            },
+            patch:{
+                route:"api/pins/quarter",
+                method:"PATCH"
+            }
+        }
+    }
+    initMap(settings);
+})

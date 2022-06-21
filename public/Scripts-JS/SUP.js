@@ -11,7 +11,7 @@ const addPin = document.getElementById('add-pin');
 const formInputs = document.getElementsByClassName('form-input');
 const eventSubmit = document.getElementById('event-submit');
 
-function addHandlers(userData){
+function addHandlers(userData,settings){
     decorateProfile(userData);
     addForm.forEach( form => {
         form.addEventListener("submit", async (event) => {
@@ -19,7 +19,7 @@ function addHandlers(userData){
         })
     })
 
-    fetch("/api/pins").then((response)=> {
+    fetch(settings.pins.get.route).then((response)=> {
         return response.json();
     }).then((data)=>{
         let select = document.getElementById('identifier');
@@ -31,7 +31,7 @@ function addHandlers(userData){
         }
     })
 
-    fetch("/api/events").then((response)=> {
+    fetch(settings.events.get.route).then((response)=> {
         return response.json();
     }).then((data)=>{
         let select = document.getElementById('event-title');
@@ -52,8 +52,8 @@ function addHandlers(userData){
             paper: formInputs[5].value,
             metal : formInputs[6].value
         }
-        fetch("/api/pins" , {
-            method : "POST",
+        fetch(settings.pins.post.route , {
+            method : settings.pins.post.method,
             headers : { 'content-type' : 'application/json'},
             body : JSON.stringify(jsonObject)
         }).then((response)=> {
@@ -107,8 +107,8 @@ function addHandlers(userData){
         let jsonObject = {
             street: selectedpin
         }
-        fetch("/api/pins" , {
-            method : "DELETE",
+        fetch(settings.pins.delete.route , {
+            method : settings.pins.delete.method,
             headers : { 'content-type' : 'application/json'},
             body : JSON.stringify(jsonObject)
         }).then((response)=> {
@@ -128,8 +128,8 @@ function addHandlers(userData){
         let jsonObject = {
             title: selectedEvent
         }
-        fetch("/api/events" , {
-            method : "DELETE",
+        fetch(settings.events.delete.route , {
+            method : settings.events.delete.method,
             headers : { 'content-type' : 'application/json'},
             body : JSON.stringify(jsonObject)
         }).then((response)=> {
@@ -150,8 +150,8 @@ function addHandlers(userData){
             text : eventInputs[1].value,
             eventLink : eventInputs[2].value
         }
-        fetch("/api/events" , {
-            method : "POST",
+        fetch(settings.events.post.route , {
+            method : settings.events.post.method,
             headers : { 'content-type' : 'application/json'},
             body : JSON.stringify(jsonObject)
         }).then((response)=> {
@@ -186,5 +186,35 @@ function decorateProfile(userData){
 }
 
 getServerData().then(({userData, serverSettings}) => {
-    addHandlers(userData);
+    let settings = {
+        pins:{
+            post:{
+                route:"/api/pins",
+                method:"POST"
+            },
+            delete:{
+                route:'api/pins',
+                method:"DELETE"
+            },
+            get:{
+                route:"api/pins",
+                method:"GET"
+            }
+        },
+        events:{
+            delete:{
+                route:"api/events",
+                method:"DELETE"
+            },
+            get:{
+                route:"api/events",
+                method:"GET"
+            },
+            post:{
+                route:"api/events",
+                method:"POST"
+            }
+        }
+    }
+    addHandlers(userData,settings);
 })

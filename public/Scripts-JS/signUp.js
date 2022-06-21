@@ -1,41 +1,56 @@
+import {getServerData} from "./getServerData.js";
+
 const form = document.querySelector('form');
 const emailError = document.querySelector('.email.error');
 const passwordError = document.querySelector('.password.error');
+function formEvent(settings){
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+        // Reset errors
+        emailError.textContent = '';
+        passwordError.textContent = '';
 
-    // Reset errors
-    emailError.textContent = '';
-    passwordError.textContent = '';
-
-    // Get the values
-    let json = {
-        email: form.email.value,
-        password: form.password.value,
-        name: form.name.value,
-        forename: form.forename.value,
-        age: form.age.value
-    }
-
-    try {
-        const res = await fetch('/api/SignUp', {
-            method: 'POST',
-            body: JSON.stringify(json),
-            headers: { 'Content-Type': 'application/json' }
-        });
-        const data = await res.json();
-
-        if(data.errors) {
-            emailError.textContent = data.errors.email;
-            passwordError.textContent = data.errors.password;
+        // Get the values
+        let json = {
+            email: form.email.value,
+            password: form.password.value,
+            name: form.name.value,
+            forename: form.forename.value,
+            age: form.age.value
         }
 
-        if(data.user) {
-            location.assign('/')
-        }
+        try {
+            const res = await fetch(settings.sign.post.route, {
+                method: settings.sign.post.method,
+                body: JSON.stringify(json),
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const data = await res.json();
 
-    } catch (err) {
-        console.log(err);
+            if(data.errors) {
+                emailError.textContent = data.errors.email;
+                passwordError.textContent = data.errors.password;
+            }
+
+            if(data.user) {
+                location.assign('/')
+            }
+
+        } catch (err) {
+            console.log(err);
+        }
+    })
+}
+
+getServerData().then(({userData, serverSettings}) => {
+    let settings = {
+        sign:{
+            post:{
+                route:"/api/SignUp",
+                method:"POST"
+            }
+        }
     }
+    formEvent(settings);
 })
