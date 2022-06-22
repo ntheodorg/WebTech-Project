@@ -42,6 +42,10 @@ body {
 .pop.activated, .add-collects.activated , .collect-garbage.activated{
     transform: translate(-50%,-50%) scale(1);
 }
+.report-input{
+    padding: 10px;
+}
+
 .stat-header,.report-header {
     padding: 10px 15px;
     display:flex;
@@ -143,7 +147,8 @@ body {
     box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
 }
 .add-report.activated {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1.2);
+    /*padding: 10px 5px;*/
 }
 .add-report h2 {
     text-align: center;

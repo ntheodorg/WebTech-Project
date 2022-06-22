@@ -74,9 +74,11 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
 }
 .remove-pop.activated {
     transform: translate(-50%, -50%) scale(1);
+    position: fixed; /* Stay in place */
 }
 .event-remove-pop.activated {
-    transform: translate(-50%, 200%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    position: fixed; /* Stay in place */
 }
 .add-pop{
     position: absolute;
@@ -94,6 +96,7 @@ background: linear-gradient(90deg, rgba(99,255,134,1) 0%, rgba(169,255,189,1) 28
 }
 .add-pop.activated{
     transform: translate(-50%, -50%) scale(1);
+    position: fixed; /* Stay in place */
 }
 
 .add-pop h1{

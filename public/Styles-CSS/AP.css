@@ -172,8 +172,7 @@ form .txt_field{
     grid-auto-flow: row;
     grid-template-areas:
         ". ProfilePicture ."
-        "Info Info Info"
-        "Report Report MyReports";
+        "Info Info Info";
 }
 
 .container > div header {

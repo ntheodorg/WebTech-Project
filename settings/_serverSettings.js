@@ -12,5 +12,5 @@ exports.authRoutes = require('./authRoutes').authRoutes;
 exports.pinRoutes = require('./pinRoutes').pinRoutes;
 exports.eventRoutes = require('./eventRoutes').eventRoutes;
 exports.reportRoutes = require('./reportRoutes').reportRoutes;
-exports.collectRoutes = require('./collectsRoutes').collectsRoutes;
+exports.collectsRoutes = require('./collectsRoutes').collectsRoutes;
 exports.statisticsRoutes = require('./statisticsRoutes').statisticsRoutes;
