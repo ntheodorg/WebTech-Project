@@ -1,5 +1,8 @@
 exports.staticRootFolder = "./public"
 exports.jwtSecretKey = 'secretKey'
+const serverName = 'http://localhost'
+const serverPort = '4000'
+exports.url = `${serverName}:${serverPort}`
 exports.statisticsFileLocation = {
     html: './microservices/Statistics/statistics.html',
     csv: './microservices/Statistics/statistics.csv',
@@ -8,12 +11,6 @@ exports.statisticsFileLocation = {
 exports.statisticsTemplateFileLocation = {
     html: './microservices/Statistics/statisticsTemplate.html'
 }
-
-// exports.statisticsFileNames = {
-//     html: this.statisticsFileLocation.html.split('/').pop(),
-//     csv: this.statisticsFileLocation.csv.split('/').pop(),
-//     pdf: this.statisticsFileLocation.pdf.split('/').pop()
-// }
 exports.staticRoutes = require('./staticRoutes').staticRoutes;
 exports.commonRoutes = require('./commonRoutes').commonRoutes;
 exports.authRoutes = require('./authRoutes').authRoutes;
