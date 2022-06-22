@@ -50,7 +50,7 @@ class App {
         });
 
         // Start server listener
-        server.listen(this.port);
+        server.listen(this.port, '0.0.0.0');
         console.log(`Listening on port ${this.port}...`);
     }
 

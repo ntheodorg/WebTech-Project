@@ -5,7 +5,7 @@ const dbURI = 'mongodb+srv://aleigo:aleigo792035@clearly.sxg4p.mongodb.net/Clear
 const { checkUser } = require('./middlewares/authMiddleware');
 
 // Create App instance with a specific port
-app = new App(4000);
+app = new App(8888);
 
 // Import in our App instance static assets such as: .css, .png, .jpg files
 app.importAsset("/Styles-CSS", "./public");

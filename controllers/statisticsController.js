@@ -21,7 +21,7 @@ module.exports = {
                 res.setHeader('Content-type', 'application/octet-stream');
                 res.setHeader('Content-disposition', `attachment; filename=${fileName}`);
 
-                fs.createReadStream(__dirname+'./../microservices/Statistics/'+filePath).pipe(res);
+                fs.createReadStream(__dirname+'/./../microservices/Statistics/'+filePath).pipe(res);
             })
             .catch(err => {
                 console.log(err);
