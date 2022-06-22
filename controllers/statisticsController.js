@@ -9,8 +9,6 @@ function getData() {
 
 module.exports = {
     getStatistics: function(req, res) {
-        console.log('fetch from server exp')
-
         const filePath = req.body.fileLocation;
         const fileName = filePath.split('/').pop();
 
