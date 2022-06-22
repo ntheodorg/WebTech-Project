@@ -88,7 +88,8 @@ function deleteReport(report_id,res) {
 }
 
 function getMyReports(user_id,res){
-    PinSchema.find().then((result)=> {    ReportSchema.find({reporter_id:user_id})
+    PinSchema.find().then((result)=> {
+        ReportSchema.find({reporter_id:user_id})
         .then((rep) => {
             res.writeHead(200,{'Content-type' : 'application/json'});
             rep.forEach((object) => {

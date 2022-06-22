@@ -1,4 +1,4 @@
-const App = require('../utils/app.js');
+const App = require('../../utils/app.js');
 const router = require(`./router`);
 const mongoose = require('mongoose');
 const dbURI = 'mongodb+srv://aleigo:aleigo792035@clearly.sxg4p.mongodb.net/Clearly?retryWrites=true&w=majority';

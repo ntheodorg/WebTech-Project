@@ -1,5 +1,10 @@
 // save event in the database
 const CollectsSchema = require("./schemas/collectsSchema");
+const PinSchema = require("./schemas/pinSchema");
+const {statisticsTemplateFileLocation, statisticsFileLocation} = require("../microservices/Statistics/settings");
+const handlers = require("../microservices/Statistics/handlers");
+const fs = require("fs");
+const {Parser: CsvParser} = require("json2csv");
 
 function saveCollects(data,res){
     const collects = new CollectsSchema({
@@ -65,6 +70,49 @@ function getAllCollects(res){
         });
 }
 
+function getAllProcessedCollects(res){
+    let data = {}
+
+
+    CollectsSchema.find().then((result)=> {
+        PinSchema.find()
+            .then((pin_data) => {
+                result.forEach((object) => {
+                    for(let i = 0 ; i < pin_data.length;i++){
+                        if(pin_data[i].id === object.pin_id){
+                            data[object.id] = {
+                                name: pin_data[i].quarter,
+                                material_type: object.material_type,
+                                quantity: object.quantity
+
+                            }
+                        }
+                    }
+                })
+
+                console.log(data)
+                const dataMap = {
+                    map: JSON.stringify(data)
+                }
+
+                const templatePath = statisticsTemplateFileLocation.html;
+
+                handlers.read(templatePath, dataMap, function (payload) {
+                    fs.writeFileSync(statisticsFileLocation.html, payload);
+
+                    const csvParser = new CsvParser();
+                    const csvData = csvParser.parse(data);
+                    fs.writeFileSync(statisticsFileLocation.csv, csvData);
+                    res.json({done:'right'})
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+                return {};
+            });
+    });
+}
+
 function deleteCollects(collects_id,res) {
     CollectsSchema.find()
         .then((result) =>{
@@ -85,5 +133,6 @@ module.exports = {
     saveCollects,
     saveAllCollects,
     getAllCollects,
-    deleteCollects
+    deleteCollects,
+    getAllProcessedCollects
 }

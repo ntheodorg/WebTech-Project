@@ -1,12 +1,14 @@
-// const User = require('../models/userModel');
+const collectsModel = require('../../models/collectsModel');
 
-const {statisticsTemplateFileLocation, statisticsFileLocation} = require("../../settings/_serverSettings");
-const handlers = require("./handlers");
+const {statisticsFileLocation, statisticsTemplateFileLocation} = require('./settings');
 const fs = require("fs");
+const handlers = require("./handlers");
 const {Parser: CsvParser} = require("json2csv");
+
+
 module.exports = {
-    getStatistics: async function (req, res) {
-        const dataM = {
+    getStatistics: function (req, res) {
+        const dataMa = {
             cart1: {
                 name: 'Calugareni',
                 material_type: 'hartie',
@@ -45,21 +47,7 @@ module.exports = {
                 quantity: 1
             }}
 
-        const dataMap = {
-            map: JSON.stringify(dataM)
-        }
-
-        const templatePath = statisticsTemplateFileLocation.html;
-
-        handlers.read(templatePath, dataMap, function (payload) {
-            fs.writeFileSync(statisticsFileLocation.html, payload);
-
-            const csvParser = new CsvParser();
-            const csvData = csvParser.parse(dataM);
-            fs.writeFileSync(statisticsFileLocation.csv, csvData);
-        });
-        console.log('Send stats')
-
+        collectsModel.getAllProcessedCollects(res)
     }
 
 }

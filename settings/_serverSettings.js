@@ -2,15 +2,10 @@ exports.staticRootFolder = "./public"
 exports.jwtSecretKey = 'secretKey'
 const serverName = 'http://localhost'
 const serverPort = '4000'
+const statisticsPort = '4444'
 exports.url = `${serverName}:${serverPort}`
-exports.statisticsFileLocation = {
-    html: './microservices/Statistics/statistics.html',
-    csv: './microservices/Statistics/statistics.csv',
-    pdf: './microservices/Statistics/statistics.pdf'
-}
-exports.statisticsTemplateFileLocation = {
-    html: './microservices/Statistics/statisticsTemplate.html'
-}
+exports.urlStatistics = `${serverName}:${statisticsPort}`
+exports.statisticsFileLocation = require('../microservices/Statistics/settings').statisticsFileLocation
 exports.staticRoutes = require('./staticRoutes').staticRoutes;
 exports.commonRoutes = require('./commonRoutes').commonRoutes;
 exports.authRoutes = require('./authRoutes').authRoutes;
