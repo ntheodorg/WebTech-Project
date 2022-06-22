@@ -31,7 +31,7 @@ getServerData().then(({userData, serverSettings}) => {
     let settings = {
         events:{
             get:{
-                route:"/api/events",
+                route:serverSettings.eventRoutes.event_get.route,
             }
         }
     }

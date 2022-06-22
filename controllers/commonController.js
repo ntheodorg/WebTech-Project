@@ -1,4 +1,4 @@
-const { staticRoutes, authRoutes, statisticsRoutes, statisticsFileLocation, pinRoutes } = require("../settings/_serverSettings");
+const { staticRoutes, authRoutes, statisticsRoutes, statisticsFileLocation, collectRoutes, eventRoutes, reportRoutes, pinRoutes } = require("../settings/_serverSettings");
 
 
 module.exports = {
@@ -20,7 +20,10 @@ module.exports = {
             authRoutes,
             statisticsRoutes,
             statisticsFileLocation,
-            pinRoutes
+            pinRoutes,
+            collectRoutes,
+            eventRoutes,
+            reportRoutes
         });
     }
 

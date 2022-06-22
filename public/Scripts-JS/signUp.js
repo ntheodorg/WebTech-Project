@@ -59,8 +59,8 @@ getServerData().then(({userData, serverSettings}) => {
     let settings = {
         sign:{
             post:{
-                route:"/api/SignUp",
-                method:"POST"
+                route:serverSettings.authRoutes.signup.route,
+                method:serverSettings.authRoutes.signup.method
             }
         }
     }

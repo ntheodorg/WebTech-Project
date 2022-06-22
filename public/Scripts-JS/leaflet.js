@@ -223,12 +223,12 @@ getServerData().then(({userData, serverSettings}) => {
     let settings = {
         pins: {
             get:{
-                route:"api/pins",
-                method:"GET"
+                route:serverSettings.pinRoutes.pin_get.route,
+                method:serverSettings.pinRoutes.pin_get.method
             },
             patch:{
-                route:"api/pins",
-                method:"PATCH"
+                route:serverSettings.pinRoutes.pin_quarter_patch.route,
+                method:serverSettings.pinRoutes.pin_quarter_patch.method
             }
         }
     }

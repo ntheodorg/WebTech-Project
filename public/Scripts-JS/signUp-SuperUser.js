@@ -50,8 +50,8 @@ getServerData().then(({userData, serverSettings}) => {
     let settings = {
         sign:{
             post:{
-                route:'/api/SignUp_SuperUser',
-                method:"POST"
+                route:serverSettings.authRoutes.signup_superuser.route,
+                method:serverSettings.authRoutes.signup_superuser.method
             }
         }
     }

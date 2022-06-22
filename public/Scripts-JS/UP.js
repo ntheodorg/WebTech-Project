@@ -63,12 +63,12 @@ getServerData().then(({userData, serverSettings}) => {
     let settings = {
         reports:{
             delete:{
-                route:'api/reports',
-                method:"DELETE"
+                route:serverSettings.reportRoutes.report_delete.route,
+                method:serverSettings.reportRoutes.report_delete.method
             },
             get:{
-                route:"api/myReports",
-                method:"GET"
+                route:serverSettings.reportRoutes.report_getMy.route,
+                method:serverSettings.reportRoutes.report_getMy.method
             }
         }
     }

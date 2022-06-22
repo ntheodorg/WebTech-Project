@@ -246,32 +246,32 @@ getServerData().then(({userData, serverSettings}) => {
     let settings = {
         pins: {
             get:{
-                route:"api/pins",
-                method:"GET"
+                route:serverSettings.pinRoutes.pin_get.route,
+                method:serverSettings.pinRoutes.pin_get.method
             }
         },
         reports: {
             get:{
-                route:"api/reports",
-                method:"GET"
+                route:serverSettings.reportRoutes.report_get.route,
+                method:serverSettings.reportRoutes.report_get.method
             },
             delete:{
-                route:"/api/reports/byPinId",
-                method:"DELETE"
+                route:serverSettings.reportRoutes.pinReports_delete.route,
+                method:serverSettings.reportRoutes.pinReports_delete.method
             },
             post:{
-                route:"api/reports",
-                method:"POST"
+                route:serverSettings.reportRoutes.report_post.route,
+                method:serverSettings.reportRoutes.report_post.method
             }
         },
         collects:{
             post:{
-                route:"/api/collects",
-                method:"POST"
+                route:serverSettings.collectsRoutes.collects_post.route,
+                method:serverSettings.collectsRoutes.collects_post.method
             },
             post_all:{
-                route:"/api/collects/all",
-                method:"POST"
+                route:serverSettings.collectsRoutes.collects_post_all.route,
+                method:serverSettings.collectsRoutes.collects_post_all.method
             }
         }
     }
