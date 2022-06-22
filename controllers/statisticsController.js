@@ -1,6 +1,12 @@
 const fs = require('fs');
-const { staticRoutes , statisticsTemplateFileLocation} = require("../settings/_serverSettings");
+const CsvParser = require("json2csv").Parser;
+
+const { staticRoutes ,  statisticsFileLocation, statisticsTemplateFileLocation} = require("../settings/_serverSettings");
 const handlers = require('../microservices/Statistics/handlers');
+
+function getData() {
+
+}
 
 module.exports = {
     getStatistics: function(req, res) {
@@ -56,7 +62,11 @@ module.exports = {
         const templatePath = statisticsTemplateFileLocation[ext];
 
         handlers.read(templatePath, dataMap, function (payload) {
-            fs.writeFileSync(filePath, payload);
+            fs.writeFileSync(statisticsFileLocation.html, payload);
+
+            const csvParser = new CsvParser();
+            const csvData = csvParser.parse(dataM);
+            fs.writeFileSync(statisticsFileLocation.csv, csvData);
         });
 
 
