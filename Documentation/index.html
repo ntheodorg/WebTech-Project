@@ -172,10 +172,10 @@
         <section id="other functionalities">
             <h2>Alte functionalitati</h2>
             <h2>Header</h2>
-            <p> Acesta se afla in partea de sus a fiecarei pagini, cu exceptia paginii de login register si profilePages. Acesta are urmatoarele butoane: <b>SignIn,SignUp,Logout,Profile icon button si Export Statistics</b>.</p>
+            <p> Acesta se afla in partea de sus a fiecarei pagini, cu exceptia paginii de login register si profilePages. Acesta are urmatoarele butoane: <b>SignIn,SignUp,Logout,Profile icon button si Get Statistics</b>.</p>
             <ul>
                 <li>
-                    <b>Export statistics</b> este valabil pentru toate tipurile de conturi logate. La accesarea acestuia, apare un pop-up unde este selectata extensia fisierului ( HTML,PDF,CSV) si unitatea de timp a statisticii (Zi,Saptamana,Luna). Dupa completarea form-ului si accesarea butonului de submit, un fisier de tipul selectat este descarcat, continand statistica generata in unitatea de timp necesara.
+                    <b>Get statistics</b> este valabil pentru toate tipurile de conturi logate. La accesarea acestuia, apare un pop-up unde este selectata extensia fisierului ( HTML,PDF,CSV) si unitatea de timp a statisticii (Zi,Saptamana,Luna). Dupa completarea form-ului si accesarea butonului de submit, un fisier de tipul selectat este descarcat, continand statistica generata in unitatea de timp necesara.
                 </li>
                 <li>
                     <b>Sign In</b> este valabil pentru toate tipurile de conturi nelogate. La accesarea acestuia, user-ul e redirectionat pe pagina de Login.
@@ -211,18 +211,23 @@
                 <li>
                     Backendul aplicației a fost realizat în NodeJs.
                 </li>
+                <li>Validarea datelor introduse in baza de date, si afisarea erorilor in cazurile necesare.</li>
                 <li>
-                    Am implementat o parte majora din funcționalitățile oferite de Framework ul Express.js și am proiectat serverul astfel încat functionalitățile acestuia să fie exploatabile VIA REST API, codul sursă este structurat conform arhitecturii MVC.
+                    Am implementat o parte majora din funcționalitățile oferite de Framework ul Express.js și am proiectat serverul astfel încat functionalitățile acestuia să fie exploatabile VIA REST API.
+                </li>
+                <li>Codul sursă este structurat conform arhitecturii MVC.
                 </li>
                 <li>
-                    HATEOS -Hypermedia as the Engine of Application State. Este o extensie a arhitecturii REST prin intermediul căreia un client interacționează ale cărei servere furnizează informații dinamic prin Hypermedia.
+                    Modulul http pentru conexiuni prin retea.
+                </li>
+                <li>Implementarea propriului modul de gestionare si de redirectionare a tuturor requesturilor in functii modularizate.</li>
+                <li>
+                    Transmiterea prin cookie a tokenului generat pentru user.
                 </li>
                 <li>
-                    Pentru a putea oferi consumarea serviciilor rest de către utilizatori a trebuit să proiectam un "fat client".
+                    Comunicare majoritar de tip json.
                 </li>
-                <li>
-                    Pentru a calcula costul estimativ al unei comenzi abia lansate am folosit un API public GeoApify căruia îi furnizam numele a două orașe în vederea aflării coordonatelor și calculării distanței.
-                </li>
+                <li>Functii ajutatoare care amplifica valoarea obiectelor: req, res( de ex. in req.body se afla datele parsate cand e header de json)</li>
             </ol>
         </section>
     </section>
@@ -249,7 +254,7 @@
     </section>
     <section id="semantics">
         <h2>Diagrame</h2>
-        <section id="Root">
+        <section id="main">
             <h3>Diagrame UseCase</h3>
             <h3>User</h3>
             <img src="./simpleUser.png">
@@ -258,7 +263,7 @@
             <h3>Admin</h3>
             <img src="./adminUser.png">
             <h3> Statistics Report</h3>
-            <p> Logged users have Export Statistics button in the header:</p>
+            <p> Logged users have Get Statistics button in the header:</p>
             <img src="./export.png">
         </section>
     </section>
@@ -279,7 +284,7 @@
                     Project structure
                 </li>
                 <li>
-                    Statistics Exports(HTML,CSV,PDF)
+                    Get Statistics(HTML,CSV,PDF)
                 </li>
                 <li>
                     Navigation Bar
@@ -326,6 +331,7 @@
                 <li>
                     Database structure and management
                 </li>
+                <li>Validarea HTML si CSS</li>
             </ul>
         </ul>
         <section id="security">
@@ -451,6 +457,11 @@
             <li><a href="https://leafletjs.com/">Leaflet OpenSource Map API</a></li>
             <li><a href="https://github.com/hayeswise/Leaflet.PointInPolygon">Leaflet Point in poligon</a></li>
             <li><a href="https://www.youtube.com/watch?v=y17RuWkWdn8&t=265s">Dom manipulation tutorial</a></li>
+            <li><a href="https://www.npmjs.com/package/bcrypt">bcrypt</a></li>
+            <li><a href="https://www.npmjs.com/package/json2csv">json2csv</a></li>
+            <li><a href="https://www.npmjs.com/package/jsonwebtoken">json web token</a></li>
+            <li><a href="https://www.npmjs.com/package/node-fetch">Microservices</a></li>
+            <li><a href="https://www.npmjs.com/package/validator">Mail validation</a></li>
         </ul>
     </section>
     <br><br><br>

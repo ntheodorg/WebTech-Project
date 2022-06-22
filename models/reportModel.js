@@ -17,7 +17,7 @@ function saveReport(data,res){
         console.log(result[0]);
         reports_nr = result[0].reports_number;
         reports_nr++;
-        if(reports_nr > 3){
+        if(reports_nr > 2){
             changeSet = {$set : {reports_number:reports_nr,color:"red"}};
         }
         else {

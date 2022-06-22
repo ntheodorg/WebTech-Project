@@ -29,34 +29,33 @@
                 <option class="material-type" id="plastic">Plastic</option>
             </select>
             <label for="quantity">Quantity(g)</label>
-            <input id="quantity" type="number" required maxlength="5" min="0">
+            <input id="quantity" type="number" required min="0" max="30000">
         </div>
             <div class="btn-center">
                 <button id="collects-submit" class="collects-submit">Submit</button>
             </div>
-    </form>
     </form>
     <form class="collect-garbage" id="collect-garbage">
         <h2>Collect garbage</h2>
         <div class="garbage-inputs">
             <div class="txt_field">
                 <label for="collect-household">Household-garbage</label>
-                <input id="collect-household" type="number" maxlength="6" placeholder="quantity in grams" min="0">
+                <input id="collect-household" type="number" placeholder="quantity in grams" min="0" max="30000">
             </div>
 
             <div class="txt_field">
                 <label for="collect-metal">Metal</label>
-                <input id="collect-metal" type="number" maxlength="6" placeholder="quantity in grams" min="0">
+                <input id="collect-metal" type="number" placeholder="quantity in grams" min="0" max="30000">
             </div>
 
             <div class="txt_field">
                 <label for="collect-paper">Paper</label>
-                <input id="collect-paper" type="number" maxlength="6" placeholder="quantity in grams" min="0">
+                <input id="collect-paper" type="number" placeholder="quantity in grams" min="0" max="30000">
             </div>
 
             <div class="txt_field">
                 <label for="collect-plastic">Plastic</label>
-                <input id="collect-plastic" type="number" maxlength="6" placeholder="quantity in grams" min="0">
+                <input id="collect-plastic" type="number" placeholder="quantity in grams" min="0" max="30000">
             </div>
         </div>
         <div class="btn-center">

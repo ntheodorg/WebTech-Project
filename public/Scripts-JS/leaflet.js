@@ -10,7 +10,7 @@ function initMap(settings){
         return response.json();
     }).then((data)=>{
         for( var i = 0; i< data.length;i++){
-            addMarker(data[i],settings,map);
+            addMarker(data[i],settings,map,quarters);
         }
     })
 }
@@ -152,8 +152,8 @@ function initQuarters(map){
     return myQuarters;
 }
 
-function addQuarterToPin (pinData,marker,settings){
-    let quarterName = getPinQuarter(marker);
+function addQuarterToPin (pinData,marker,settings,quarters){
+    let quarterName = getPinQuarter(marker,quarters);
     let jsonObject = {
         pin_id : pinData._id,
         quarter : quarterName
@@ -171,7 +171,7 @@ function addQuarterToPin (pinData,marker,settings){
     })
 }
 
-function getPinQuarter(marker){
+function getPinQuarter(marker,quarters){
     for(let i = 0 ; i< quarters.length;i++){
         if(quarters[i].object.contains(marker.getLatLng())){
             return quarters[i].name;
@@ -180,7 +180,7 @@ function getPinQuarter(marker){
     return "Suburbie";
 }
 
-function addMarker(props,settings,map){
+function addMarker(props,settings,map,quarters){
     let LeafIcon = L.Icon.extend({
         options: {
             iconSize:     [30, 40],
@@ -199,11 +199,9 @@ function addMarker(props,settings,map){
     }
     let marker = L.marker([props.latitude, props.longitude]).addTo(map);
     if(props.quarter === undefined){
-        addQuarterToPin(props,marker,settings);
+        addQuarterToPin(props,marker,settings,quarters);
     }
 
-    //console.log(polygon.contains(marker.getLatLng()));
-    //console.log(center);
     let Icon = new LeafIcon({
         iconUrl: color
     })

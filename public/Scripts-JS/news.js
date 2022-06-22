@@ -14,7 +14,7 @@ function generateEvents(settings){
             let a = clone.querySelector("a");
             let h2 = clone.querySelector("h2");
             let p = clone.querySelector("p");
-            let time = clone.querySelector("time");
+            let time = clone.getElementById("time");
             if(data[i].eventLink !== ""){
                 a.setAttribute("href", data[i].eventLink);
             }

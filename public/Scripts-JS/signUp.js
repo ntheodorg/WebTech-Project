@@ -5,7 +5,7 @@ const emailError = document.querySelector('.email.error');
 const passwordError = document.querySelector('.password.error');
 const ageError = document.querySelector('.age.error');
 
-function formEvent(){
+function formEvent(settings){
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();

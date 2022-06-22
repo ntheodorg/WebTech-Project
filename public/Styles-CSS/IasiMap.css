@@ -58,11 +58,10 @@ body {
     font-weight: bold;
 }
 .stat-header{
-    cursor:pointer;
     border:none;
     outline:none;
     background-color: black;
-    padding: 1px 6px;
+    padding: 10px 15px;
     border-radius:0;
     font-size: 1.25rem;
     font-weight: bold;
