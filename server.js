@@ -20,9 +20,11 @@ app.useAuth(checkUser);
 app.use(routers.staticRouter);
 app.use(routers.pinRouter);
 app.use(routers.commonRouter);
+app.use(routers.authRouter);
 app.use(routers.eventRouter);
 app.use(routers.reportRouter);
 app.use(routers.collectsRouter);
+app.use(routers.statisticsRouter);
 
 // connect to mongoDB
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology:true})

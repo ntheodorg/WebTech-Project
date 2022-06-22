@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "json2csv": "^5.0.7",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.6",
     "validator": "^13.7.0"

@@ -3,10 +3,15 @@ import {getServerData} from "./getServerData.js";
 const form = document.querySelector('form');
 const emailError = document.querySelector('.email.error');
 const passwordError = document.querySelector('.password.error');
-function formEvent(settings){
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+const ageError = document.querySelector('.age.error');
 
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Reset errors
+    emailError.textContent = '';
+    passwordError.textContent = '';
+    ageError.textContent = '';
         // Reset errors
         emailError.textContent = '';
         passwordError.textContent = '';
@@ -28,6 +33,11 @@ function formEvent(settings){
             });
             const data = await res.json();
 
+        if(data.errors) {
+            emailError.textContent = data.errors.email;
+            passwordError.textContent = data.errors.password;
+            ageError.textContent = data.errors.age;
+        }
             if(data.errors) {
                 emailError.textContent = data.errors.email;
                 passwordError.textContent = data.errors.password;

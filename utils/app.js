@@ -3,7 +3,7 @@ const url = require('url');
 const Router = require('./router.js');
 const pathModule = require('path');
 const fs = require('fs');
-const {staticRoutes} = require("../settings/_serverSettings");
+const {staticRoutes, newStatisticsFileLocation} = require("../settings/_serverSettings");
 
 class App {
     // Port to run the server
@@ -36,10 +36,14 @@ class App {
                 if (this.authFunction) {
                     req = await this.authFunction(req, res);
                 }
-                if (!this.isJSONOnReq(req)) {
-                    this.router.handleRoute(req, res);
-                } else {
+                if(this.isJSONOnReq(req)) {
                     this.HandleJSONReq(req, res);
+                }
+                // else if(this.isOCTETOnReq(req)) {
+                //     this.HandleOCTETReq(req, res)
+                // }
+                else {
+                    this.router.handleRoute(req, res);
                 }
             }
 
@@ -52,6 +56,14 @@ class App {
 
     isJSONOnReq(req) {
         if(req.headers['content-type'] === 'application/json'){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    isOCTETOnReq(req) {
+        if(req.headers['content-type'] === 'application/octet-stream'){
             return true;
         } else {
             return false;
@@ -109,6 +121,7 @@ class App {
 
     HandleJSONReq(req, res) {
         let data = '';
+
         req.on('data', chunk => {
             data += chunk;
         });
@@ -121,6 +134,28 @@ class App {
                 this.router.handleRoute(req,res);
             }
         }.bind(this));
+    }
+
+    HandleOCTETReq(req, res) {
+
+        if (req.headers['content-type'] === "application/octet-stream") {
+            const filename = req.headers[`content-disposition`].split('=')[1];
+            const ext = filename.split('.')[1]
+            const writeStream = fs.createWriteStream(newStatisticsFileLocation[ext]);
+
+            req.on('data', chunk => {
+                writeStream.write(chunk)
+            });
+
+            req.on('end', function () {
+                writeStream.end()
+                req.filename = filename;
+                req.filePath = newStatisticsFileLocation[ext];
+
+                this.router.handleRoute(req, res)
+            }.bind(this));
+
+        }
     }
 
     use(router) {
