@@ -1,4 +1,4 @@
-const { staticRoutes, authRoutes } = require("../settings/_serverSettings");
+const { staticRoutes, authRoutes, statisticsRoutes, statisticsFileLocation, pinRoutes } = require("../settings/_serverSettings");
 
 
 module.exports = {
@@ -17,7 +17,10 @@ module.exports = {
     getServerSettings: function (req, res) {
         res.status(201).json({
             staticRoutes,
-            authRoutes
+            authRoutes,
+            statisticsRoutes,
+            statisticsFileLocation,
+            pinRoutes
         });
     }
 
