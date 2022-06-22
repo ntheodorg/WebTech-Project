@@ -90,7 +90,6 @@ function getAllProcessedCollects(res){
                     }
                 })
 
-                console.log(data)
                 const dataMap = {
                     map: JSON.stringify(data)
                 }
