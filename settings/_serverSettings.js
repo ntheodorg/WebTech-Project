@@ -1,7 +1,7 @@
 exports.staticRootFolder = "./public"
 exports.jwtSecretKey = 'secretKey'
 const serverName = 'http://localhost'
-const serverPort = '4000'
+const serverPort = '8888'
 const statisticsPort = '4444'
 exports.url = `${serverName}:${serverPort}`
 exports.urlStatistics = `${serverName}:${statisticsPort}`

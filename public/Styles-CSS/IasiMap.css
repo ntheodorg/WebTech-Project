@@ -42,6 +42,9 @@ body {
 .pop.activated, .add-collects.activated , .collect-garbage.activated{
     transform: translate(-50%,-50%) scale(1);
 }
+.pop.activated{
+    position:absolute;
+}
 .report-input{
     padding: 10px;
 }

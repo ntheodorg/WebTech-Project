@@ -158,6 +158,7 @@ class App {
         }
     }
 
+
     use(router) {
         // Glue the routes from received parameter into already existing routes in this-instance.
         this.router.getRoutes = { ...this.router.getRoutes, ...router.getRoutes }
